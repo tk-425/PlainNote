@@ -1,0 +1,8 @@
+.main__container {
+  grid-template-columns:
+    [start] repeat(2, 1fr) repeat(2, 1fr) [sideBar] repeat(2, 1fr)
+    repeat(2, 1fr) repeat(2, 1fr) repeat(2, 1fr) [end];
+  // grid-template-rows: [start] 0.15fr [main] 1.5fr 1.2fr [content] 0.2fr [end];
+
+  height: 500px;
+}

@@ -1,0 +1,12 @@
+.navbar__container {
+  padding: 2rem;
+  max-width: 1600px;
+
+  .navbar__contents {
+    height: 64px;
+
+    div {
+      width: 100%;
+    }
+  }
+}

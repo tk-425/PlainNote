@@ -1,0 +1,6 @@
+.main__sidebar {
+  background-color: rgb(52, 52, 52);
+  color: #fafafa;
+  grid-column-start: start;
+  grid-column-end: sideBar;
+}/*# sourceMappingURL=Sidebar.css.map */

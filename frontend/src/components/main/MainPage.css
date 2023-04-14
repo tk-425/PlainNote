@@ -1,0 +1,4 @@
+.main__container {
+  grid-template-columns: [start] repeat(2, 1fr) repeat(2, 1fr) [sideBar] repeat(2, 1fr) repeat(2, 1fr) repeat(2, 1fr) repeat(2, 1fr) [end];
+  height: 500px;
+}/*# sourceMappingURL=MainPage.css.map */
