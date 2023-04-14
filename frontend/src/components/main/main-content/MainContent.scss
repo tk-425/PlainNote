@@ -1,6 +1,22 @@
 .main__content {
   background-color: rgb(24, 24, 24);
   color: #fafafa;
+  width: 100%;
+
   grid-column-start: sideBar;
   grid-column-end: end;
+  grid-row-start: main;
+  grid-row-end: end;
+
+  * {
+    padding: 2rem;
+  }
+
+  .viewer__container {
+    height: 50%;
+  }
+
+  .editor__container {
+    height: 50%;
+  }
 }

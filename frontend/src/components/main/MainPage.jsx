@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { auth } from '../../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
-
-import './MainPage.css';
 import Sidebar from './sidebar/Sidebar';
 import MainContent from './main-content/MainContent';
+
+import './MainPage.css';
 
 const MainPage = () => {
   const [user] = useAuthState(auth);
@@ -43,15 +43,19 @@ const MainPage = () => {
         console.log(error);
       });
     }
-
   }, [navigate, user]);
 
   return (
     <>
       {authenticated && (
-        <div className='main__container grid max-width text-center'>
+        <>
           <Sidebar />
           <MainContent />
+        </>
+      )}
+      {!authenticated && (
+        <div className='text-center'>
+          <h3>Server not connected...</h3>
         </div>
       )}
     </>

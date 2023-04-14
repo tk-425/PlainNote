@@ -10,7 +10,7 @@ import ErrorPage from './components/error-page/ErrorPage';
 
 function App() {
   return (
-    <div className='App'>
+    <div className='App grid'>
       <Navbar />
       <Routes>
         <Route
