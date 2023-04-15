@@ -11,7 +11,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className='main__sidebar'>
+    <div className='main_sidebar__container'>
       <>{getContent()}</>
     </div>
   );

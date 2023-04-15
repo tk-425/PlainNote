@@ -1,7 +1,7 @@
+import './Navbar.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../utils/firebase';
-import './Navbar.css';
 
 const Navbar = () => {
   const [user, loading] = useAuthState(auth);

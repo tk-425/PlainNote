@@ -1,8 +1,8 @@
+import './Home.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../utils/firebase';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Home.css';
 
 const Home = () => {
   const [user] = useAuthState(auth);
