@@ -1,16 +1,14 @@
+import './MainPage.css';
 import { useEffect, useState } from 'react';
 import { auth } from '../../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Sidebar from './sidebar/Sidebar';
-import MainContent from './main-content/MainContent';
-
-import './MainPage.css';
+import Editor from './editor/Editor';
 
 const MainPage = () => {
   const [user] = useAuthState(auth);
   const [authenticated, setAuthenticated] = useState(false);
-  // const [httpError, setHttpError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,7 +37,6 @@ const MainPage = () => {
 
       backendAuthCheck().catch((error) => {
         setAuthenticated(false);
-        // setHttpError(error);
         console.log(error);
       });
     }
@@ -50,7 +47,7 @@ const MainPage = () => {
       {authenticated && (
         <>
           <Sidebar />
-          <MainContent />
+          <Editor />
         </>
       )}
       {!authenticated && (

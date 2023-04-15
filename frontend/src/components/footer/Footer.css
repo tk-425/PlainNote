@@ -1,7 +1,9 @@
 .footer__container {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 60px;
+  background-color: beige;
+  grid-column-start: start;
+  grid-column-end: end;
+  width: 100%;
+}
+.footer__container .footer__content {
+  height: 64px;
 }/*# sourceMappingURL=Footer.css.map */
