@@ -51,12 +51,10 @@ ul {
   padding: 0;
 }
 
-li {
-  list-style-type: none;
-}
-
 a {
-  text-decoration: none;
+  // text-decoration: none;
+  color: blueviolet;
+  cursor: pointer;
 }
 
 /* Remove animation for people who've turned off  */
@@ -71,6 +69,23 @@ a {
   }
 }
 
+/* Scroll bar visibility */
+.scroll-visibility:active::-webkit-scrollbar-thumb,
+.scroll-visibility:focus::-webkit-scrollbar-thumb,
+.scroll-visibility:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+.scroll-visibility::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  visibility: hidden;
+}
+
+.scroll-visibility::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
 /* ----------------------------------- */
 /* Utility Classes                     */
 /* ----------------------------------- */
@@ -81,8 +96,8 @@ a {
 .grid-container-center {
   grid-column-start: start;
   grid-column-end: end;
-  grid-row-start: main;
-  grid-row-end: end;
+  grid-row-start: sideBar;
+  grid-row-end: main;
 }
 
 .flex {
@@ -93,7 +108,7 @@ a {
   flex-direction: column;
 }
 
-.flex-center {
+.item-center {
   justify-content: center;
   align-items: center;
 }
@@ -101,6 +116,10 @@ a {
 .max-width {
   margin: 0 auto;
   max-width: 1400px;
+}
+
+.width-100 {
+  width: 100%;
 }
 
 .margin-center {

@@ -1,8 +1,10 @@
 .footer__container {
   background-color: beige;
+  width: 100%;
   grid-column-start: start;
   grid-column-end: end;
-  width: 100%;
+  grid-row-start: main;
+  grid-row-end: end;
 }
 .footer__container .footer__content {
   height: 64px;

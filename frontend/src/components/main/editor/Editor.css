@@ -1,84 +1,23 @@
-/* Basic Editor Styles */
-.ProseMirror > * + * {
-  margin-top: 0.75em;
-}
-.ProseMirror ul,
-.ProseMirror ol {
-  padding: 0 1rem;
-}
-.ProseMirror h1,
-.ProseMirror h2,
-.ProseMirror h3,
-.ProseMirror h4,
-.ProseMirror h5,
-.ProseMirror h6 {
-  line-height: 1.1;
-}
-.ProseMirror code {
-  background-color: rgba(97, 97, 97, 0.1);
-  color: #616161;
-}
-.ProseMirror pre {
-  background: #0d0d0d;
-  color: #fff;
-  font-family: "JetBrainsMono", monospace;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  margin: 2rem;
-}
-.ProseMirror pre code {
-  color: inherit;
-  padding: 0;
-  background: none;
-  font-size: 0.8rem;
-}
-.ProseMirror img {
-  max-width: 100%;
-  height: auto;
-}
-.ProseMirror blockquote {
-  padding-left: 1rem;
-  border-left: 2px solid rgba(13, 13, 13, 0.1);
-}
-.ProseMirror hr {
-  border: none;
-  border-top: 2px solid rgba(13, 13, 13, 0.1);
-  margin: 2rem 0;
-}
-.ProseMirror:focus {
-  outline: none;
-}
-
 .editor__container {
   background-color: rgb(24, 24, 24);
   color: #fafafa;
-  width: 100%;
+  overflow-y: auto;
   grid-column-start: sideBar;
   grid-column-end: end;
-  grid-row-start: main;
-  grid-row-end: end;
+  grid-row-start: sideBar;
+  grid-row-end: main;
 }
 .editor__container .editor__content {
-  grid-template-columns: 1fr;
-  grid-template-rows: [start] 1fr [editor] repeat(13, 1fr) 0.5fr [buttons] 0.5fr [end];
+  grid-template-columns: [start] repeat(3, 1fr) [buttons] 1fr [end];
+  grid-template-rows: [start] 64px [editor] auto [buttons] 64px [end];
 }
-.editor__container .editor__content .editor__menubar {
-  grid-row-start: start;
-  grid-row-end: editor;
-}
-.editor__container .editor__content .editor {
-  margin-inline: 1.5rem;
+.editor__container .editor__content .editor_area {
+  font-size: 1.3rem;
+  margin-inline: 2.5rem;
   padding: 2rem;
-  border: 2px solid black;
-  border-radius: 10px;
+  grid-column-start: start;
+  grid-column-end: end;
   grid-row-start: editor;
   grid-row-end: buttons;
-}
-.editor__container .editor__content .editor__buttons {
-  margin: 1.5rem;
-  grid-row-start: buttons;
-  grid-row-end: end;
-}
-.editor__container .editor__content .editor__buttons button img {
-  height: 34px;
+  background-color: black;
 }/*# sourceMappingURL=Editor.css.map */

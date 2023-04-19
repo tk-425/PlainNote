@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <div className='navbar__container max-width'>
-      <div className='navbar__contents flex flex-center'>
+      <div className='navbar__content flex item-center'>
         <div className='navbar__logo text-start'>
           <Link to='/'>Logo</Link>
         </div>
