@@ -14,7 +14,6 @@ public class DemoController {
 
   @GetMapping(path = "/test")
   public String test(Principal principal) {
-    System.out.println(principal.getName());
     return principal.getName();
   }
 }

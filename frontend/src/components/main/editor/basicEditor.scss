@@ -1,0 +1,70 @@
+/* Basic Editor Styles */
+.ProseMirror {
+  overflow-y: auto;
+
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+  }
+
+  code {
+    background-color: rgba(#7c7c7c, 0.1);
+    color: #828080;
+  }
+
+  pre {
+    background: #0d0d0d;
+    color: #fff;
+    font-family: 'JetBrainsMono', monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+
+    margin: 2rem;
+
+    code {
+      padding: 0;
+      background: none;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(#ffeeee, 0.3);
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(#ffeeee, 0.3);
+    margin: 2rem 0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.button__icon {
+  height: 24px;
+}
+
+.highlight-text-color {
+  color: black !important;
+}

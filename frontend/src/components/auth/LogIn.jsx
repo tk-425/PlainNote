@@ -33,7 +33,7 @@ const LogIn = () => {
   return (
     <>
       {!user && (
-        <div className='log_in__container max-width text-center grid-container-center'>
+        <div className='log_in__container grid-container-center max-width width-100 text-center'>
           <form onSubmit={logIn}>
             <h1>Log In - Log in to your account</h1>
             <AuthInputBoxes

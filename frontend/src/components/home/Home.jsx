@@ -1,4 +1,3 @@
-import './Home.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../utils/firebase';
 import { useEffect } from 'react';
@@ -15,7 +14,7 @@ const Home = () => {
   })
 
   return (
-    <div className='home__container max-width text-center grid-container-center'>
+    <div className='home__container grid-container-center max-width width-100 text-center'>
       <div>Home</div>
     </div>
   );

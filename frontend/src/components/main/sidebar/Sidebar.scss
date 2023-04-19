@@ -1,4 +1,4 @@
-.main_sidebar__container {
+.sidebar__container {
   background-color: rgb(52, 52, 52);
   color: #fafafa;
   width: 100%;
@@ -6,25 +6,10 @@
 
   grid-column-start: start;
   grid-column-end: sideBar;
-  grid-row-start: main;
-  grid-row-end: end;
+  grid-row-start: sideBar;
+  grid-row-end: main;
 
   div {
     height: 50px;
   }
-}
-
-.main_sidebar__container:active::-webkit-scrollbar-thumb,
-.main_sidebar__container:focus::-webkit-scrollbar-thumb,
-.main_sidebar__container:hover::-webkit-scrollbar-thumb {
-    visibility: visible;
-}
-.main_sidebar__container::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    visibility: hidden;
-}
-
-.main_sidebar__container::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
 }

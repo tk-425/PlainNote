@@ -1,11 +1,14 @@
 .navbar__container {
-  padding: 2rem;
   width: 100%;
+  padding-inline: 1.5rem;
+
   grid-column-start: start;
   grid-column-end: end;
+  grid-row-start: start;
+  grid-row-end: sideBar;
 
-  .navbar__contents {
-    height: 64px;
+  .navbar__content {
+    height: 100%;
 
     div {
       width: 100%;

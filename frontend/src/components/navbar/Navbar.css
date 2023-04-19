@@ -1,14 +1,14 @@
 .navbar__container {
-  background-color: beige;
-
-  padding: 2rem;
   width: 100%;
+  padding-inline: 1.5rem;
   grid-column-start: start;
   grid-column-end: end;
+  grid-row-start: start;
+  grid-row-end: sideBar;
 }
-.navbar__container .navbar__contents {
-  height: 64px;
+.navbar__container .navbar__content {
+  height: 100%;
 }
-.navbar__container .navbar__contents div {
+.navbar__container .navbar__content div {
   width: 100%;
 }/*# sourceMappingURL=Navbar.css.map */
