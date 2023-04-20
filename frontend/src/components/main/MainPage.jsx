@@ -24,12 +24,15 @@ const MainPage = () => {
           },
         };
 
-        const url = 'http://localhost:8080/app/test';
+        const url = `http://localhost:8080/app/v1/user`;
         const responseFromBackend = await fetch(url, requestOptions);
 
         if (!responseFromBackend.ok) {
           throw new Error('Authentication Failed');
         }
+
+        console.log(user.uid);
+        console.log(user.email);
 
         setAuthenticated(true);
       };

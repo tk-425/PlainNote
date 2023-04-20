@@ -3,6 +3,6 @@
   padding: 0;
   height: 100vh;
   max-width: 1400px;
-  grid-template-columns: [start] 4fr [sideBar] repeat(12, 1fr) [end];
+  grid-template-columns: [start] 4fr [sideBar] repeat(10, 1fr) [end];
   grid-template-rows: [start] 64px [sideBar] auto [main] 64px [end];
 }/*# sourceMappingURL=App.css.map */

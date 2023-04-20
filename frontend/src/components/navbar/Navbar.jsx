@@ -4,12 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../utils/firebase';
 
 const Navbar = () => {
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
-
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
 
   const handleLogout = () => {
     auth
