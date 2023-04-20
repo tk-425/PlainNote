@@ -42,13 +42,18 @@ const Editor = () => {
       Superscript,
       Subscript,
     ],
-    content: `<br /><br /><br /><br /><br /><br />`,
+    content: ``,
     autofocus: true,
   });
 
   const saveDoc = () => {
+    // TODO: save to the current note
     setDoc(editor.getJSON());
   };
+
+  const saveAsDoc = () => {
+    // TODO: create a new note and insert it into database
+  }
 
   const resetDoc = () => {
     editor.commands.clearContent();
@@ -68,6 +73,7 @@ const Editor = () => {
         />
         <EditorButtons
           saveDoc={saveDoc}
+          saveAsDoc={saveAsDoc}
           loadDoc={loadDoc}
           resetDoc={resetDoc}
         />

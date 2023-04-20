@@ -2,7 +2,7 @@ import './EditorButtons.css';
 import icons from '../../../../utils/icons';
 
 const EditorButtons = (props) => {
-  const { saveDoc, loadDoc, resetDoc } = props;
+  const { saveDoc, saveAsDoc, loadDoc, resetDoc } = props;
 
   return (
     <div className='editor_buttons__container flex item-center'>
@@ -13,6 +13,14 @@ const EditorButtons = (props) => {
             src={icons.save}
             title='Save'
             alt='save'
+          />
+        </button>
+        <button onClick={saveAsDoc}>
+          <img
+            className='button__icon'
+            src={icons.saveAs}
+            title='Save As'
+            alt='save-as'
           />
         </button>
         <button onClick={loadDoc}>

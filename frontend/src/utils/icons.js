@@ -17,6 +17,7 @@ import undo from '../assets/undo.png';
 import redo from '../assets/redo.png';
 import erase from '../assets/erase.png';
 import save from '../assets/save.png';
+import saveAs from '../assets/save-as.png';
 import load from '../assets/load.png';
 import reset from '../assets/reset.png';
 import subScript from '../assets/subScript.png';
@@ -46,6 +47,7 @@ const icons = {
   redo,
   erase,
   save,
+  saveAs,
   load,
   reset,
   subScript,

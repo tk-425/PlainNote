@@ -1,12 +1,14 @@
 .editor_buttons__container {
   position: sticky;
   bottom: 0;
-  grid-column-start: buttons;
+  
+  grid-column-start: start;
   grid-column-end: end;
   grid-row-start: buttons;
   grid-row-end: end;
 
-  .editor_buttons__contents {
-    margin: 1.5rem;
-  }
+
+  // .editor_buttons__contents {
+  //   margin: 1.5rem;
+  // }
 }

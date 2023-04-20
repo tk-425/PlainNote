@@ -29,7 +29,7 @@ const MenuBar = ({ editor }) => {
 
   return (
     <div className='menu_bar__container flex item-center'>
-      <div className='menu_bar__contents'>
+      <div className='menu_bar__contents flex item-center'>
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
           disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -287,14 +287,14 @@ const MenuBar = ({ editor }) => {
             alt='redo'
           />
         </button>
-        <button onClick={() => editor.chain().focus().clearNodes().run()}>
+        {/* <button onClick={() => editor.chain().focus().clearNodes().run()}>
           <img
             className='button__icon'
             src={icons.erase}
             title='Toggle Selection'
             alt='toggle-selection'
           />
-        </button>
+        </button> */}
       </div>
     </div>
   );

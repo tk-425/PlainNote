@@ -2,14 +2,19 @@
   z-index: 5;
   position: sticky;
   top: 0;
+
   grid-column-start: start;
   grid-column-end: end;
   grid-row-start: start;
   grid-row-end: editor;
 
   .menu_bar__contents {
-    padding: 1.1rem;
+    // disables element to move when page size changes
+    margin-block: auto;
+
+    padding-block: 1.1rem;
     padding-inline: 4rem;
+    flex-wrap: wrap;
     background-color: rgb(24, 24, 24);
   }
 }

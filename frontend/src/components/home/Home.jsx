@@ -2,20 +2,21 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../utils/firebase';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../loading/Loading';
 
 const Home = () => {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
       navigate('/main');
     }
-  })
+  });
 
   return (
     <div className='home__container grid-container-center max-width width-100 text-center'>
-      <div>Home</div>
+      {loading ? <Loading /> : <div>Home</div>}
     </div>
   );
 };
