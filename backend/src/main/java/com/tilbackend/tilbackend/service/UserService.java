@@ -33,8 +33,7 @@ public class UserService {
   }
 
   public User createUser(String userId, String email) {
-    User user = new User(userId, email);
-    userRepository.save(user);
+    User user = userRepository.insert(new User(userId, email));
     mongoTemplate.insert(user);
 
     return user;

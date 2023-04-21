@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @CrossOrigin("http://localhost:3000")
 @RestController
-@RequestMapping("/app/v1/user")
+@RequestMapping("/api/v1/user")
 public class UserController {
 
   private final UserService userService;
@@ -38,6 +38,8 @@ public class UserController {
   // Creating User
   @PostMapping
   public ResponseEntity<User> createUser(@RequestBody Map<String, String> payload) {
+    System.out.println(payload);
+
     return new ResponseEntity<>(userService.createUser(
         payload.get("userId"), payload.get("email")),
         HttpStatus.CREATED);
