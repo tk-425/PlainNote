@@ -4,7 +4,14 @@ const Sidebar = () => {
   const getContent = () => {
     const content = [];
     for (let i = 1; i <= 40; i++) {
-      content.push(<div className='block flex item-center'>Side {i}</div>);
+      content.push(
+        <div
+          className='block flex item-center'
+          key={i}
+        >
+          Side {i}
+        </div>
+      );
     }
 
     return content;

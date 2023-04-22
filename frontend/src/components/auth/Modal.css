@@ -1,0 +1,6 @@
+.modal__contents * {
+  margin-inline: 0.2rem;
+}
+.modal__contents button {
+  cursor: pointer;
+}/*# sourceMappingURL=Modal.css.map */

@@ -11,36 +11,11 @@ const MainPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) {
+    if (user) {
+      setAuthenticated(true);
+    } else {
       setAuthenticated(false);
       navigate('/');
-    } else {
-      const backendAuthCheck = async () => {
-        const requestOptions = {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${user.accessToken}`,
-            'Content-Type': 'application/json',
-          },
-        };
-
-        const url = `http://localhost:8080/api/v1/user`;
-        const response = await fetch(url, requestOptions);
-
-        if (!response.ok) {
-          throw new Error('Authentication Failed');
-        }
-
-        // console.log(user.uid);
-        // console.log(user.email);
-
-        setAuthenticated(true);
-      };
-
-      backendAuthCheck().catch((error) => {
-        setAuthenticated(false);
-        console.log(error);
-      });
     }
   }, [navigate, user]);
 

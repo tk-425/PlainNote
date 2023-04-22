@@ -23,12 +23,12 @@ public class UserController {
     this.userService = userService;
   }
 
-//  @GetMapping(path = "/{userId}")
-//  public ResponseEntity<User> getUserById(@PathVariable String userId) {
-//    Optional<User> user = userService.getUserById(userId);
-//    return user.map(ResponseEntity::ok)
-//        .orElse(ResponseEntity.notFound().build());
-//  }
+  @GetMapping(path = "/{userId}")
+  public ResponseEntity<User> getUserById(@PathVariable String userId) {
+    Optional<User> user = userService.getUserById(userId);
+    return user.map(ResponseEntity::ok)
+        .orElse(ResponseEntity.notFound().build());
+  }
 
   @GetMapping
   public void testUserId(Principal principal) {

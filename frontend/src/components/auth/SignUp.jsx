@@ -4,19 +4,23 @@ import { useState, useEffect } from 'react';
 import { auth } from '../../utils/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthInputBoxes from './AuthInputBoxes';
+import Modal from './Modal';
 
 const SignUp = () => {
   const [user] = useAuthState(auth);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVerify, setPasswordVerify] = useState('');
+  const [signUpError, setSignUpError] = useState(false);
+  const [msg, setMsg] = useState('');
+  const [navigateTo, setNavigateTo] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
       navigate('/main');
     }
-  }, [navigate, user]);
+  }, [navigate, user, signUpError]);
 
   const signUp = async (e) => {
     e.preventDefault();
@@ -34,16 +38,16 @@ const SignUp = () => {
         }),
       };
 
-      const response = await fetch(
-        `http://localhost:8080/api/v1/user`,
-        requestOption
-      );
+      const url = `http://localhost:8080/api/v1/user`;
+      const response = await fetch(url, requestOption);
 
       if (!response.ok) {
+        setSignUpError(true);
         throw new Error('Server Error');
       }
 
       const data = await response.json();
+      setSignUpError(false);
 
       return data;
     };
@@ -55,13 +59,21 @@ const SignUp = () => {
           backendCreateUser(userCredential).catch((error) => {
             console.log(error);
           });
+          
+          setSignUpError(false);
           navigate('/main');
         })
         .catch((err0r) => {
+          console.log('signUp() Error');
           console.log(err0r.message);
-          navigate('/error');
+          setSignUpError(true);
+          setMsg('The user already exists');
+          setNavigateTo('/login');
         });
     } else {
+      setSignUpError(true);
+      setMsg('Please verify whether the two passwords match each other.');
+      setNavigateTo('/signup');
       setPassword('');
       setPasswordVerify('');
       console.log('must be same password');
@@ -70,8 +82,8 @@ const SignUp = () => {
 
   return (
     <>
-      {!user && (
-        <div className='sign_in__container max-width text-center grid-container-center'>
+      {!user && !signUpError && (
+        <div className='sign_in__container grid-container-center max-width width-100 text-center'>
           <form onSubmit={signUp}>
             <h1>Sign Up - Create your account</h1>
             <AuthInputBoxes
@@ -81,6 +93,7 @@ const SignUp = () => {
               setEmail={setEmail}
               setPassword={setPassword}
               setPasswordVerify={setPasswordVerify}
+              secondInputBox={true}
             />
             <button type='submit'>Sign Up</button>
           </form>
@@ -88,6 +101,12 @@ const SignUp = () => {
             <Link to='/login'>Log In</Link>
           </div>
         </div>
+      )}
+      {signUpError && (
+        <Modal
+          msg={msg}
+          navigateTo={navigateTo}
+        />
       )}
     </>
   );
