@@ -1,5 +1,13 @@
 const AuthInputBoxes = (props) => {
-  const { email, password, passwordVerify ,setEmail, setPassword, setPasswordVerify } = props;
+  const {
+    email,
+    password,
+    passwordVerify,
+    setEmail,
+    setPassword,
+    setPasswordVerify,
+    secondInputBox,
+  } = props;
   return (
     <>
       <input
@@ -14,12 +22,14 @@ const AuthInputBoxes = (props) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <input
-        type='password'
-        placeholder='Verify Your Password'
-        value={passwordVerify}
-        onChange={(e) => setPasswordVerify(e.target.value)}
-      />
+      {secondInputBox && (
+        <input
+          type='password'
+          placeholder='Confirm Your Password'
+          value={passwordVerify}
+          onChange={(e) => setPasswordVerify(e.target.value)}
+        />
+      )}
     </>
   );
 };
