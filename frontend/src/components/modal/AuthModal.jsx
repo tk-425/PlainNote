@@ -3,9 +3,10 @@ import { useState } from 'react';
 import Popup from 'reactjs-popup';
 import { useNavigate } from 'react-router-dom';
 
-const Modal = ({ msg, navigateTo }) => {
+const AuthModal = ({ msg, navigateTo }) => {
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
+
   const closeModal = () => {
     setOpen(false);
     navigate(`${navigateTo}`);
@@ -25,4 +26,4 @@ const Modal = ({ msg, navigateTo }) => {
   );
 };
 
-export default Modal;
+export default AuthModal;
