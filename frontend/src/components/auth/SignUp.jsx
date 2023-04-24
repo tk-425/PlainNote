@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { auth } from '../../utils/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthInputBoxes from './AuthInputBoxes';
-import Modal from './Modal';
+import AuthModal from '../modal/AuthModal';
 
 const SignUp = () => {
   const [user] = useAuthState(auth);
@@ -59,13 +59,14 @@ const SignUp = () => {
           backendCreateUser(userCredential).catch((error) => {
             console.log(error);
           });
-          
+
           setSignUpError(false);
           navigate('/main');
         })
         .catch((err0r) => {
           console.log('signUp() Error');
           console.log(err0r.message);
+
           setSignUpError(true);
           setMsg('The user already exists');
           setNavigateTo('/login');
@@ -103,7 +104,7 @@ const SignUp = () => {
         </div>
       )}
       {signUpError && (
-        <Modal
+        <AuthModal
           msg={msg}
           navigateTo={navigateTo}
         />

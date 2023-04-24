@@ -21,10 +21,9 @@ public class NoteController {
     this.noteService = noteService;
   }
 
-  // Creating Note
   @PostMapping
   public ResponseEntity<Note> createNote(@RequestBody Map<String, String> payload) {
-    return new ResponseEntity<>(noteService.createNote(
+    return new ResponseEntity<>(noteService.addNote(
         payload.get("noteBody"), payload.get("userId")),
         HttpStatus.CREATED);
   }

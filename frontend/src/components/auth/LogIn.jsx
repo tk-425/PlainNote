@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react';
 import { auth } from '../../utils/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthInputBoxes from './AuthInputBoxes';
-import Modal from './Modal';
+import AuthModal from '../modal/AuthModal';
 
 const LogIn = () => {
   const [user] = useAuthState(auth);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState(false);
-  const [msg, setMsg] = useState('Wrong password');
+  const [msg, setMsg] = useState('');
   const [navigateTo, setNavigateTo] = useState('');
   const navigate = useNavigate();
   const wrongPasswordError = 'auth/wrong-password';
@@ -50,17 +50,18 @@ const LogIn = () => {
         navigate('/main');
       })
       .catch((err0r) => {
-        console.log('signInWithEmailAndPassword');
-        console.log(err0r);
         setLoginError(true);
 
-        if (err0r.message.contains(wrongPasswordError)) {
+        if (err0r.code === wrongPasswordError) {
           setMsg('The password is incorrect');
-          setNavigateTo('/login');
+          // setNavigateTo('/login');
         } else {
           setMsg('The user does not exist');
           setNavigateTo('/signup');
         }
+
+        setEmail('');
+        setPassword('');
       });
   };
 
@@ -88,7 +89,7 @@ const LogIn = () => {
         </div>
       )}
       {loginError && (
-        <Modal
+        <AuthModal
           msg={msg}
           navigateTo={navigateTo}
         />

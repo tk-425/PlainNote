@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class NoteService {
 
@@ -23,7 +25,11 @@ public class NoteService {
     this.mongoTemplate = mongoTemplate;
   }
 
-  public Note createNote(String noteBody, String userId) {
+  public List<Note> getNotes() {
+    return noteRepository.findAll();
+  }
+
+  public Note addNote(String noteBody, String userId) {
     Note note = noteRepository.insert(new Note(noteBody));
 
     mongoTemplate.update(User.class)
@@ -33,4 +39,6 @@ public class NoteService {
 
     return note;
   }
+
+  // TODO: update, delete, get all notes
 }

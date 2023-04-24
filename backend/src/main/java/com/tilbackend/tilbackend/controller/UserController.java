@@ -23,6 +23,12 @@ public class UserController {
     this.userService = userService;
   }
 
+  @GetMapping
+  public void testUserId(Principal principal) {
+    System.out.println("principal name: " + principal.getName());
+  }
+
+  // TODO: DELETE THIS METHOD
   @GetMapping(path = "/{userId}")
   public ResponseEntity<User> getUserById(@PathVariable String userId) {
     Optional<User> user = userService.getUserById(userId);
@@ -30,12 +36,6 @@ public class UserController {
         .orElse(ResponseEntity.notFound().build());
   }
 
-  @GetMapping
-  public void testUserId(Principal principal) {
-    System.out.println("principal name: " + principal.getName());
-  }
-
-  // Creating User
   @PostMapping
   public ResponseEntity<User> createUser(@RequestBody Map<String, String> payload) {
     System.out.println(payload);

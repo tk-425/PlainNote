@@ -53,6 +53,7 @@ const Editor = () => {
 
   const saveAsDoc = () => {
     // TODO: create a new note and insert it into database
+    
   }
 
   const resetDoc = () => {
