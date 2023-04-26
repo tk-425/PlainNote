@@ -29,8 +29,8 @@ public class NoteService {
     return noteRepository.findAll();
   }
 
-  public Note addNote(String noteBody, String userId) {
-    Note note = noteRepository.insert(new Note(noteBody));
+  public Note createNote(String title, String noteBody, String userId) {
+    Note note = noteRepository.insert(new Note(title, noteBody));
 
     mongoTemplate.update(User.class)
         .matching(Criteria.where("userId").is(userId))

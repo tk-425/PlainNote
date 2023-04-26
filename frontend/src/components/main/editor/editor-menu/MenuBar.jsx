@@ -23,6 +23,14 @@ const MenuBar = ({ editor }) => {
     editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
   }, [editor]);
 
+  const addImage = useCallback(() => {
+    const imageUrl = window.prompt('URL');
+
+    if (imageUrl) {
+      editor.chain().focus().setImage({ src: imageUrl }).run();
+    }
+  }, [editor]);
+
   if (!editor) {
     return null;
   }
@@ -166,6 +174,17 @@ const MenuBar = ({ editor }) => {
           />
         </button>
         <button
+          onClick={() => editor.chain().focus().toggleBlockquote().run()}
+          className={editor.isActive('blockquote') ? 'is-active' : ''}
+        >
+          <img
+            className='button__icon'
+            src={icons.blockQuote}
+            title='Block Quote'
+            alt='block-quote'
+          />
+        </button>
+        <button
           onClick={() => editor.chain().focus().toggleCode().run()}
           disabled={!editor.can().chain().focus().toggleCode().run()}
           className={editor.isActive('code') ? 'is-active' : ''}
@@ -188,15 +207,12 @@ const MenuBar = ({ editor }) => {
             alt='code block'
           />
         </button>
-        <button
-          onClick={() => editor.chain().focus().toggleBlockquote().run()}
-          className={editor.isActive('blockquote') ? 'is-active' : ''}
-        >
+        <button onClick={addImage}>
           <img
             className='button__icon'
-            src={icons.blockQuote}
-            title='Block Quote'
-            alt='block-quote'
+            src={icons.image}
+            title='Add Image URL'
+            alt='add url'
           />
         </button>
         <button

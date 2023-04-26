@@ -1,25 +1,18 @@
 import './Sidebar.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import CreateSearchBox from './create-search/CreateSearchBox';
 
-const Sidebar = () => {
+const Sidebar = ({ getNotes }) => {
   const [newNote, setNewNote] = useState(false);
   const [searchNote, setSearchNote] = useState(false);
+  const [notes, setNotes] = useState([]);
 
-  const getContent = () => {
-    const content = [];
-    for (let i = 1; i <= 40; i++) {
-      content.push(
-        <div
-          className='sidebar_note__box block flex item-center'
-          key={i}
-        >
-          Side {i}
-        </div>
-      );
-    }
-
-    return content;
-  };
+  useEffect(() => {
+    getNotes().then((note) => {
+      setNotes(note);
+      console.log(note);
+    });
+  }, [getNotes]);
 
   const createNote = () => {
     setNewNote(!newNote);
@@ -45,22 +38,33 @@ const Sidebar = () => {
           </>
         )}
         {newNote && !searchNote && (
-          <>
-            <button onClick={selectNotes}>CREATE_NOTE</button>
-          </>
+          <CreateSearchBox
+            select={selectNotes}
+            text='Create Note'
+            placeholder='Enter Title'
+          />
         )}
         {!newNote && searchNote && (
-          <>
-            <button onClick={selectNotes}>SEARCH_NOTE</button>
-          </>
+          <CreateSearchBox
+            select={selectNotes}
+            text='Search Note'
+            placeholder='Search Title'
+          />
         )}
       </div>
       <div className='sidebar__contents'>
-        <>{getContent()}</>
+        {notes.map((n) => (
+          <div
+            className='sidebar_note__box block flex item-center'
+            key={n.id}
+          >
+            {n.title.length <= 24 && <>{n.title}</>}
+            {n.title.length > 24 && <>{n.title.slice(0, 24)} ...</>}
+          </div>
+        ))}
       </div>
     </div>
   );
-
 };
 
 export default Sidebar;

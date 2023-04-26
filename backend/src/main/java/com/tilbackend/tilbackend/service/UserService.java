@@ -8,6 +8,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,11 +35,16 @@ public class UserService {
   }
 
   public User createUser(String userId, String email) {
-    User user = userRepository.insert(new User(userId, email));
+    User user = new User();
+    user.setUserId(userId);
+    user.setEmail(email);
+    user.setNoteIds(Collections.emptyList());
+
+    userRepository.save(user);
 
     try {
       mongoTemplate.insert(user);
-    } catch (DuplicateKeyException ignored) {}
+    } catch (DuplicateKeyException ignore) { }
 
     return user;
   }

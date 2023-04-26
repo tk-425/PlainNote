@@ -19,11 +19,39 @@ const MainPage = () => {
     }
   }, [navigate, user]);
 
+  // TODO: get notes
+  const getNotes = async () => {
+    try {
+      const requestOptions = {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+          'Content-Type': 'application/json',
+        },
+      };
+
+      const url = `http://localhost:8080/api/v1/user/notes/${user.uid}`;
+
+      const response = await fetch(url, requestOptions);
+
+      if (!response.ok) {
+        throw new Error('Getting Notes failed');
+      }
+
+      const data = await response.json();
+      
+      return data;
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       {authenticated && (
         <>
-          <Sidebar />
+          <Sidebar getNotes={getNotes} />
           <Editor />
         </>
       )}

@@ -18,7 +18,9 @@
 }
 .sidebar__container .sidebar_note__box {
   height: 50px;
+  padding: 1rem;
   cursor: pointer;
+  justify-content: flex-start;
 }
 .sidebar__container .sidebar_note__box:hover {
   background-color: lightblue;
