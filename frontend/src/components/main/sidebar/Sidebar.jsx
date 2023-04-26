@@ -57,6 +57,7 @@ const Sidebar = ({ getNotes }) => {
           <div
             className='sidebar_note__box block flex item-center'
             key={n.id}
+            onClick={() => console.log(n.body)}
           >
             {n.title.length <= 24 && <>{n.title}</>}
             {n.title.length > 24 && <>{n.title.slice(0, 24)} ...</>}

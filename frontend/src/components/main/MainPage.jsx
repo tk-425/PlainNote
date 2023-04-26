@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Sidebar from './sidebar/Sidebar';
 import Editor from './editor/Editor';
+import tiptap from '../../utils/tiptap';
 
 const MainPage = () => {
   const [user] = useAuthState(auth);
@@ -29,9 +30,7 @@ const MainPage = () => {
           'Content-Type': 'application/json',
         },
       };
-
       const url = `http://localhost:8080/api/v1/user/notes/${user.uid}`;
-
       const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
@@ -41,7 +40,6 @@ const MainPage = () => {
       const data = await response.json();
       
       return data;
-
     } catch (error) {
       console.log(error);
     }
