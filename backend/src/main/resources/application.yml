@@ -11,3 +11,4 @@ spring:
     mongodb:
       database: ${MONGO_DATABASE}
       uri: ${MONGO_URI}
+      auto-index-creation: true

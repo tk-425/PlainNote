@@ -20,7 +20,9 @@
 
   .sidebar_note__box {
     height: 50px;
+    padding: 1rem;
     cursor: pointer;
+    justify-content: flex-start;
   }
 
   .sidebar_note__box:hover {

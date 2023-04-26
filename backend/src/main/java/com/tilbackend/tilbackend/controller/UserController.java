@@ -1,5 +1,6 @@
 package com.tilbackend.tilbackend.controller;
 
+import com.tilbackend.tilbackend.document.Note;
 import com.tilbackend.tilbackend.document.User;
 import com.tilbackend.tilbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -25,7 +27,7 @@ public class UserController {
 
   @GetMapping
   public void testUserId(Principal principal) {
-    System.out.println("principal name: " + principal.getName());
+    System.out.println("USER ID: " + principal.getName());
   }
 
   // TODO: DELETE THIS METHOD
@@ -40,8 +42,17 @@ public class UserController {
   public ResponseEntity<User> createUser(@RequestBody Map<String, String> payload) {
     System.out.println(payload);
 
+    System.out.println("\nHELLO FROM USER CONTROLLER\n");
+
     return new ResponseEntity<>(userService.createUser(
         payload.get("userId"), payload.get("email")),
         HttpStatus.CREATED);
+  }
+
+  @GetMapping("/notes/{userId}")
+  public ResponseEntity<List<Note>> getNotesById(@PathVariable String userId) {
+    Optional<List<Note>> notes = userService.getNotesById(userId);
+    return notes.map(ResponseEntity::ok)
+        .orElse(ResponseEntity.notFound().build());
   }
 }

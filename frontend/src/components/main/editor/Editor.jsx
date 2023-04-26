@@ -1,9 +1,11 @@
 import './basicEditor.css';
 import './Editor.css';
 import { useState } from 'react';
-import { useEditor, EditorContent } from '@tiptap/react';
+import { auth } from '../../../utils/firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import MenuBar from './editor-menu/MenuBar';
 import EditorButtons from './editor-buttons/EditorButtons';
+import { useEditor, EditorContent } from '@tiptap/react';
 import { Color } from '@tiptap/extension-color';
 import TextStyle from '@tiptap/extension-text-style';
 import Underline from '@tiptap/extension-underline';
@@ -13,8 +15,11 @@ import Highlight from '@tiptap/extension-highlight';
 import Link from '@tiptap/extension-link';
 import Superscript from '@tiptap/extension-superscript';
 import Subscript from '@tiptap/extension-subscript';
+import Image from '@tiptap/extension-image';
+import Dropcursor from '@tiptap/extension-dropcursor';
 
 const Editor = () => {
+  const [user] = useAuthState(auth);
   const [doc, setDoc] = useState(null);
 
   const editor = useEditor({
@@ -41,25 +46,59 @@ const Editor = () => {
       }),
       Superscript,
       Subscript,
+      Image,
+      Dropcursor,
     ],
     content: ``,
-    autofocus: true,
+    autofocus: 'start',
   });
 
+  // TODO: save to the current note
   const saveDoc = () => {
-    // TODO: save to the current note
-    setDoc(editor.getJSON());
+    setDoc(editor.getHTML());
   };
 
-  const saveAsDoc = () => {
-    // TODO: create a new note and insert it into database
-    
-  }
+  // TODO: create a new note
+  const saveAsDoc = async (e) => {
+    e.preventDefault();
 
+    const titleLine = editor.getText().split('\n')[0];
+
+    try {
+      const requestOption = {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title: titleLine,
+          noteBody: editor.getHTML(),
+          userId: user.uid,
+        }),
+      };
+
+      const response = await fetch(
+        `http://localhost:8080/api/v1/notes`,
+        requestOption
+      );
+
+      if (!response.ok) {
+        throw new Error('Notes fetch error');
+      }
+
+      setDoc(editor.getHTML());
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // TODO: clear the current note
   const resetDoc = () => {
     editor.commands.clearContent();
   };
 
+  // TODO: load the selected note
   const loadDoc = () => {
     editor.commands.setContent(doc);
   };

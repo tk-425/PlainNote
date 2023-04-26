@@ -25,7 +25,7 @@ import supScript from '../assets/supScript.png';
 import profileImage from '../assets/profileImage.png';
 import hyperLink from '../assets/hyperlink.png';
 import hyperLinkDelete from '../assets/hyperlink-delete.png';
-
+import image from '../assets/image.png';
 
 const icons = {
   bold,
@@ -55,6 +55,7 @@ const icons = {
   profileImage,
   hyperLink,
   hyperLinkDelete,
+  image
 };
 
 export default icons;

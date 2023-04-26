@@ -27,9 +27,4 @@ public class User {
 
   @DocumentReference
   private List<Note> noteIds;
-
-  public User(String userId, String email) {
-    this.userId = userId;
-    this.email = email;
-  }
 }
