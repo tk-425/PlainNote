@@ -1,4 +1,4 @@
-import './CreateSearchBox.css';
+import './styles/CreateSearchBox.css';
 
 const CreateSearchBox = ({ select, text, placeholder }) => {
   return (

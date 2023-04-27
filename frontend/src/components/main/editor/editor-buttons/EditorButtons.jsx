@@ -1,4 +1,4 @@
-import './EditorButtons.css';
+import './styles/EditorButtons.css';
 import icons from '../../../../utils/icons';
 
 const EditorButtons = (props) => {

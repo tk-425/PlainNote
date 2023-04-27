@@ -1,5 +1,5 @@
+import './index-app-styles/App.css';
 import { Routes, Route } from 'react-router-dom';
-import './App.css';
 import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
 import LogIn from './components/auth/LogIn';
@@ -12,28 +12,29 @@ function App() {
   return (
     <div className='App grid'>
       <Navbar />
-      <Routes>
-        <Route
-          path='/'
-          element={<Home />}
-        />
-        <Route
-          path='/login'
-          element={<LogIn />}
-        />
-        <Route
-          path='/signup'
-          element={<SignUp />}
-        />
-        <Route
-          path='/main'
-          element={<MainPage />}
-        />
-        <Route
-          path='*'
-          element={<ErrorPage />}
-        />
-      </Routes>
+        <Routes>
+          <Route
+            path='/'
+            element={<Home />}
+          />
+          <Route
+            path='/login'
+            element={<LogIn />}
+          />
+          <Route
+            path='/signup'
+            element={<SignUp />}
+          />
+
+          <Route
+            path='/main'
+            element={<MainPage />}
+          />
+          <Route
+            path='*'
+            element={<ErrorPage />}
+          />
+        </Routes>
       <Footer />
     </div>
   );

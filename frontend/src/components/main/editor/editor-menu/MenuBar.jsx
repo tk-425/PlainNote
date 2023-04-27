@@ -1,4 +1,4 @@
-import './MenuBar.css';
+import './styles/MenuBar.css';
 import icons from '../../../../utils/icons';
 import { useCallback } from 'react';
 

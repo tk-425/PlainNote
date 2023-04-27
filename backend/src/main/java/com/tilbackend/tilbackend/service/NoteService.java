@@ -29,7 +29,7 @@ public class NoteService {
     return noteRepository.findAll();
   }
 
-  public Note createNote(String title, String noteBody, String userId) {
+  public Note createNote(String userId, String title, String noteBody) {
     Note note = noteRepository.insert(new Note(title, noteBody));
 
     mongoTemplate.update(User.class)
