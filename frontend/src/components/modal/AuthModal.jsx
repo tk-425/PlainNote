@@ -1,4 +1,4 @@
-import './Modal.css';
+import './styles/Modal.css';
 import { useState } from 'react';
 import Popup from 'reactjs-popup';
 import { useNavigate } from 'react-router-dom';

@@ -30,14 +30,6 @@ public class UserController {
     System.out.println("USER ID: " + principal.getName());
   }
 
-  // TODO: DELETE THIS METHOD
-  @GetMapping(path = "/{userId}")
-  public ResponseEntity<User> getUserById(@PathVariable String userId) {
-    Optional<User> user = userService.getUserById(userId);
-    return user.map(ResponseEntity::ok)
-        .orElse(ResponseEntity.notFound().build());
-  }
-
   @PostMapping
   public ResponseEntity<User> createUser(@RequestBody Map<String, String> payload) {
     System.out.println(payload);

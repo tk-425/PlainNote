@@ -4,11 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Sidebar from './sidebar/Sidebar';
 import Editor from './editor/Editor';
+import { useEditor } from '@tiptap/react';
+import editorSetting from '../../utils/editorSetting';
 
 const MainPage = () => {
+  const navigate = useNavigate();
   const [user] = useAuthState(auth);
   const [authenticated, setAuthenticated] = useState(false);
-  const navigate = useNavigate();
+  const [note, setNote] = useState(null);
+  const [allNotes, setAllNotes] = useState([]);
+  const [selectedNoteId, setSelectedNoteId] = useState(null);
+  const editor = useEditor(editorSetting);
 
   useEffect(() => {
     if (user) {
@@ -19,40 +25,24 @@ const MainPage = () => {
     }
   }, [navigate, user]);
 
-  // TODO: get notes
-  const getNotes = async () => {
-    try {
-      const requestOptions = {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${user.accessToken}`,
-          'Content-Type': 'application/json',
-        },
-      };
-
-      const url = `http://localhost:8080/api/v1/user/notes/${user.uid}`;
-
-      const response = await fetch(url, requestOptions);
-
-      if (!response.ok) {
-        throw new Error('Getting Notes failed');
-      }
-
-      const data = await response.json();
-      
-      return data;
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <>
       {authenticated && (
         <>
-          <Sidebar getNotes={getNotes} />
-          <Editor />
+          <Sidebar
+            editor={editor}
+            note={note}
+            allNotes={allNotes}
+            setAllNotes={setAllNotes}
+            setSelectedNoteId={setSelectedNoteId}
+          />
+          <Editor
+            editor={editor}
+            note={note}
+            setNote={setNote}
+            allNotes={allNotes}
+            selectedNoteId={selectedNoteId}
+          />
         </>
       )}
       {!authenticated && (
@@ -67,7 +57,7 @@ const MainPage = () => {
 export default MainPage;
 
 /* 
-NOTE: Implement
+TODO: Implement
 If a user can't connect to server or it is not working,
 show server error info.
 Maybe Server: connected info??

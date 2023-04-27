@@ -1,4 +1,4 @@
-import './Navbar.css';
+import './styles/Navbar.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../utils/firebase';
