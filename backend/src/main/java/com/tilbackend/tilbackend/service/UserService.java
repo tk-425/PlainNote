@@ -25,10 +25,6 @@ public class UserService {
     this.mongoTemplate = mongoTemplate;
   }
 
-  public Optional<User> getUserById(String userId) {
-    return userRepository.findUserByUserId(userId);
-  }
-
   public Optional<List<Note>> getNotesById(String userId) {
     Optional<User> user = userRepository.findUserByUserId(userId);
     return user.map(User::getNoteIds);

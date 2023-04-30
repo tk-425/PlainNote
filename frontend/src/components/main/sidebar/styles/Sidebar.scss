@@ -20,12 +20,14 @@
 
   .sidebar_note__box {
     height: 50px;
-    padding: 1rem;
+    padding-block: 1rem;
+    padding-inline: 2rem;
     cursor: pointer;
     justify-content: flex-start;
   }
 
   .sidebar_note__box:hover {
     background-color: lightblue;
+    color: rgb(52, 52, 52);
   }
 }

@@ -4,7 +4,7 @@ import { auth } from '../../../utils/firebase';
 import CreateSearchBox from './create-search/CreateSearchBox';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-const Sidebar = ({ editor, note, allNotes, setAllNotes, setSelectedNoteId }) => {
+const Sidebar = ({ editor, note, allNotes, setAllNotes, setSelectedNote}) => {
   const [user] = useAuthState(auth);
   const [newNote, setNewNote] = useState(false);
   const [searchNote, setSearchNote] = useState(false);
@@ -34,10 +34,8 @@ const Sidebar = ({ editor, note, allNotes, setAllNotes, setSelectedNoteId }) => 
       }
     };
 
-    getNotes().then((note) => {
-      setAllNotes(note);
-      console.log('ALL NOTES:');
-      console.log(note);
+    getNotes().then((n) => {
+      setAllNotes(n);
     });
   }, [user.accessToken, user.uid, note, setAllNotes]);
 
@@ -54,16 +52,16 @@ const Sidebar = ({ editor, note, allNotes, setAllNotes, setSelectedNoteId }) => 
     setSearchNote(false);
   };
 
-  const handleClick = (noteID, noteBody) => {
-    console.log(noteID);
-    console.log(noteBody);
-    setSelectedNoteId(noteID);
-    editor.commands.setContent(noteBody);
+  const handleClick = (n) => {
+    console.log(n);
+    setSelectedNote(n);
+    editor.commands.setContent(n.body);
   }
 
   return (
     <div className='sidebar__container scroll-visibility'>
       <div className='sidebar_search__box block flex flex-col item-center'>
+        {/* Sidebar Menu */}
         {!newNote && !searchNote && (
           <>
             <span>New Note / Search Note</span>
@@ -86,12 +84,13 @@ const Sidebar = ({ editor, note, allNotes, setAllNotes, setSelectedNoteId }) => 
           />
         )}
       </div>
+      {/* Notes */}
       <div className='sidebar__contents'>
         {allNotes.map((n) => (
           <div
             className='sidebar_note__box block flex item-center'
             key={n.id}
-            onClick={() => handleClick(n.id, n.body)}
+            onClick={() => handleClick(n)}
           >
             {n.title.length <= 24 && <>{n.title}</>}
             {n.title.length > 24 && <>{n.title.slice(0, 24)} ...</>}

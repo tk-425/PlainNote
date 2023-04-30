@@ -26,7 +26,7 @@ const SignUp = () => {
     e.preventDefault();
 
     const backendCreateUser = async (userCredential) => {
-      const requestOption = {
+      const requestOptions = {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${userCredential.user.accessToken}`,
@@ -39,7 +39,7 @@ const SignUp = () => {
       };
 
       const url = `http://localhost:8080/api/v1/user`;
-      const response = await fetch(url, requestOption);
+      const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
         setSignUpError(true);

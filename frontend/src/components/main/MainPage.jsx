@@ -13,7 +13,7 @@ const MainPage = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [note, setNote] = useState(null);
   const [allNotes, setAllNotes] = useState([]);
-  const [selectedNoteId, setSelectedNoteId] = useState(null);
+  const [selectedNote, setSelectedNote] = useState(null);
   const editor = useEditor(editorSetting);
 
   useEffect(() => {
@@ -34,14 +34,15 @@ const MainPage = () => {
             note={note}
             allNotes={allNotes}
             setAllNotes={setAllNotes}
-            setSelectedNoteId={setSelectedNoteId}
+            setSelectedNote={setSelectedNote}
           />
           <Editor
             editor={editor}
             note={note}
             setNote={setNote}
             allNotes={allNotes}
-            selectedNoteId={selectedNoteId}
+            selectedNote={selectedNote}
+            setSelectedNote={setSelectedNote}
           />
         </>
       )}

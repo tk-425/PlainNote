@@ -23,8 +23,18 @@ public class NoteController {
 
   @PostMapping
   public ResponseEntity<Note> createNote(@RequestBody Map<String, String> payload) {
+
     return new ResponseEntity<>(noteService.createNote(
         payload.get("userId"), payload.get("title"), payload.get("noteBody")),
         HttpStatus.CREATED);
   }
+
+  @PutMapping("/update")
+  public ResponseEntity<Note> updateNote(@RequestBody Map<String, String> payload) {
+    
+    return new ResponseEntity<>(noteService.updateNote(
+        payload.get("noteId"), payload.get("title"), payload.get("noteBody")),
+        HttpStatus.OK);
+  }
+
 }
