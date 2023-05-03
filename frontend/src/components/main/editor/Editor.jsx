@@ -6,22 +6,61 @@ import MenuBar from './editor-menu/MenuBar';
 import EditorButtons from './editor-buttons/EditorButtons';
 import { EditorContent } from '@tiptap/react';
 
-const Editor = ({ editor, note, setNote, allNotes, selectedNoteId }) => {
+const Editor = ({
+  editor,
+  note,
+  setNote,
+  allNotes,
+  selectedNote,
+  setSelectedNote,
+}) => {
   const [user] = useAuthState(auth);
 
-  // TODO: use selectedNoteId to save the current note
-  const saveDoc = () => {
-    setNote(editor.getHTML());
+  const getTitle = (str) => {
+    return str.split('\n')[0];
   };
 
-  const saveAsDoc = async (e) => {
-    e.preventDefault();
+  // Save
+  const saveDoc = async () => {
+    if (!selectedNote) {
+      saveAsDoc();
+      return;
+    }
+    
+    try {
+      const requestOptions = {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          noteId: selectedNote.id,
+          title: getTitle(editor.getText()),
+          noteBody: editor.getHTML(),
+        }),
+      };
 
+      const url = `http://localhost:8080/api/v1/notes/update`;
+      const response = await fetch(url, requestOptions);
+
+      if (!response.ok) {
+        throw new Error('SaveDoc error');
+      }
+
+      setNote(editor.getHTML());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Save As
+  const saveAsDoc = async () => {
     // first line becomes the title of the note
-    const titleLine = editor.getText().split('\n')[0];
+    const titleLine = getTitle(editor.getText());
 
     try {
-      const requestOption = {
+      const requestOptions = {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${user.accessToken}`,
@@ -34,27 +73,24 @@ const Editor = ({ editor, note, setNote, allNotes, selectedNoteId }) => {
         }),
       };
 
-      const response = await fetch(
-        `http://localhost:8080/api/v1/notes`,
-        requestOption
-      );
+      const url = `http://localhost:8080/api/v1/notes`;
+      const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
-        throw new Error('Notes fetch error');
+        throw new Error('SaveAsDoc error');
       }
 
       setNote(editor.getHTML());
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 
+  // Reset
   const resetDoc = () => {
+    setNote(null);
+    setSelectedNote(null);
     editor.commands.clearContent();
-  };
-
-  const loadDoc = () => {
-    editor.commands.setContent(note);
   };
 
   return (
@@ -68,7 +104,6 @@ const Editor = ({ editor, note, setNote, allNotes, selectedNoteId }) => {
         <EditorButtons
           saveDoc={saveDoc}
           saveAsDoc={saveAsDoc}
-          loadDoc={loadDoc}
           resetDoc={resetDoc}
         />
       </div>

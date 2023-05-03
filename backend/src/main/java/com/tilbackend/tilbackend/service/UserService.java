@@ -3,6 +3,7 @@ package com.tilbackend.tilbackend.service;
 import com.tilbackend.tilbackend.document.Note;
 import com.tilbackend.tilbackend.document.User;
 import com.tilbackend.tilbackend.repository.UserRepository;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -26,15 +27,19 @@ public class UserService {
   }
 
   public Optional<User> getUserById(String userId) {
+
     return userRepository.findUserByUserId(userId);
   }
 
   public Optional<List<Note>> getNotesById(String userId) {
+
     Optional<User> user = userRepository.findUserByUserId(userId);
+
     return user.map(User::getNoteIds);
   }
 
   public User createUser(String userId, String email) {
+
     User user = new User();
     user.setUserId(userId);
     user.setEmail(email);
@@ -44,8 +49,23 @@ public class UserService {
 
     try {
       mongoTemplate.insert(user);
-    } catch (DuplicateKeyException ignore) { }
+    } catch (DuplicateKeyException ignore) {
+    }
+
+    System.out.println("User Created");
 
     return user;
   }
+
+  public void deleteNoteByNoteId(String userId, String noteId) {
+
+    Optional<User> userOptional = getUserById(userId);
+
+    if (userOptional.isPresent()) {
+      User user = userOptional.get();
+      user.getNoteIds().removeIf(note -> note.getId().equals(new ObjectId(noteId)));
+      mongoTemplate.save(user);
+    }
+  }
+
 }

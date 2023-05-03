@@ -22,9 +22,13 @@
   }
 
   code {
-    background-color: rgba(#7c7c7c, 0.1);
+    background-color: rgba(#7c7c7c, 0.25);
     color: #828080;
+    // font-family: 'Fira Code', monospace;
     font-size: 1rem;
+    margin-inline: 0.2rem;
+    padding-block: 0.2rem;
+    padding-inline: 0.4rem;
   }
 
   pre {
@@ -37,9 +41,9 @@
     margin: 2rem;
 
     code {
-      padding: 0;
+      padding: 0.2rem;
       background: none;
-      font-size: 1.1rem;
+      margin-inline: 0;
     }
   }
 
