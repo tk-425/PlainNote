@@ -32,6 +32,7 @@ const MainPage = () => {
           <Sidebar
             editor={editor}
             note={note}
+            setNote={setNote}
             allNotes={allNotes}
             setAllNotes={setAllNotes}
             setSelectedNote={setSelectedNote}

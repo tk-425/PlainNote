@@ -18,16 +18,38 @@
     background-color: rgb(52, 52, 52);
   }
 
-  .sidebar_note__box {
-    height: 50px;
-    padding-block: 1rem;
-    padding-inline: 2rem;
-    cursor: pointer;
-    justify-content: flex-start;
+  .sidebar__contents {
+    .sidebar_note__box {
+      cursor: pointer;
+
+      .sidebar__title {
+        padding-block: 1rem;
+        padding-inline: 1.5rem;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: start;
+        width: 100%;
+
+        span {
+          font-size: 20px;
+          width: inherit;
+        }
+      }
+
+      .sidebar_close__button {
+        display: none;
+        margin-inline: 0.5rem;
+        cursor: pointer;
+      }
+    }
   }
 
   .sidebar_note__box:hover {
     background-color: lightblue;
     color: rgb(52, 52, 52);
+
+    .sidebar_close__button {
+      display: block;
+    }
   }
 }

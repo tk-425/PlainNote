@@ -19,9 +19,12 @@
   line-height: 1.1;
 }
 .ProseMirror code {
-  background-color: rgba(124, 124, 124, 0.1);
+  background-color: rgba(124, 124, 124, 0.25);
   color: #828080;
   font-size: 1rem;
+  margin-inline: 0.2rem;
+  padding-block: 0.2rem;
+  padding-inline: 0.4rem;
 }
 .ProseMirror pre {
   background: #0d0d0d;
@@ -32,9 +35,9 @@
   margin: 2rem;
 }
 .ProseMirror pre code {
-  padding: 0;
+  padding: 0.2rem;
   background: none;
-  font-size: 1.1rem;
+  margin-inline: 0;
 }
 .ProseMirror img {
   max-width: 100%;

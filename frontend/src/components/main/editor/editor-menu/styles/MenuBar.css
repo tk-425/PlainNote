@@ -9,8 +9,9 @@
 }
 .menu_bar__container .menu_bar__contents {
   margin-block: auto;
-  padding-block: 1.1rem;
-  padding-inline: 4rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  padding-inline: 15rem;
   flex-wrap: wrap;
   background-color: rgb(24, 24, 24);
 }/*# sourceMappingURL=MenuBar.css.map */

@@ -16,14 +16,30 @@
   top: 0;
   background-color: rgb(52, 52, 52);
 }
-.sidebar__container .sidebar_note__box {
-  height: 50px;
-  padding-block: 1rem;
-  padding-inline: 2rem;
+.sidebar__container .sidebar__contents .sidebar_note__box {
   cursor: pointer;
-  justify-content: flex-start;
+}
+.sidebar__container .sidebar__contents .sidebar_note__box .sidebar__title {
+  padding-block: 1rem;
+  padding-inline: 1.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+  width: 100%;
+}
+.sidebar__container .sidebar__contents .sidebar_note__box .sidebar__title span {
+  font-size: 20px;
+  width: inherit;
+}
+.sidebar__container .sidebar__contents .sidebar_note__box .sidebar_close__button {
+  display: none;
+  margin-inline: 0.5rem;
+  cursor: pointer;
 }
 .sidebar__container .sidebar_note__box:hover {
   background-color: lightblue;
   color: rgb(52, 52, 52);
+}
+.sidebar__container .sidebar_note__box:hover .sidebar_close__button {
+  display: block;
 }/*# sourceMappingURL=Sidebar.css.map */

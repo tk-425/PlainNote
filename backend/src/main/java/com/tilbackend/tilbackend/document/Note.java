@@ -27,4 +27,5 @@ public class Note {
     this.title = title;
     this.body = body;
   }
+
 }

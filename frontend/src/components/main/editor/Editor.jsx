@@ -21,15 +21,12 @@ const Editor = ({
   };
 
   // Save
-  const saveDoc = async (e) => {
-    e.preventDefault();
-
-    const titleLine = getTitle(editor.getText());
-
+  const saveDoc = async () => {
     if (!selectedNote) {
-      throw new Error("Selected Note is null");
+      saveAsDoc();
+      return;
     }
-
+    
     try {
       const requestOptions = {
         method: 'PUT',
@@ -39,7 +36,7 @@ const Editor = ({
         },
         body: JSON.stringify({
           noteId: selectedNote.id,
-          title: titleLine,
+          title: getTitle(editor.getText()),
           noteBody: editor.getHTML(),
         }),
       };
@@ -58,9 +55,7 @@ const Editor = ({
   };
 
   // Save As
-  const saveAsDoc = async (e) => {
-    e.preventDefault();
-
+  const saveAsDoc = async () => {
     // first line becomes the title of the note
     const titleLine = getTitle(editor.getText());
 
