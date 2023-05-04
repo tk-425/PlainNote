@@ -53,7 +53,6 @@ public class NoteController {
     List<Note> notes = noteService.searchNoteByKeyword(payload.get("userId"), keyword);
     System.out.println(notes);
 
-
     return new ResponseEntity<>(notes, HttpStatus.OK);
   }
 }

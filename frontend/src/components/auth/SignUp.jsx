@@ -5,6 +5,7 @@ import { auth } from '../../utils/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthInputBoxes from './AuthInputBoxes';
 import AuthModal from '../modal/AuthModal';
+import messages from '../../utils/modalMessages';
 
 const SignUp = () => {
   const [user] = useAuthState(auth);
@@ -68,12 +69,12 @@ const SignUp = () => {
           console.log(err0r.message);
 
           setSignUpError(true);
-          setMsg('The user already exists');
+          setMsg(messages.userExists);
           setNavigateTo('/login');
         });
     } else {
       setSignUpError(true);
-      setMsg('Please verify whether the two passwords match each other.');
+      setMsg(messages.verifyPassword);
       setNavigateTo('/signup');
       setPassword('');
       setPasswordVerify('');

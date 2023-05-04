@@ -5,6 +5,7 @@ import { auth } from '../../utils/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthInputBoxes from './AuthInputBoxes';
 import AuthModal from '../modal/AuthModal';
+import messages from '../../utils/modalMessages';
 
 const LogIn = () => {
   const [user] = useAuthState(auth);
@@ -14,7 +15,7 @@ const LogIn = () => {
   const [msg, setMsg] = useState('');
   const [navigateTo, setNavigateTo] = useState('');
   const navigate = useNavigate();
-  const wrongPasswordError = 'auth/wrong-password';
+  const wrongPasswordError = messages.wrongPasswordError;
   // const userNotFoundError = 'auth/user-not-found';
 
   useEffect(() => {
@@ -53,10 +54,10 @@ const LogIn = () => {
         setLoginError(true);
 
         if (err0r.code === wrongPasswordError) {
-          setMsg('The password is incorrect');
+          setMsg(messages.incorrectPassword);
           // setNavigateTo('/login');
         } else {
-          setMsg('The user does not exist');
+          setMsg(messages.userNotExist);
           setNavigateTo('/signup');
         }
 
