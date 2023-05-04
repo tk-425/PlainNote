@@ -1,8 +1,8 @@
 import './styles/Sidebar.css';
 import { useEffect, useRef, useState } from 'react';
 import { auth } from '../../../utils/firebase';
-// import CreateSearchBox from './create-search/CreateSearchBox';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { SearchBoxModal } from '../../modal/SearchBoxModal';
 
 const Sidebar = ({
   editor,
@@ -14,7 +14,8 @@ const Sidebar = ({
 }) => {
   const [user] = useAuthState(auth);
   const [noteDeleted, setNoteDeleted] = useState(false);
-  const [showNotes, setShowNotes] = useState(true);
+  const [showAllNotes, setShowAllNotes] = useState(true);
+  const [searchLengthError, setSearchLengthError] = useState(false);
   const searchInputRef = useRef(null);
 
   // The sidebar will be rerendered when a note is deleted or
@@ -49,7 +50,7 @@ const Sidebar = ({
       setNoteDeleted(false);
       searchInputRef.current.value = '';
     });
-  }, [user.accessToken, user.uid, note, setAllNotes, noteDeleted, showNotes]);
+  }, [user, note, setAllNotes, noteDeleted, showAllNotes]);
 
   const createNote = () => {
     setNote(null);
@@ -57,12 +58,17 @@ const Sidebar = ({
     editor.commands.clearContent();
   };
 
-  const showAllNotes = () => {
-    setShowNotes(!showNotes);
+  const showNotes = () => {
+    setShowAllNotes(!showAllNotes);
   };
 
   const searchNotes = async () => {
     if (!searchInputRef.current.value) {
+      return;
+    }
+
+    if (searchInputRef.current.value.length < 2) {
+      setSearchLengthError(true);
       return;
     }
 
@@ -85,7 +91,6 @@ const Sidebar = ({
         throw new Error('Search Note error');
       }
 
-      // display searched notes to the sidebar
       const data = await response.json();
 
       setAllNotes(data);
@@ -133,7 +138,7 @@ const Sidebar = ({
     <div className='sidebar__container scroll-visibility'>
       <div className='sidebar_search__box block flex flex-col item-center'>
         <button onClick={createNote}>New Note</button>
-        <button onClick={showAllNotes}>Show All Notes</button>
+        <button onClick={showNotes}>Show All Notes</button>
         <div>
           <input
             type='text'
