@@ -2,7 +2,8 @@ import './styles/Sidebar.css';
 import { useEffect, useRef, useState } from 'react';
 import { auth } from '../../../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { SearchBoxModal } from '../../modal/SearchBoxModal';
+import messages from '../../../utils/messages';
+import sidebarUtils from './sidebar-utils';
 
 const Sidebar = ({
   editor,
@@ -16,117 +17,44 @@ const Sidebar = ({
   const [noteDeleted, setNoteDeleted] = useState(false);
   const [showAllNotes, setShowAllNotes] = useState(true);
   const [searchLengthError, setSearchLengthError] = useState(false);
+  const [searchErrorDisplayStyle, setSearchErrorDisplayStyle] = useState('');
   const searchInputRef = useRef(null);
 
   // The sidebar will be rerendered when a note is deleted or
   // when a user presses the "show all notes" button.
   useEffect(() => {
-    const getNotes = async () => {
-      try {
-        const requestOptions = {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${user.accessToken}`,
-            'Content-Type': 'application/json',
-          },
-        };
-        const url = `http://localhost:8080/api/v1/user/notes/${user.uid}`;
-        const response = await fetch(url, requestOptions);
-
-        if (!response.ok) {
-          throw new Error('Getting Notes failed');
-        }
-
-        const data = await response.json();
-
-        return data;
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getNotes().then((n) => {
+    sidebarUtils.getNotes(user).then((n) => {
       setAllNotes(n);
       setNoteDeleted(false);
       searchInputRef.current.value = '';
     });
   }, [user, note, setAllNotes, noteDeleted, showAllNotes]);
 
-  const createNote = () => {
-    setNote(null);
-    setSelectedNote(null);
-    editor.commands.clearContent();
+  const createNewNote = () => {
+    sidebarUtils.createNote({ setNote, setSelectedNote, editor });
   };
 
   const showNotes = () => {
-    setShowAllNotes(!showAllNotes);
+    sidebarUtils.showNotes({ setShowAllNotes, showAllNotes });
   };
 
   const searchNotes = async () => {
-    if (!searchInputRef.current.value) {
-      return;
-    }
-
-    if (searchInputRef.current.value.length < 2) {
-      setSearchLengthError(true);
-      return;
-    }
-
-    try {
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${user.accessToken}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: user.uid,
-        }),
-      };
-
-      const url = `http://localhost:8080/api/v1/notes/search-notes/${searchInputRef.current.value}`;
-      const response = await fetch(url, requestOptions);
-
-      if (!response.ok) {
-        throw new Error('Search Note error');
-      }
-
-      const data = await response.json();
-
-      setAllNotes(data);
-    } catch (error) {
-      console.log(error);
-    }
+    sidebarUtils.searchNotes({
+      searchInputRef,
+      setSearchLengthError,
+      setSearchErrorDisplayStyle,
+      user,
+      setAllNotes,
+    });
   };
 
   const deleteNote = async (n) => {
-    try {
-      const requestOptions = {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${user.accessToken}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: user.uid,
-          noteId: n.id,
-        }),
-      };
+    sidebarUtils.deleteNote({ user, n, editor, setNote, setNoteDeleted });
+  };
 
-      const url = `http://localhost:8080/api/v1/notes/delete/${n.id}`;
-      const response = await fetch(url, requestOptions);
-
-      if (!response.ok) {
-        throw new Error('DeleteNote error');
-      }
-
-      editor.commands.clearContent();
-      editor.commands.focus();
-      setNote(null);
-      setNoteDeleted(true);
-    } catch (error) {
-      console.log(error);
-    }
+  const overlayOff = () => {
+    setSearchErrorDisplayStyle('none');
+    setSearchLengthError(false);
   };
 
   const handleNoteClick = (n) => {
@@ -136,16 +64,42 @@ const Sidebar = ({
 
   return (
     <div className='sidebar__container scroll-visibility'>
+      {/* Search Box */}
       <div className='sidebar_search__box block flex flex-col item-center'>
-        <button onClick={createNote}>New Note</button>
-        <button onClick={showNotes}>Show All Notes</button>
-        <div>
-          <input
-            type='text'
-            ref={searchInputRef}
-          />
-          <button onClick={searchNotes}>Search</button>
-        </div>
+        {!searchLengthError && (
+          <>
+            <button
+              className='new_show_notes__buttons'
+              onClick={createNewNote}
+            >
+              New Note
+            </button>
+            <button
+              className='new_show_notes__buttons'
+              onClick={showNotes}
+            >
+              Show All Notes
+            </button>
+            <div className='search_box__container flex item-center'>
+              <input
+                type='text'
+                ref={searchInputRef}
+                min={3}
+              />
+              <button onClick={searchNotes}>Search</button>
+            </div>
+          </>
+        )}
+
+        {searchLengthError && (
+          <div
+            className={`sidebar_overlay__container flex flex-col item-center ${searchErrorDisplayStyle}`}
+            onClick={overlayOff}
+          >
+            <div className='sidebar_overlay__msg'>{messages.searchLength}</div>
+            <button>X</button>
+          </div>
+        )}
       </div>
 
       {/* Notes */}
@@ -159,8 +113,8 @@ const Sidebar = ({
               className='sidebar__title flex item-center'
               onClick={() => handleNoteClick(n)}
             >
-              {n.title.length <= 22 && <span>{n.title}</span>}
-              {n.title.length > 22 && <span>{n.title.slice(0, 22)} ...</span>}
+              {n.title.length <= 24 && <span>{n.title}</span>}
+              {n.title.length > 24 && <span>{n.title.slice(0, 24)} ...</span>}
             </div>
             <button
               className='sidebar_close__button'

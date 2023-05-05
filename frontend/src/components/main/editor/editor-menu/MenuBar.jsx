@@ -35,6 +35,18 @@ const MenuBar = ({ editor }) => {
     return null;
   }
 
+  const addYoutubeVideo = () => {
+    const url = prompt('Enter YouTube URL');
+
+    if (url) {
+      editor.commands.setYoutubeVideo({
+        src: url,
+        width: Math.max(320, parseInt(640)),
+        height: Math.max(180, parseInt(480)),
+      });
+    }
+  };
+
   return (
     <div className='menu_bar__container flex item-center'>
       <div className='menu_bar__contents flex item-center'>
@@ -215,6 +227,16 @@ const MenuBar = ({ editor }) => {
             alt='add url'
           />
         </button>
+
+        <button onClick={addYoutubeVideo}>
+          <img
+            className='button__icon'
+            src={icons.youtube}
+            title='Add Image URL'
+            alt='add url'
+          />
+        </button>
+
         <button
           onClick={setLink}
           className={editor.isActive('link') ? 'is-active' : ''}

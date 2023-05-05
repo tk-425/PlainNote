@@ -14,6 +14,7 @@ const MainPage = () => {
   const [note, setNote] = useState(null);
   const [allNotes, setAllNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
+ 
   const editor = useEditor(editorSetting);
 
   useEffect(() => {
@@ -64,3 +65,4 @@ If a user can't connect to server or it is not working,
 show server error info.
 Maybe Server: connected info??
 */
+       

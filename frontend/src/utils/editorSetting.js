@@ -9,6 +9,7 @@ import Superscript from '@tiptap/extension-superscript';
 import Subscript from '@tiptap/extension-subscript';
 import Image from '@tiptap/extension-image';
 import Dropcursor from '@tiptap/extension-dropcursor';
+import Youtube from '@tiptap/extension-youtube';
 
 const editorSetting = {
   extensions: [
@@ -36,6 +37,9 @@ const editorSetting = {
     Subscript,
     Image,
     Dropcursor,
+    Youtube.configure({
+      controls: false,
+    }),
   ],
   content: ``,
   autofocus: 'start',

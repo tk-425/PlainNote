@@ -7,34 +7,38 @@ import SignUp from './components/auth/SignUp';
 import MainPage from './components/main/MainPage';
 import Footer from './components/footer/Footer';
 import ErrorPage from './components/error-page/ErrorPage';
+import ResetPassword from './components/auth/ResetPassword';
 
 function App() {
   return (
     <div className='App grid'>
       <Navbar />
-        <Routes>
-          <Route
-            path='/'
-            element={<Home />}
-          />
-          <Route
-            path='/login'
-            element={<LogIn />}
-          />
-          <Route
-            path='/signup'
-            element={<SignUp />}
-          />
-
-          <Route
-            path='/main'
-            element={<MainPage />}
-          />
-          <Route
-            path='*'
-            element={<ErrorPage />}
-          />
-        </Routes>
+      <Routes>
+        <Route
+          path='/'
+          element={<Home />}
+        />
+        <Route
+          path='/login'
+          element={<LogIn />}
+        />
+        <Route
+          path='/signup'
+          element={<SignUp />}
+        />
+        <Route
+          path='/resetPassword'
+          element={<ResetPassword />}
+        />
+        <Route
+          path='/main'
+          element={<MainPage />}
+        />
+        <Route
+          path='*'
+          element={<ErrorPage />}
+        />
+      </Routes>
       <Footer />
     </div>
   );

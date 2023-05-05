@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -22,6 +23,17 @@ public class UserController {
   @Autowired
   public UserController(UserService userService) {
     this.userService = userService;
+  }
+
+  @GetMapping
+  public ResponseEntity<User> authenticateUserId(Principal principal) {
+    System.out.println("principal name: " + principal.getName());
+
+    if (userService.authCheck(principal.getName()) != null) {
+      return new ResponseEntity<>(userService.authCheck(principal.getName()), HttpStatus.OK);
+    }
+
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   @PostMapping

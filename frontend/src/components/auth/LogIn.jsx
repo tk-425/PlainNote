@@ -5,7 +5,8 @@ import { auth } from '../../utils/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthInputBoxes from './AuthInputBoxes';
 import AuthModal from '../modal/AuthModal';
-import messages from '../../utils/modalMessages';
+import authUtils from './auth-utils';
+import LoginSignUp from './LoginSignUp';
 
 const LogIn = () => {
   const [user] = useAuthState(auth);
@@ -14,56 +15,29 @@ const LogIn = () => {
   const [loginError, setLoginError] = useState(false);
   const [msg, setMsg] = useState('');
   const [navigateTo, setNavigateTo] = useState('');
+  const [reload, setReload] = useState(false);
   const navigate = useNavigate();
-  const wrongPasswordError = messages.wrongPasswordError;
-  // const userNotFoundError = 'auth/user-not-found';
 
   useEffect(() => {
-    if (user) {
-      navigate('/main');
-    }
+    user && navigate('/main');
   }, [navigate, user]);
 
   const logIn = async (e) => {
     e.preventDefault();
 
-    const backendAuthCheck = async (userCredential) => {
-      const requestOptions = {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${userCredential.user.accessToken}`,
-          'Content-Type': 'application/json',
-        },
-      };
-
-      const url = `http://localhost:8080/api/v1/user`;
-      const response = await fetch(url, requestOptions);
-
-      if (!response.ok) {
-        throw new Error('Authentication Failed');
-      }
-    };
-
-    await signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        backendAuthCheck(userCredential);
-        setLoginError(false);
-        navigate('/main');
-      })
-      .catch((err0r) => {
-        setLoginError(true);
-
-        if (err0r.code === wrongPasswordError) {
-          setMsg(messages.incorrectPassword);
-          // setNavigateTo('/login');
-        } else {
-          setMsg(messages.userNotExist);
-          setNavigateTo('/signup');
-        }
-
-        setEmail('');
-        setPassword('');
-      });
+    await authUtils.logIn({
+      auth,
+      email,
+      password,
+      signInWithEmailAndPassword,
+      setLoginError,
+      navigate,
+      setMsg,
+      setReload,
+      setNavigateTo,
+      setEmail,
+      setPassword,
+    });
   };
 
   return (
@@ -82,17 +56,24 @@ const LogIn = () => {
             <button type='submit'>Log In</button>
           </form>
           <div>
-            <Link>Forgot your password</Link>
+            <Link to='/resetPassword'>Forgot your password</Link>
           </div>
-          <div>
+          <div className='flex item-center'>
             <Link to='/signup'>Sign up</Link>
           </div>
+
+          {/* NEW LOGIN & SIGNUP */}
+          <br /><br />
+          <>
+            <LoginSignUp />
+          </>
         </div>
       )}
       {loginError && (
         <AuthModal
           msg={msg}
           navigateTo={navigateTo}
+          reload={reload}
         />
       )}
     </>

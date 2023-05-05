@@ -5,6 +5,7 @@ import { auth } from '../../../utils/firebase';
 import MenuBar from './editor-menu/MenuBar';
 import EditorButtons from './editor-buttons/EditorButtons';
 import { EditorContent } from '@tiptap/react';
+import editorUtils from './editor-utils';
 
 const Editor = ({
   editor,
@@ -16,81 +17,22 @@ const Editor = ({
 }) => {
   const [user] = useAuthState(auth);
 
-  const getTitle = (str) => {
-    return str.split('\n')[0];
-  };
-
-  // Save
   const saveDoc = async () => {
-    if (!selectedNote) {
-      saveAsDoc();
-      return;
-    }
-    
-    try {
-      const requestOptions = {
-        method: 'PUT',
-        headers: {
-          Authorization: `Bearer ${user.accessToken}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          noteId: selectedNote.id,
-          title: getTitle(editor.getText()),
-          noteBody: editor.getHTML(),
-        }),
-      };
-
-      const url = `http://localhost:8080/api/v1/notes/update`;
-      const response = await fetch(url, requestOptions);
-
-      if (!response.ok) {
-        throw new Error('SaveDoc error');
-      }
-
-      setNote(editor.getHTML());
-    } catch (error) {
-      console.log(error);
-    }
+    editorUtils.saveDoc(
+      saveAsDoc,
+      user,
+      selectedNote,
+      editor,
+      setNote
+    );
   };
 
-  // Save As
   const saveAsDoc = async () => {
-    // first line becomes the title of the note
-    const titleLine = getTitle(editor.getText());
-
-    try {
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${user.accessToken}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: user.uid,
-          title: titleLine,
-          noteBody: editor.getHTML(),
-        }),
-      };
-
-      const url = `http://localhost:8080/api/v1/notes`;
-      const response = await fetch(url, requestOptions);
-
-      if (!response.ok) {
-        throw new Error('SaveAsDoc error');
-      }
-
-      setNote(editor.getHTML());
-    } catch (error) {
-      console.log(error);
-    }
+    editorUtils.saveAsDoc(editor, user, setNote);
   };
 
-  // Reset
   const resetDoc = () => {
-    setNote(null);
-    setSelectedNote(null);
-    editor.commands.clearContent();
+    editorUtils.resetDoc(setNote, setSelectedNote, editor);
   };
 
   return (

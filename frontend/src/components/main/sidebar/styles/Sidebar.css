@@ -9,12 +9,34 @@
   grid-row-end: main;
 }
 .sidebar__container .sidebar_search__box {
-  height: 100px;
+  height: 150px;
   width: 100%;
   padding: 0.5rem;
   position: sticky;
   top: 0;
   background-color: rgb(52, 52, 52);
+}
+.sidebar__container .sidebar_search__box .new_show_notes__buttons {
+  margin-bottom: 1rem;
+  width: 80%;
+}
+.sidebar__container .sidebar_search__box .search_box__container {
+  width: 80%;
+}
+.sidebar__container .sidebar_search__box .search_box__container input {
+  width: 100%;
+}
+.sidebar__container .sidebar_search__box .search_box__container button {
+  margin-left: 0.5rem;
+}
+.sidebar__container .sidebar_search__box .sidebar_overlay__container {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.sidebar__container .sidebar_search__box .sidebar_overlay__container .sidebar_overlay__msg {
+  text-align: center;
+  margin-block: 1rem;
 }
 .sidebar__container .sidebar__contents .sidebar_note__box {
   cursor: pointer;
@@ -33,7 +55,7 @@
 }
 .sidebar__container .sidebar__contents .sidebar_note__box .sidebar_close__button {
   display: none;
-  margin-inline: 0.5rem;
+  margin-inline: 1rem;
   cursor: pointer;
 }
 .sidebar__container .sidebar_note__box:hover {
