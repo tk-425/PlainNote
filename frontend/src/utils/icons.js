@@ -23,9 +23,12 @@ import reset from '../assets/reset.png';
 import subScript from '../assets/subScript.png';
 import supScript from '../assets/supScript.png';
 import profileImage from '../assets/profileImage.png';
+import youtube from '../assets/youtube.png';
 import hyperLink from '../assets/hyperlink.png';
 import hyperLinkDelete from '../assets/hyperlink-delete.png';
 import image from '../assets/image.png';
+import facebook from '../assets/facebook.png';
+import google from '../assets/google.png';
 
 const icons = {
   bold,
@@ -53,9 +56,12 @@ const icons = {
   subScript,
   supScript,
   profileImage,
+  youtube,
   hyperLink,
   hyperLinkDelete,
-  image
+  image,
+  facebook,
+  google,
 };
 
 export default icons;

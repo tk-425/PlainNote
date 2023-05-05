@@ -5,7 +5,7 @@ import { auth } from '../../utils/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthInputBoxes from './AuthInputBoxes';
 import AuthModal from '../modal/AuthModal';
-import messages from '../../utils/modalMessages';
+import authUtils from './auth-utils';
 
 const SignUp = () => {
   const [user] = useAuthState(auth);
@@ -15,71 +15,30 @@ const SignUp = () => {
   const [signUpError, setSignUpError] = useState(false);
   const [msg, setMsg] = useState('');
   const [navigateTo, setNavigateTo] = useState('');
+  const [reload, setReload] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
-      navigate('/main');
-    }
+    user && navigate('/main');
   }, [navigate, user, signUpError]);
 
   const signUp = async (e) => {
     e.preventDefault();
 
-    const backendCreateUser = async (userCredential) => {
-      const requestOptions = {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${userCredential.user.accessToken}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId: userCredential.user.uid,
-          email: userCredential.user.email,
-        }),
-      };
-
-      const url = `http://localhost:8080/api/v1/user`;
-      const response = await fetch(url, requestOptions);
-
-      if (!response.ok) {
-        setSignUpError(true);
-        throw new Error('Server Error');
-      }
-
-      const data = await response.json();
-      setSignUpError(false);
-
-      return data;
-    };
-
-    // Verify if both passwords are same
-    if (password === passwordVerify) {
-      await createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          backendCreateUser(userCredential).catch((error) => {
-            console.log(error);
-          });
-
-          setSignUpError(false);
-          navigate('/main');
-        })
-        .catch((err0r) => {
-          console.log('signUp() Error');
-          console.log(err0r.message);
-
-          setSignUpError(true);
-          setMsg(messages.userExists);
-          setNavigateTo('/login');
-        });
-    } else {
-      setSignUpError(true);
-      setMsg(messages.verifyPassword);
-      setNavigateTo('/signup');
-      setPassword('');
-      setPasswordVerify('');
-      console.log('must be same password');
-    }
+    await authUtils.signUp({
+      setSignUpError,
+      password,
+      passwordVerify,
+      createUserWithEmailAndPassword,
+      auth,
+      email,
+      navigate,
+      setMsg,
+      setNavigateTo,
+      setPassword,
+      setPasswordVerify,
+      setReload,
+    });
   };
 
   return (
@@ -108,6 +67,7 @@ const SignUp = () => {
         <AuthModal
           msg={msg}
           navigateTo={navigateTo}
+          reload={reload}
         />
       )}
     </>

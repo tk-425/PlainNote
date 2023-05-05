@@ -3,13 +3,20 @@ import { useState } from 'react';
 import Popup from 'reactjs-popup';
 import { useNavigate } from 'react-router-dom';
 
-const AuthModal = ({ msg, navigateTo }) => {
+const AuthModal = ({ msg, navigateTo, reload }) => {
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
 
   const closeModal = () => {
     setOpen(false);
-    navigate(`${navigateTo}`);
+
+    if (navigateTo) {
+      navigate(`${navigateTo}`);
+    }
+    
+    if (reload) {
+      window.location.reload(false);
+    }
   };
 
   return (

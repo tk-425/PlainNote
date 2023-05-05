@@ -31,6 +31,13 @@ public class UserService {
     return userRepository.findUserByUserId(userId);
   }
 
+  public User authCheck(String userId) {
+
+    Optional<User> userOptional = getUserById((userId));
+
+    return userOptional.orElse(null);
+  }
+
   public Optional<List<Note>> getNotesById(String userId) {
 
     Optional<User> user = userRepository.findUserByUserId(userId);
@@ -67,5 +74,4 @@ public class UserService {
       mongoTemplate.save(user);
     }
   }
-
 }
