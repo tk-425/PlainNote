@@ -2,8 +2,10 @@ import './styles/Sidebar.css';
 import { useEffect, useRef, useState } from 'react';
 import { auth } from '../../../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import EditorButtons from '../editor/editor-buttons/EditorButtons';
 import messages from '../../../utils/messages';
 import sidebarUtils from './sidebar-utils';
+import { Link } from 'react-router-dom';
 
 const Sidebar = ({
   editor,
@@ -62,32 +64,60 @@ const Sidebar = ({
     editor.commands.setContent(n.body);
   };
 
+  const handleLogout = () => {
+    auth.signOut().catch((error) => console.log(error));
+  };
+
   return (
     <div className='sidebar__container scroll-visibility'>
       {/* Search Box */}
       <div className='sidebar_search__box block flex flex-col item-center'>
         {!searchLengthError && (
           <>
+            <div className='sidebar_user__info flex'>
+              <span>Hello, {user.email.split('@')[0]}!</span>
+              <span>
+                <Link
+                  to='/'
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Link>
+              </span>
+            </div>
             <button
-              className='new_show_notes__buttons'
+              className='new_show_notes__buttons editor-button'
               onClick={createNewNote}
             >
               New Note
             </button>
             <button
-              className='new_show_notes__buttons'
+              className='new_show_notes__buttons editor-button'
               onClick={showNotes}
             >
               Show All Notes
             </button>
-            <div className='search_box__container flex item-center'>
+            <div className='search_box__container flex flex-col item-center'>
               <input
                 type='text'
                 ref={searchInputRef}
                 min={3}
+                placeholder='Search Notes'
               />
-              <button onClick={searchNotes}>Search</button>
+              <button
+                className='editor-button'
+                onClick={searchNotes}
+              >
+                Search
+              </button>
             </div>
+            <>
+              <EditorButtons
+                saveDoc={''}
+                saveAsDoc={''}
+                resetDoc={''}
+              />
+            </>
           </>
         )}
 
@@ -97,7 +127,7 @@ const Sidebar = ({
             onClick={overlayOff}
           >
             <div className='sidebar_overlay__msg'>{messages.searchLength}</div>
-            <button>X</button>
+            <button className='editor-button'>X</button>
           </div>
         )}
       </div>
@@ -117,7 +147,7 @@ const Sidebar = ({
               {n.title.length > 24 && <span>{n.title.slice(0, 24)} ...</span>}
             </div>
             <button
-              className='sidebar_close__button'
+              className='sidebar_close__button editor-button'
               onClick={() => deleteNote(n)}
             >
               X

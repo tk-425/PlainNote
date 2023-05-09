@@ -137,4 +137,9 @@ a {
 
 .text-end {
   text-align: end;
+}
+
+.editor-button {
+  border: none;
+  cursor: pointer;
 }/*# sourceMappingURL=index.css.map */

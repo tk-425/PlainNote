@@ -2,25 +2,29 @@
   background-color: rgb(24, 24, 24);
   color: #fafafa;
   overflow-y: auto;
+
   grid-column-start: sideBar;
   grid-column-end: end;
-  grid-row-start: sideBar;
-  grid-row-end: main;
+  grid-row-start: start;
+  grid-row-end: end;
 
-  .editor__content {
-    grid-template-columns: [start] repeat(3, 1fr) [buttons] 1fr [end];
-    grid-template-rows: [start] 64px [editor] auto [buttons] 64px [end];
+  .editor__contents {
+    grid-template-columns: [start] auto [menuBar] repeat(2, 1fr) [buttons] 1fr [end];
+    grid-template-rows: [start] auto [topMenuBar] repeat(3, 1fr) [end];
 
     .editor_area {
       font-size: 1.3rem;
-      margin-inline: 4rem;
-      padding: 2rem; 
-      grid-column-start: start;
-      grid-column-end: end;
-      grid-row-start: editor;
-      grid-row-end: buttons;
 
-      background-color: black;
+      grid-column-start: menuBar;
+      grid-column-end: end;
+      grid-row-start: start;
+      grid-row-end: end;
     }
+  }
+}
+
+@media (max-height: 930px) {
+  .editor_area {
+    margin: 2rem 1rem;
   }
 }

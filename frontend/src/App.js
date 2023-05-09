@@ -8,19 +8,35 @@ import MainPage from './components/main/MainPage';
 import Footer from './components/footer/Footer';
 import ErrorPage from './components/error-page/ErrorPage';
 import ResetPassword from './components/auth/ResetPassword';
+import LoginSignUp from './components/auth/LoginSignUp';
 
 function App() {
   return (
     <div className='App grid'>
-      <Navbar />
       <Routes>
         <Route
           path='/'
-          element={<Home />}
+          element={
+            <>
+              <Navbar />
+              <Home />
+              <Footer />
+            </>
+          }
         />
-        <Route
+        {/* <Route
           path='/login'
           element={<LogIn />}
+        /> */}
+        <Route
+          path='/login'
+          element={
+            <>
+              <Navbar />
+              <LoginSignUp />
+              <Footer />
+            </>
+          }
         />
         <Route
           path='/signup'
@@ -39,7 +55,6 @@ function App() {
           element={<ErrorPage />}
         />
       </Routes>
-      <Footer />
     </div>
   );
 }

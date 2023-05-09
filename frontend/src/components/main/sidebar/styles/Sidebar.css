@@ -5,16 +5,43 @@
   overflow-y: auto;
   grid-column-start: start;
   grid-column-end: sideBar;
-  grid-row-start: sideBar;
-  grid-row-end: main;
+  grid-row-start: start;
+  grid-row-end: end;
 }
 .sidebar__container .sidebar_search__box {
-  height: 150px;
+  height: 280px;
   width: 100%;
   padding: 0.5rem;
-  position: sticky;
-  top: 0;
-  background-color: rgb(52, 52, 52);
+  border-bottom: 1px solid lightblue;
+}
+.sidebar__container .sidebar_search__box span {
+  margin-block: 0.5rem;
+  font-size: 0.8rem;
+}
+.sidebar__container .sidebar_search__box button {
+  background-color: transparent;
+  padding-block: 0.3rem;
+  border: 1px solid lightblue;
+  border-radius: 5px;
+  color: #fff;
+}
+.sidebar__container .sidebar_search__box .sidebar_user__info {
+  width: 80%;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.sidebar__container .sidebar_search__box .sidebar_user__info a {
+  -webkit-text-decoration: transparent;
+          text-decoration: transparent;
+  color: #fff;
+  transition: -webkit-text-decoration 0.3s ease-in;
+  transition: text-decoration 0.3s ease-in;
+  transition: text-decoration 0.3s ease-in, -webkit-text-decoration 0.3s ease-in;
+}
+.sidebar__container .sidebar_search__box .sidebar_user__info a:hover {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  cursor: pointer;
 }
 .sidebar__container .sidebar_search__box .new_show_notes__buttons {
   margin-bottom: 1rem;
@@ -24,10 +51,32 @@
   width: 80%;
 }
 .sidebar__container .sidebar_search__box .search_box__container input {
+  background-color: lightblue;
+  padding-inline: 0.2rem;
   width: 100%;
+  border: none;
+}
+.sidebar__container .sidebar_search__box .search_box__container input:focus {
+  outline: none;
+  background-color: #fff;
+}
+.sidebar__container .sidebar_search__box .search_box__container input:focus::-moz-placeholder {
+  color: transparent;
+}
+.sidebar__container .sidebar_search__box .search_box__container input:focus::placeholder {
+  color: transparent;
+}
+.sidebar__container .sidebar_search__box .search_box__container input::-moz-placeholder {
+  text-align: center;
+  font-size: 0.9rem;
+}
+.sidebar__container .sidebar_search__box .search_box__container input::placeholder {
+  text-align: center;
+  font-size: 0.9rem;
 }
 .sidebar__container .sidebar_search__box .search_box__container button {
-  margin-left: 0.5rem;
+  margin-top: 1rem;
+  width: 100%;
 }
 .sidebar__container .sidebar_search__box .sidebar_overlay__container {
   height: 100%;
@@ -42,7 +91,7 @@
   cursor: pointer;
 }
 .sidebar__container .sidebar__contents .sidebar_note__box .sidebar__title {
-  padding-block: 1rem;
+  padding-block: 0.8rem;
   padding-inline: 1.5rem;
   flex-direction: column;
   justify-content: space-between;
@@ -50,7 +99,7 @@
   width: 100%;
 }
 .sidebar__container .sidebar__contents .sidebar_note__box .sidebar__title span {
-  font-size: 20px;
+  font-size: 14px;
   width: inherit;
 }
 .sidebar__container .sidebar__contents .sidebar_note__box .sidebar_close__button {
