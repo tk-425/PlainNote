@@ -6,16 +6,49 @@
 
   grid-column-start: start;
   grid-column-end: sideBar;
-  grid-row-start: sideBar;
-  grid-row-end: main;
+  grid-row-start: start;
+  grid-row-end: end;
 
   .sidebar_search__box {
-    height: 150px;
+    height: 280px;
     width: 100%;
     padding: 0.5rem;
-    position: sticky;
-    top: 0;
-    background-color: rgb(52, 52, 52);
+    border-bottom: 1px solid lightblue;
+
+    // position: sticky;
+    // top: 0;
+    // background-color: rgb(52, 52, 52);
+
+    span {
+      margin-block: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    button {
+      background-color: transparent;
+      padding-block: 0.3rem;
+      border: 1px solid lightblue;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    .sidebar_user__info {
+      width: 80%;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+
+      a {
+        text-decoration: transparent;
+        color: #fff;
+        transition: text-decoration 0.3s ease-in;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        text-underline-offset: 8px;
+        cursor: pointer;
+      }
+    }
 
     .new_show_notes__buttons {
       margin-bottom: 1rem;
@@ -26,11 +59,33 @@
       width: 80%;
 
       input {
+        background-color: lightblue;
+        padding-inline: 0.2rem;
         width: 100%;
+        border: none;
+      }
+
+      input:focus {
+        outline: none;
+        background-color: #fff;
+      }
+
+      input:focus::placeholder {
+        color: transparent;
+      }
+
+      input::placeholder {
+        text-align: center;
+        font-size: 0.9rem;
       }
 
       button {
-        margin-left: 0.5rem;
+        margin-top: 1rem;
+        width: 100%;
+        // padding-block: .3rem;
+        // background-color: transparent;
+        // border: 1px solid lightblue;
+        // color: #fff;
       }
     }
 
@@ -51,7 +106,7 @@
       cursor: pointer;
 
       .sidebar__title {
-        padding-block: 1rem;
+        padding-block: 0.8rem;
         padding-inline: 1.5rem;
         flex-direction: column;
         justify-content: space-between;
@@ -59,7 +114,7 @@
         width: 100%;
 
         span {
-          font-size: 20px;
+          font-size: 14px;
           width: inherit;
         }
       }

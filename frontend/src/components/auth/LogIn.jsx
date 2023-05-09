@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import AuthInputBoxes from './AuthInputBoxes';
 import AuthModal from '../modal/AuthModal';
 import authUtils from './auth-utils';
-import LoginSignUp from './LoginSignUp';
 
 const LogIn = () => {
   const [user] = useAuthState(auth);
@@ -43,7 +42,7 @@ const LogIn = () => {
   return (
     <>
       {!user && !loginError && (
-        <div className='log_in__container grid-container-center max-width width-100 text-center'>
+        <div className='log_in__container'>
           <form onSubmit={logIn}>
             <h1>Log In - Log in to your account</h1>
             <AuthInputBoxes
@@ -61,12 +60,6 @@ const LogIn = () => {
           <div className='flex item-center'>
             <Link to='/signup'>Sign up</Link>
           </div>
-
-          {/* NEW LOGIN & SIGNUP */}
-          <br /><br />
-          <>
-            <LoginSignUp />
-          </>
         </div>
       )}
       {loginError && (

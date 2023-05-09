@@ -5,28 +5,38 @@ const EditorButtons = (props) => {
   const { saveDoc, saveAsDoc, resetDoc } = props;
 
   return (
-    <div className='editor_buttons__container flex item-center'>
-      <div className='editor_buttons__contents'>
-        <button onClick={saveDoc}>
+    <div className='editor_buttons__container'>
+      <div className='editor_buttons__contents flex item-center'>
+        <button
+          className='editor-button'
+          onClick={saveDoc}
+        >
           <img
             className='button__icon'
-            src={icons.save}
+            src={icons.saveWhite}
             title='Save'
             alt='save'
           />
+          {/* <span className='save'></span> */}
         </button>
-        <button onClick={saveAsDoc}>
+        <button
+          className='editor-button'
+          onClick={saveAsDoc}
+        >
           <img
             className='button__icon'
-            src={icons.saveAs}
+            src={icons.saveAsWhite}
             title='Save As'
             alt='save-as'
           />
         </button>
-        <button onClick={resetDoc}>
+        <button
+          className='editor-button'
+          onClick={resetDoc}
+        >
           <img
             className='button__icon'
-            src={icons.reset}
+            src={icons.resetWhite}
             title='Clear'
             alt='clear'
           />

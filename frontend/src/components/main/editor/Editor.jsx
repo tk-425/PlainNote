@@ -17,36 +17,25 @@ const Editor = ({
 }) => {
   const [user] = useAuthState(auth);
 
-  const saveDoc = async () => {
-    editorUtils.saveDoc(
-      saveAsDoc,
-      user,
-      selectedNote,
-      editor,
-      setNote
-    );
-  };
+  // const saveDoc = async () => {
+  //   editorUtils.saveDoc({ saveAsDoc, user, selectedNote, editor, setNote });
+  // };
 
-  const saveAsDoc = async () => {
-    editorUtils.saveAsDoc(editor, user, setNote);
-  };
+  // const saveAsDoc = async () => {
+  //   editorUtils.saveAsDoc({ editor, user, setNote });
+  // };
 
-  const resetDoc = () => {
-    editorUtils.resetDoc(setNote, setSelectedNote, editor);
-  };
+  // const resetDoc = () => {
+  //   editorUtils.resetDoc({ setNote, setSelectedNote, editor });
+  // };
 
   return (
     <div className='editor__container scroll-visibility'>
-      <div className='editor__content grid'>
+      <div className='editor__contents grid'>
         <MenuBar editor={editor} />
         <EditorContent
           className='editor_area'
           editor={editor}
-        />
-        <EditorButtons
-          saveDoc={saveDoc}
-          saveAsDoc={saveAsDoc}
-          resetDoc={resetDoc}
         />
       </div>
     </div>

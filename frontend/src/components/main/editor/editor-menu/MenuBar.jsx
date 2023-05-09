@@ -48,12 +48,16 @@ const MenuBar = ({ editor }) => {
   };
 
   return (
-    <div className='menu_bar__container flex item-center'>
-      <div className='menu_bar__contents flex item-center'>
+    <div className='menu_bar__container'>
+      <div className='menu_bar__contents flex flex-col item-center'>
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
           disabled={!editor.can().chain().focus().toggleBold().run()}
-          className={editor.isActive('bold') ? 'is-active' : ''}
+          className={
+            editor.isActive('bold')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -65,7 +69,11 @@ const MenuBar = ({ editor }) => {
         <button
           onClick={() => editor.chain().focus().toggleItalic().run()}
           disabled={!editor.can().chain().focus().toggleItalic().run()}
-          className={editor.isActive('italic') ? 'is-active' : ''}
+          className={
+            editor.isActive('italic')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -76,7 +84,11 @@ const MenuBar = ({ editor }) => {
         </button>
         <button
           onClick={() => editor.chain().focus().toggleUnderline().run()}
-          className={editor.isActive('underline') ? 'is-active' : ''}
+          className={
+            editor.isActive('underline')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -87,7 +99,11 @@ const MenuBar = ({ editor }) => {
         </button>
         <button
           onClick={() => editor.chain().focus().setParagraph().run()}
-          className={editor.isActive('paragraph') ? 'is-active' : ''}
+          className={
+            editor.isActive('paragraph')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -101,7 +117,9 @@ const MenuBar = ({ editor }) => {
             editor.chain().focus().toggleHeading({ level: 1 }).run()
           }
           className={
-            editor.isActive('heading', { level: 1 }) ? 'is-active' : ''
+            editor.isActive('heading', { level: 1 })
+              ? 'editor-button is-active'
+              : 'editor-button'
           }
         >
           <img
@@ -116,7 +134,9 @@ const MenuBar = ({ editor }) => {
             editor.chain().focus().toggleHeading({ level: 2 }).run()
           }
           className={
-            editor.isActive('heading', { level: 2 }) ? 'is-active' : ''
+            editor.isActive('heading', { level: 2 })
+              ? 'editor-button is-active'
+              : 'editor-button'
           }
         >
           <img
@@ -131,7 +151,9 @@ const MenuBar = ({ editor }) => {
             editor.chain().focus().toggleHeading({ level: 3 }).run()
           }
           className={
-            editor.isActive('heading', { level: 3 }) ? 'is-active' : ''
+            editor.isActive('heading', { level: 3 })
+              ? 'editor-button is-active'
+              : 'editor-button'
           }
         >
           <img
@@ -143,7 +165,11 @@ const MenuBar = ({ editor }) => {
         </button>
         <button
           onClick={() => editor.chain().focus().toggleSuperscript().run()}
-          className={editor.isActive('superscript') ? 'is-active' : ''}
+          className={
+            editor.isActive('superscript')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -154,7 +180,11 @@ const MenuBar = ({ editor }) => {
         </button>
         <button
           onClick={() => editor.chain().focus().toggleSubscript().run()}
-          className={editor.isActive('subscript') ? 'is-active' : ''}
+          className={
+            editor.isActive('subscript')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -165,7 +195,11 @@ const MenuBar = ({ editor }) => {
         </button>
         <button
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className={editor.isActive('bulletList') ? 'is-active' : ''}
+          className={
+            editor.isActive('bulletList')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -176,7 +210,11 @@ const MenuBar = ({ editor }) => {
         </button>
         <button
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          className={editor.isActive('orderedList') ? 'is-active' : ''}
+          className={
+            editor.isActive('orderedList')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -187,7 +225,11 @@ const MenuBar = ({ editor }) => {
         </button>
         <button
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
-          className={editor.isActive('blockquote') ? 'is-active' : ''}
+          className={
+            editor.isActive('blockquote')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -199,7 +241,11 @@ const MenuBar = ({ editor }) => {
         <button
           onClick={() => editor.chain().focus().toggleCode().run()}
           disabled={!editor.can().chain().focus().toggleCode().run()}
-          className={editor.isActive('code') ? 'is-active' : ''}
+          className={
+            editor.isActive('code')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -210,7 +256,11 @@ const MenuBar = ({ editor }) => {
         </button>
         <button
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-          className={editor.isActive('codeBlock') ? 'is-active' : ''}
+          className={
+            editor.isActive('codeBlock')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -219,7 +269,10 @@ const MenuBar = ({ editor }) => {
             alt='code block'
           />
         </button>
-        <button onClick={addImage}>
+        <button
+          onClick={addImage}
+          className='editor-button'
+        >
           <img
             className='button__icon'
             src={icons.image}
@@ -228,7 +281,10 @@ const MenuBar = ({ editor }) => {
           />
         </button>
 
-        <button onClick={addYoutubeVideo}>
+        <button
+          onClick={addYoutubeVideo}
+          className='editor-button'
+        >
           <img
             className='button__icon'
             src={icons.youtube}
@@ -239,7 +295,11 @@ const MenuBar = ({ editor }) => {
 
         <button
           onClick={setLink}
-          className={editor.isActive('link') ? 'is-active' : ''}
+          className={
+            editor.isActive('link')
+              ? 'editor-button is-active'
+              : 'editor-button'
+          }
         >
           <img
             className='button__icon'
@@ -251,6 +311,7 @@ const MenuBar = ({ editor }) => {
         <button
           onClick={() => editor.chain().focus().unsetLink().run()}
           disabled={!editor.isActive('link')}
+          className='editor-button'
         >
           <img
             className='button__icon'
@@ -261,6 +322,7 @@ const MenuBar = ({ editor }) => {
         </button>
         <button
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
+          className='editor-button'
         >
           <img
             className='button__icon'
@@ -275,8 +337,8 @@ const MenuBar = ({ editor }) => {
           }
           className={
             editor.isActive('highlight', { color: '#ffc078' })
-              ? 'is-active'
-              : ''
+              ? 'editor-button is-active'
+              : 'editor-button'
           }
         >
           <img
@@ -292,8 +354,8 @@ const MenuBar = ({ editor }) => {
           }
           className={
             editor.isActive('highlight', { color: '#8ce99a' })
-              ? 'is-active'
-              : ''
+              ? 'editor-button is-active'
+              : 'editor-button'
           }
         >
           <img
@@ -306,6 +368,7 @@ const MenuBar = ({ editor }) => {
         <button
           onClick={() => editor.chain().focus().undo().run()}
           disabled={!editor.can().chain().focus().undo().run()}
+          className='editor-button'
         >
           <img
             className='button__icon'
@@ -317,6 +380,7 @@ const MenuBar = ({ editor }) => {
         <button
           onClick={() => editor.chain().focus().redo().run()}
           disabled={!editor.can().chain().focus().redo().run()}
+          className='editor-button'
         >
           <img
             className='button__icon'
@@ -325,14 +389,6 @@ const MenuBar = ({ editor }) => {
             alt='redo'
           />
         </button>
-        {/* <button onClick={() => editor.chain().focus().clearNodes().run()}>
-          <img
-            className='button__icon'
-            src={icons.erase}
-            title='Toggle Selection'
-            alt='toggle-selection'
-          />
-        </button> */}
       </div>
     </div>
   );

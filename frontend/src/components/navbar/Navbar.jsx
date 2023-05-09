@@ -11,13 +11,13 @@ const Navbar = () => {
     auth
       .signOut()
       .then(() => {
-        navigate('/');
+        navigate('/login');
       })
       .catch((error) => console.log(error));
   };
 
   return (
-    <div className='navbar__container max-width'>
+    <div className='navbar__container max-width width-100'>
       <div className='navbar__content flex item-center'>
         <div className='navbar__logo text-start'>
           <Link to='/'>Logo</Link>
