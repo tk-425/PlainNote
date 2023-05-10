@@ -89,6 +89,12 @@
           text-decoration: underline;
         }
 
+        .error__message {
+          margin: 0;
+          padding-block: 1rem;
+          height: 10px;
+        }
+
         .form__footer {
           margin-top: 100px;
           width: 180px;

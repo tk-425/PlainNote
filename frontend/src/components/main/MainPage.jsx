@@ -36,6 +36,7 @@ const MainPage = () => {
             setNote={setNote}
             allNotes={allNotes}
             setAllNotes={setAllNotes}
+            selectedNote={selectedNote}
             setSelectedNote={setSelectedNote}
           />
           <Editor

@@ -2,10 +2,10 @@ import './styles/Sidebar.css';
 import { useEffect, useRef, useState } from 'react';
 import { auth } from '../../../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import EditorButtons from '../editor/editor-buttons/EditorButtons';
 import messages from '../../../utils/messages';
 import sidebarUtils from './sidebar-utils';
 import { Link } from 'react-router-dom';
+import editorUtils from '../editor/editor-utils';
 
 const Sidebar = ({
   editor,
@@ -13,6 +13,7 @@ const Sidebar = ({
   setNote,
   allNotes,
   setAllNotes,
+  selectedNote,
   setSelectedNote,
 }) => {
   const [user] = useAuthState(auth);
@@ -54,6 +55,10 @@ const Sidebar = ({
     sidebarUtils.deleteNote({ user, n, editor, setNote, setNoteDeleted });
   };
 
+  const saveDoc = async () => {
+    editorUtils.saveDoc({ user, editor, selectedNote, setNote });
+  };
+
   const overlayOff = () => {
     setSearchErrorDisplayStyle('none');
     setSearchLengthError(false);
@@ -86,13 +91,13 @@ const Sidebar = ({
               </span>
             </div>
             <button
-              className='new_show_notes__buttons editor-button'
+              className='sidebar__button editor-button'
               onClick={createNewNote}
             >
               New Note
             </button>
             <button
-              className='new_show_notes__buttons editor-button'
+              className='sidebar__button editor-button'
               onClick={showNotes}
             >
               Show All Notes
@@ -110,14 +115,13 @@ const Sidebar = ({
               >
                 Search
               </button>
+              <button
+                className='editor-button sidebar__button'
+                onClick={saveDoc}
+              >
+                Save
+              </button>
             </div>
-            <>
-              <EditorButtons
-                saveDoc={''}
-                saveAsDoc={''}
-                resetDoc={''}
-              />
-            </>
           </>
         )}
 

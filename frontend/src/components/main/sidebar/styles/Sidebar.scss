@@ -10,7 +10,6 @@
   grid-row-end: end;
 
   .sidebar_search__box {
-    height: 280px;
     width: 100%;
     padding: 0.5rem;
     border-bottom: 1px solid lightblue;
@@ -50,7 +49,7 @@
       }
     }
 
-    .new_show_notes__buttons {
+    .sidebar__button {
       margin-bottom: 1rem;
       width: 80%;
     }
