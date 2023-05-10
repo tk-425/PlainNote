@@ -1,5 +1,5 @@
 .menu_bar__container {
-  background-color: rgb(24, 24, 24);
+  background-color: rgb(20, 21, 26);
   margin-top: 2rem;
   margin-inline: 0.8rem;
   width: 1.8rem;
@@ -9,7 +9,6 @@
   grid-row-end: end;
 }
 .menu_bar__container .menu_bar__contents {
-  background-color: rgb(24, 24, 24);
   position: fixed;
 }
 .menu_bar__container .menu_bar__contents button {
@@ -20,7 +19,6 @@
 
 @media (max-height: 930px) {
   .menu_bar__container {
-    background-color: rgb(24, 24, 24);
     height: 50px;
     width: 100%;
     z-index: 5;

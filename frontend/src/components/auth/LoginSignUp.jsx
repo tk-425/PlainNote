@@ -1,10 +1,6 @@
 import './styles/LoginSignUp.scss';
 import { auth } from '../../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-} from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import icons from '../../utils/icons';
@@ -16,11 +12,7 @@ const LoginSignUp = () => {
   const [password, setPassword] = useState('');
   const [passwordVerify, setPasswordVerify] = useState('');
 
-  const [loginError, setLoginError] = useState(false);
-  const [signUpError, setSignUpError] = useState(false);
   const [msg, setMsg] = useState('');
-  const [navigateTo, setNavigateTo] = useState('');
-  const [reload, setReload] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const navigate = useNavigate();
 
@@ -32,18 +24,14 @@ const LoginSignUp = () => {
     e.preventDefault();
 
     await authUtils.signUp({
-      setSignUpError,
-      password,
-      passwordVerify,
-      createUserWithEmailAndPassword,
       auth,
       email,
+      password,
+      passwordVerify,
       navigate,
       setMsg,
-      setNavigateTo,
       setPassword,
       setPasswordVerify,
-      setReload,
     });
   };
 
@@ -54,18 +42,24 @@ const LoginSignUp = () => {
       auth,
       email,
       password,
-      signInWithEmailAndPassword,
-      setLoginError,
       navigate,
       setMsg,
-      setReload,
-      setNavigateTo,
       setEmail,
       setPassword,
     });
   };
 
+  const signUpWithGoogle = async () => {
+    await authUtils.googleSignUp(auth);
+  };
+
+  const signInWithGoogle = async () => {
+    await authUtils.googleSignIn(auth);
+  };
+
   const logInSignUpToggle = () => {
+    setMsg('');
+    setEmail('');
     setShowSignUp(!showSignUp);
   };
 
@@ -93,6 +87,7 @@ const LoginSignUp = () => {
                     src={icons.google}
                     title='Google'
                     alt='google'
+                    onClick={signUpWithGoogle}
                   />
                 </Link>
               </div>
@@ -116,6 +111,7 @@ const LoginSignUp = () => {
                 placeholder='Verify Password'
               />
               <button type='submit'>Sign Up</button>
+              <span className='error__message'>{msg}</span>
               <div className='form__footer flex flex-col'>
                 <span>Already a member?</span>
                 <button
@@ -124,7 +120,7 @@ const LoginSignUp = () => {
                   onClick={logInSignUpToggle}
                 >
                   SIGN IN
-                </button>{' '}
+                </button>
               </div>
             </form>
           </div>
@@ -150,6 +146,7 @@ const LoginSignUp = () => {
                     src={icons.google}
                     title='Google'
                     alt='google'
+                    onClick={signInWithGoogle}
                   />
                 </Link>
               </div>
@@ -173,6 +170,7 @@ const LoginSignUp = () => {
                 Forgot your password?
               </Link>
               <button type='submit'>Sign In</button>
+              <span className='error__message'>{msg}</span>
               <div className='form__footer flex flex-col'>
                 <span>Don't have an account?</span>
                 <button

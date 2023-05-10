@@ -81,6 +81,11 @@
   text-underline-offset: 8px;
   text-decoration: underline;
 }
+.login_signup__container .login_signup__contents .form__contents form .error__message {
+  margin: 0;
+  padding-block: 1rem;
+  height: 10px;
+}
 .login_signup__container .login_signup__contents .form__contents form .form__footer {
   margin-top: 100px;
   width: 180px;

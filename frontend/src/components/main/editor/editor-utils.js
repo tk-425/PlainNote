@@ -2,9 +2,9 @@ const getTitle = (str) => {
   return str.split('\n')[0];
 };
 
-const saveDoc = async ({ saveAsDoc, user, selectedNote, editor, setNote }) => {
+const saveDoc = async ({ user, editor, selectedNote, setNote }) => {
   if (!selectedNote) {
-    saveAsDoc();
+    saveAsDoc({ editor, user, setNote});
     return;
   }
 
@@ -66,7 +66,7 @@ const saveAsDoc = async ({ editor, user, setNote }) => {
   }
 };
 
-const resetDoc = ({ setNote, setSelectedNote, editor }) => {
+const resetDoc = ({ editor, setNote, setSelectedNote }) => {
   setNote(null);
   setSelectedNote(null);
   editor.commands.clearContent();

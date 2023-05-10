@@ -1,4 +1,11 @@
 .modal__contents {
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: #fff;
+  z-index: 10;
+
+  height: 400px;
+
   * {
     margin-inline: 0.2rem;
   }

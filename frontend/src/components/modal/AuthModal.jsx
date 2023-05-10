@@ -25,9 +25,9 @@ const AuthModal = ({ msg, navigateTo, reload }) => {
       onClose={closeModal}
       closeOnDocumentClick
     >
-      <div className='modal__contents'>
+      <div className='modal__contents flex item-center'>
         <span>{msg}</span>
-        <button onClick={closeModal}>&times;</button>
+        <button className='editor-button' onClick={closeModal}>&times;</button>
       </div>
     </Popup>
   );
