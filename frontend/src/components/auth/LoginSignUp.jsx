@@ -53,10 +53,6 @@ const LoginSignUp = () => {
     await authUtils.googleSignUp(auth);
   };
 
-  const signInWithGoogle = async () => {
-    await authUtils.googleSignIn(auth);
-  };
-
   const logInSignUpToggle = () => {
     setMsg('');
     setEmail('');
@@ -66,7 +62,6 @@ const LoginSignUp = () => {
   return (
     <div className='login_signup__container flex item-center max-width width-100'>
       <div className='login_signup__contents flex item-center'>
-        {/*  */}
         {showSignUp && (
           <div className='form__contents'>
             <form
@@ -75,13 +70,6 @@ const LoginSignUp = () => {
             >
               <h1>Create Account</h1>
               <div className='social_login__container flex item-center'>
-                <Link>
-                  <img
-                    src={icons.facebook}
-                    title='Facebook'
-                    alt='facebook'
-                  />
-                </Link>
                 <Link>
                   <img
                     src={icons.google}
@@ -136,17 +124,10 @@ const LoginSignUp = () => {
               <div className='social_login__container flex item-center'>
                 <Link>
                   <img
-                    src={icons.facebook}
-                    title='Facebook'
-                    alt='facebook'
-                  />
-                </Link>
-                <Link>
-                  <img
                     src={icons.google}
                     title='Google'
                     alt='google'
-                    onClick={signInWithGoogle}
+                    onClick={signUpWithGoogle}
                   />
                 </Link>
               </div>

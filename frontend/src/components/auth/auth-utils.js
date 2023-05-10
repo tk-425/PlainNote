@@ -12,11 +12,9 @@ const googleSignUp = async (auth) => {
   await signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
-      console.log('user:', user.uid);
-      console.log('email:', user.email);
 
-      backendCreateUser(user).catch((error) => {
-        console.log(error);
+      backendAuthCheck(user).catch(() => {
+        backendCreateUser(user);
       });
     })
     .catch((error) => {
@@ -72,19 +70,17 @@ const signUp = async ({
   }
 };
 
-const googleSignIn = async (auth) => {
-  await signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
-      console.log('user:', user.uid);
-      console.log('email:', user.email);
+// const googleSignIn = async (auth, navigate) => {
+//   await signInWithPopup(auth, provider).then((result) => {
+//     const user = result.user;
 
-      backendAuthCheck(user);
-    })
-    .catch((error) => {
-      console.log('error message:', error.message);
-    });
-};
+//     backendAuthCheck(user).then((data) => {
+//       if (!data) {
+//         console.log('n0-user-data');
+//       }
+//     });
+//   });
+// };
 
 const backendAuthCheck = async (user) => {
   const requestOptions = {
@@ -101,6 +97,10 @@ const backendAuthCheck = async (user) => {
   if (!response.ok) {
     throw new Error('Authentication Failed');
   }
+
+  const data = await response.json();
+
+  return data;
 };
 
 const logIn = async ({
@@ -132,7 +132,7 @@ const logIn = async ({
 
 const authUtils = {
   googleSignUp,
-  googleSignIn,
+  // googleSignIn,
   signUp,
   logIn,
 };

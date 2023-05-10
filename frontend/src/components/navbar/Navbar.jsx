@@ -1,24 +1,11 @@
 import './styles/Navbar.css';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
-import { auth } from '../../utils/firebase';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const [user] = useAuthState(auth);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    auth
-      .signOut()
-      .then(() => {
-        navigate('/login');
-      })
-      .catch((error) => console.log(error));
-  };
-
   return (
     <div className='navbar__container max-width width-100'>
       <div className='navbar__content flex item-center'>
+
         <div className='navbar__logo text-start'>
           <Link to='/'>Logo</Link>
         </div>
@@ -28,16 +15,9 @@ const Navbar = () => {
         </div>
 
         <div className='navbar_signin text-end'>
-          {user && (
-            <Link
-              to='/home'
-              onClick={handleLogout}
-            >
-              Logout
-            </Link>
-          )}
-          {!user && <Link to='/login'>Login/Sign Up</Link>}
+          <Link className='navbar__login__button' to='/login'>Login</Link>
         </div>
+
       </div>
     </div>
   );

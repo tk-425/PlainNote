@@ -33,7 +33,7 @@ public class UserController {
       return new ResponseEntity<>(userService.authCheck(principal.getName()), HttpStatus.OK);
     }
 
-    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
   }
 
   @PostMapping

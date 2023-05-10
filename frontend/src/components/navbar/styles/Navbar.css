@@ -10,4 +10,14 @@
 }
 .navbar__container .navbar__content div {
   width: 100%;
+}
+.navbar__container .navbar__content div a {
+  text-decoration: none;
+}
+.navbar__container .navbar__content div .navbar__login__button {
+  color: var(--color-palette-04);
+  border: 1px solid var(--color-palette-01);
+  border-radius: 0.5rem;
+  background-color: var(--color-palette-01);
+  padding: 6px 18px;
 }/*# sourceMappingURL=Navbar.css.map */

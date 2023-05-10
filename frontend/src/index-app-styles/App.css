@@ -2,6 +2,6 @@
   margin: auto;
   padding: 0;
   height: 100vh;
-  grid-template-columns: [start] 2fr [sideBar] repeat(10, 1fr) [end];
+  grid-template-columns: [start] 15rem [sideBar] repeat(10, 1fr) [end];
   grid-template-rows: [start] 64px [sideBar] auto [main] 64px [end];
 }/*# sourceMappingURL=App.css.map */

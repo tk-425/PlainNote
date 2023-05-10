@@ -59,6 +59,10 @@ const Sidebar = ({
     editorUtils.saveDoc({ user, editor, selectedNote, setNote });
   };
 
+  // const saveAsDoc = async () => {
+  //   editorUtils.saveAsDoc({ editor, user, setNote });
+  // };
+
   const overlayOff = () => {
     setSearchErrorDisplayStyle('none');
     setSearchLengthError(false);
@@ -121,6 +125,12 @@ const Sidebar = ({
               >
                 Save
               </button>
+              {/* <button
+                className='editor-button sidebar__button'
+                onClick={saveAsDoc}
+              >
+                Save As
+              </button> */}
             </div>
           </>
         )}

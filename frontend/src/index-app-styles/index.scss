@@ -3,6 +3,13 @@
 // Code font
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
+:root {
+  --color-palette-01: #222831;
+  --color-palette-02: #393E46;
+  --color-palette-03: #00ADB5;
+  --color-palette-04: #EEEEEE;
+}
+
 /* Box Sizing */
 *,
 *::before,
@@ -146,4 +153,11 @@ a {
 .editor-button {
   border: none;
   cursor: pointer;
+
+  // background-color: var(--color-palette-04);
+  // background-color: lightblue;
 }
+
+// .editor-button-disabled {
+//   background-color: var(--color-palette-02);
+// }

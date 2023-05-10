@@ -50,9 +50,9 @@
   border: 1px solid gray;
 }
 .login_signup__container .login_signup__contents .form__contents form button {
+  border: 1px solid var(--color-palette-01);
   border-radius: 20px;
-  border: 1px solid rgb(52, 52, 52);
-  background-color: rgb(52, 52, 52);
+  background-color: var(--color-palette-01);
   color: #fff;
   font-size: 1rem;
   margin-block: 1rem;
@@ -85,6 +85,8 @@
   margin: 0;
   padding-block: 1rem;
   height: 10px;
+  font-weight: bold;
+  color: red;
 }
 .login_signup__container .login_signup__contents .form__contents form .form__footer {
   margin-top: 100px;

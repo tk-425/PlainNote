@@ -1,6 +1,5 @@
 .editor__container {
-  // background-color: rgb(24, 24, 24);
-  background-color: rgb(20, 21, 26);
+  background-color: var(--color-palette-01);
 
   color: #fafafa;
   overflow-y: auto;
@@ -27,6 +26,12 @@
 
 @media (max-height: 930px) {
   .editor_area {
-    margin: 2rem 1rem;
+    margin: 5rem 1rem;
   }
 }
+
+// @media (max-width: 500px) {
+//   .editor_area {
+//     margin: 6rem 1rem;
+//   }
+// }

@@ -1,6 +1,7 @@
 .sidebar__container {
-  background-color: rgb(52, 52, 52);
-  color: #fafafa;
+  // background-color: rgb(52, 52, 52);
+  background-color: var(--color-palette-02);
+  color: var(--color-palette-04);
   width: 100%;
   overflow-y: auto;
 
@@ -12,7 +13,7 @@
   .sidebar_search__box {
     width: 100%;
     padding: 0.5rem;
-    border-bottom: 1px solid lightblue;
+    border-bottom: 1px solid var(--color-palette-03);
 
     // position: sticky;
     // top: 0;
@@ -26,7 +27,7 @@
     button {
       background-color: transparent;
       padding-block: 0.3rem;
-      border: 1px solid lightblue;
+      border: 1px solid var(--color-palette-03);
       border-radius: 5px;
       color: #fff;
     }
@@ -35,10 +36,11 @@
       width: 80%;
       justify-content: space-between;
       margin-bottom: 0.5rem;
+      font-weight: 600;
 
       a {
         text-decoration: transparent;
-        color: #fff;
+        color: var(--color-palette-04);
         transition: text-decoration 0.3s ease-in;
       }
 
@@ -58,7 +60,7 @@
       width: 80%;
 
       input {
-        background-color: lightblue;
+        background-color: var(--color-palette-04);
         padding-inline: 0.2rem;
         width: 100%;
         border: none;
@@ -127,8 +129,8 @@
   }
 
   .sidebar_note__box:hover {
-    background-color: lightblue;
-    color: rgb(52, 52, 52);
+    background-color: var(--color-palette-03);
+    color: var(--color-palette-01);
 
     .sidebar_close__button {
       display: block;
