@@ -9,7 +9,7 @@ const Editor = ({
   setNote,
   allNotes,
   selectedNote,
-  setSelectedNote,
+  setSelectedNote,x
 }) => {
   return (
     <div className='editor__container scroll-visibility'>

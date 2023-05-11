@@ -16,13 +16,10 @@ import highLightGreen from '../assets/highlightGreen.png';
 import undo from '../assets/undo.png';
 import redo from '../assets/redo.png';
 import erase from '../assets/erase.png';
-import save from '../assets/svg/save.svg';
-import saveWhite from '../assets/save-white.png'
+import save from '../assets/save.png';
 import saveAs from '../assets/save-as.png';
-import saveAsWhite from '../assets/save-as-white.png';
 import load from '../assets/load.png';
 import reset from '../assets/reset.png';
-import resetWhite from '../assets/reset-white.png';
 import subScript from '../assets/subScript.png';
 import supScript from '../assets/supScript.png';
 import profileImage from '../assets/profileImage.png';
@@ -32,6 +29,8 @@ import hyperLinkDelete from '../assets/hyperlink-delete.png';
 import image from '../assets/image.png';
 import facebook from '../assets/facebook.png';
 import google from '../assets/google.png';
+import logo from '../assets/notes-logo.png';
+import menu from '../assets/menu.png';
 
 const icons = {
   bold,
@@ -53,12 +52,9 @@ const icons = {
   redo,
   erase,
   save,
-  saveWhite,
   saveAs,
-  saveAsWhite,
   load,
   reset,
-  resetWhite,
   subScript,
   supScript,
   profileImage,
@@ -68,6 +64,8 @@ const icons = {
   image,
   facebook,
   google,
+  logo,
+  menu,
 };
 
 export default icons;

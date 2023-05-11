@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
+:root {
+  --color-palette-01: #222831;
+  --color-palette-02: #393E46;
+  --color-palette-03: #00ADB5;
+  --color-palette-04: #EEEEEE;
+}
+
 /* Box Sizing */
 *,
 *::before,
@@ -97,7 +104,7 @@ a {
 .grid-container-center {
   grid-column-start: start;
   grid-column-end: end;
-  grid-row-start: sideBar;
+  grid-row-start: navBar;
   grid-row-end: main;
 }
 

@@ -1,8 +1,5 @@
 .menu_bar__container {
-  background-color: rgb(20, 21, 26);
-
-  // position: sticky;
-  // top: 0;
+  background-color: var(--color-palette-01);
   margin-top: 2rem;
   margin-inline: 0.8rem;
   width: 1.8rem;
@@ -13,17 +10,6 @@
   grid-row-end: end;
 
   .menu_bar__contents {
-    // margin-block: auto;
-    // padding-top: 1.5rem;
-    // padding-bottom: 1rem;
-    // margin-inline: 15rem;
-    // flex-wrap: wrap;
-    // background-color: rgb(24, 24, 24);
-    // background-color: rgb(20, 21, 26);
-    // height: fit-content;
-    // margin: 0 auto;
-    // margin-top: 10px;
-
     position: fixed;
 
     button {
@@ -36,31 +22,28 @@
 
 @media (max-height: 930px) {
   .menu_bar__container {
-    height: 50px;
-    width: 100%;
     z-index: 5;
+    display: flex;
+    align-items: center;
+    margin-block: 0;
+    height: 5rem;
+    width: 100%;
     position: sticky;
     top: 0;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     grid-column-start: start;
     grid-column-end: end;
     grid-row-start: start;
     grid-row-end: topMenuBar;
 
+    
+
     .menu_bar__contents {
-      // margin-block: auto;
-      margin-block: 10px;
-      // width: fit-content;
-      height: fit-content;
       flex-direction: row;
       flex-wrap: wrap;
-      margin: 0 auto;
 
       button {
+        margin-block: 0;
         margin-inline: 0.2rem;
       }
     }

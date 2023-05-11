@@ -1,0 +1,26 @@
+.main_navbar__container {
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  padding-inline: 1.5rem;
+  color: var(--color-palette-04);
+  background-color: var(--color-palette-03);
+  grid-column-start: start;
+  grid-column-end: end;
+}
+.main_navbar__container a {
+  -webkit-text-decoration: transparent;
+          text-decoration: transparent;
+  transition: -webkit-text-decoration 0.3s ease-in;
+  transition: text-decoration 0.3s ease-in;
+  transition: text-decoration 0.3s ease-in, -webkit-text-decoration 0.3s ease-in;
+  color: var(--color-palette-04);
+}
+.main_navbar__container a:hover {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  cursor: pointer;
+}
+.main_navbar__container .navbar__logo {
+  height: 24px;
+}/*# sourceMappingURL=MainNavBar.css.map */

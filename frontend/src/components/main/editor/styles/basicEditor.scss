@@ -1,6 +1,6 @@
 /* Basic Editor Styles */
 .ProseMirror {
-  background-color: rgb(20, 21, 26);
+  background-color: var(--color-palette-01);
 
   overflow-y: auto;
   padding: 1rem;
@@ -23,6 +23,10 @@
   h5,
   h6 {
     line-height: 1.1;
+  }
+
+  iframe {
+    margin: 10px;
   }
 
   code {

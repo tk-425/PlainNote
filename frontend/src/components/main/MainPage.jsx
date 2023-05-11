@@ -6,6 +6,7 @@ import Sidebar from './sidebar/Sidebar';
 import Editor from './editor/Editor';
 import { useEditor } from '@tiptap/react';
 import editorSetting from '../../utils/editorSetting';
+import MainNavBar from './main-navbar/MainNavBar';
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const MainPage = () => {
   const [note, setNote] = useState(null);
   const [allNotes, setAllNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
- 
+
   const editor = useEditor(editorSetting);
 
   useEffect(() => {
@@ -30,6 +31,7 @@ const MainPage = () => {
     <>
       {authenticated && (
         <>
+          <MainNavBar />
           <Sidebar
             editor={editor}
             note={note}
@@ -66,4 +68,3 @@ If a user can't connect to server or it is not working,
 show server error info.
 Maybe Server: connected info??
 */
-       
