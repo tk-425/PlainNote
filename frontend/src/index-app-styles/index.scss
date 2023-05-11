@@ -108,7 +108,7 @@ a {
 .grid-container-center {
   grid-column-start: start;
   grid-column-end: end;
-  grid-row-start: sideBar;
+  grid-row-start: navBar;
   grid-row-end: main;
 }
 
@@ -153,11 +153,4 @@ a {
 .editor-button {
   border: none;
   cursor: pointer;
-
-  // background-color: var(--color-palette-04);
-  // background-color: lightblue;
 }
-
-// .editor-button-disabled {
-//   background-color: var(--color-palette-02);
-// }

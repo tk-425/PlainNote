@@ -1,10 +1,10 @@
 .editor__container {
   background-color: var(--color-palette-01);
   color: #fafafa;
-  overflow-y: auto;
+  overflow-y: overlay;
   grid-column-start: sideBar;
   grid-column-end: end;
-  grid-row-start: start;
+  grid-row-start: navBar;
   grid-row-end: end;
 }
 .editor__container .editor__contents {

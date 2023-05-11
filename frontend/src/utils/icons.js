@@ -29,6 +29,8 @@ import hyperLinkDelete from '../assets/hyperlink-delete.png';
 import image from '../assets/image.png';
 import facebook from '../assets/facebook.png';
 import google from '../assets/google.png';
+import logo from '../assets/notes-logo.png';
+import menu from '../assets/menu.png';
 
 const icons = {
   bold,
@@ -62,6 +64,8 @@ const icons = {
   image,
   facebook,
   google,
+  logo,
+  menu,
 };
 
 export default icons;

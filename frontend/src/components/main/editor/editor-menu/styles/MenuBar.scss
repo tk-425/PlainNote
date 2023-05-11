@@ -22,51 +22,25 @@
 
 @media (max-height: 930px) {
   .menu_bar__container {
-    // height: 60px;
-    // height: 5rem;
-    // height: 100%;
-    
     z-index: 5;
-    // width: 50%;
-    
-    // position: sticky;
-    // top: 0;
-    
-    // margin: 0 auto;
-    // padding-left: 1rem;
-
-    // display: flex;
-    
-    // justify-content: start;
-    
-    // align-items: center;
+    display: flex;
+    align-items: center;
+    margin-block: 0;
+    height: 5rem;
+    width: 100%;
+    position: sticky;
+    top: 0;
 
     grid-column-start: start;
     grid-column-end: end;
     grid-row-start: start;
     grid-row-end: topMenuBar;
 
-    display: flex;
-    align-items: center;
-    margin-block: 0;
-    // margin-inline: 0;
-    // padding-inline: 2rem;
-    height: 5rem;
-    width: 100%;
-
-    position: sticky;
-    top: 0;
     
 
     .menu_bar__contents {
-      // margin-block: 10px;
-      // height: fit-content;
       flex-direction: row;
       flex-wrap: wrap;
-      // margin: 0 auto;
-
-      // overflow: hidden;
-      
 
       button {
         margin-block: 0;
@@ -75,9 +49,3 @@
     }
   }
 }
-
-// @media (max-width: 500px) {
-//   .menu_bar__container {
-//     height: 6rem;
-//   }
-// }

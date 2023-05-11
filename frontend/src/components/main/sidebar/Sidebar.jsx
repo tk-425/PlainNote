@@ -6,6 +6,7 @@ import messages from '../../../utils/messages';
 import sidebarUtils from './sidebar-utils';
 import { Link } from 'react-router-dom';
 import editorUtils from '../editor/editor-utils';
+import icons from '../../../utils/icons';
 
 const Sidebar = ({
   editor,
@@ -59,10 +60,6 @@ const Sidebar = ({
     editorUtils.saveDoc({ user, editor, selectedNote, setNote });
   };
 
-  // const saveAsDoc = async () => {
-  //   editorUtils.saveAsDoc({ editor, user, setNote });
-  // };
-
   const overlayOff = () => {
     setSearchErrorDisplayStyle('none');
     setSearchLengthError(false);
@@ -73,9 +70,9 @@ const Sidebar = ({
     editor.commands.setContent(n.body);
   };
 
-  const handleLogout = () => {
-    auth.signOut().catch((error) => console.log(error));
-  };
+  const hideMenu = () => {
+    console.log('hide menu');
+  }
 
   return (
     <div className='sidebar__container scroll-visibility'>
@@ -83,15 +80,16 @@ const Sidebar = ({
       <div className='sidebar_search__box block flex flex-col item-center'>
         {!searchLengthError && (
           <>
-            <div className='sidebar_user__info flex'>
+            <div className='sidebar_user__info flex item-center'>
               <span>Hello, {user.email.split('@')[0]}!</span>
               <span>
-                <Link
-                  to='/'
-                  onClick={handleLogout}
-                >
-                  Logout
-                </Link>
+                <button onClick={hideMenu}>
+                  <img
+                    className='sidebar__menu'
+                    src={icons.menu}
+                    alt='menu'
+                  />
+                </button>
               </span>
             </div>
             <button
@@ -147,7 +145,7 @@ const Sidebar = ({
       </div>
 
       {/* Notes */}
-      <div className='sidebar__contents'>
+      <div className='sidebar_notes__contents'>
         {allNotes?.map((n) => (
           <div
             className='sidebar_note__box flex item-center'
