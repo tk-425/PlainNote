@@ -7,8 +7,9 @@
   grid-column-end: sideBar;
   grid-row-start: navBar;
   grid-row-end: end;
+  grid-template-rows: [top] 18rem [mid] auto [bottom];
 }
-.sidebar__container .sidebar_search__box {
+.sidebar__container .sidebar_menu__contents {
   z-index: 20;
   background-color: var(--color-palette-02);
   width: 100%;
@@ -16,26 +17,28 @@
   position: sticky;
   top: 0;
   border-bottom: 1px solid var(--color-palette-03);
-  height: 20rem;
+  grid-row-start: top;
+  grid-row-end: mid;
 }
-.sidebar__container .sidebar_search__box span {
+.sidebar__container .sidebar_menu__contents span {
   margin-block: 0.5rem;
   font-size: 0.8rem;
 }
-.sidebar__container .sidebar_search__box button {
+.sidebar__container .sidebar_menu__contents button {
   background-color: transparent;
   padding-block: 0.3rem;
   border: 1px solid var(--color-palette-03);
   border-radius: 5px;
   color: #fff;
 }
-.sidebar__container .sidebar_search__box .sidebar_user__info {
+.sidebar__container .sidebar_menu__contents .sidebar_user__info {
   width: 100%;
   justify-content: space-between;
   font-weight: 600;
   padding-inline: 0.5rem;
+  padding-bottom: 0.5rem;
 }
-.sidebar__container .sidebar_search__box .sidebar_user__info a {
+.sidebar__container .sidebar_menu__contents .sidebar_user__info a {
   -webkit-text-decoration: transparent;
           text-decoration: transparent;
   color: var(--color-palette-04);
@@ -43,65 +46,69 @@
   transition: text-decoration 0.3s ease-in;
   transition: text-decoration 0.3s ease-in, -webkit-text-decoration 0.3s ease-in;
 }
-.sidebar__container .sidebar_search__box .sidebar_user__info a:hover {
+.sidebar__container .sidebar_menu__contents .sidebar_user__info a:hover {
   text-decoration: underline;
   text-underline-offset: 8px;
   cursor: pointer;
 }
-.sidebar__container .sidebar_search__box .sidebar_user__info button {
+.sidebar__container .sidebar_menu__contents .sidebar_user__info button {
   border: none;
+  padding: 0;
+  margin: 0;
 }
-.sidebar__container .sidebar_search__box .sidebar_user__info .sidebar__menu {
+.sidebar__container .sidebar_menu__contents .sidebar_user__info .sidebar__menu {
   height: 24px;
   cursor: pointer;
 }
-.sidebar__container .sidebar_search__box .sidebar__button {
+.sidebar__container .sidebar_menu__contents .sidebar__button {
   margin-bottom: 1rem;
   width: 100%;
 }
-.sidebar__container .sidebar_search__box .search_box__container {
+.sidebar__container .sidebar_menu__contents .search_box__container {
   width: 100%;
 }
-.sidebar__container .sidebar_search__box .search_box__container input {
+.sidebar__container .sidebar_menu__contents .search_box__container input {
   background-color: var(--color-palette-04);
   padding-inline: 0.2rem;
   width: 100%;
   border: none;
 }
-.sidebar__container .sidebar_search__box .search_box__container input:focus {
+.sidebar__container .sidebar_menu__contents .search_box__container input:focus {
   outline: none;
   background-color: #fff;
 }
-.sidebar__container .sidebar_search__box .search_box__container input:focus::-moz-placeholder {
+.sidebar__container .sidebar_menu__contents .search_box__container input:focus::-moz-placeholder {
   color: transparent;
 }
-.sidebar__container .sidebar_search__box .search_box__container input:focus::placeholder {
+.sidebar__container .sidebar_menu__contents .search_box__container input:focus::placeholder {
   color: transparent;
 }
-.sidebar__container .sidebar_search__box .search_box__container input::-moz-placeholder {
+.sidebar__container .sidebar_menu__contents .search_box__container input::-moz-placeholder {
   text-align: center;
   font-size: 0.9rem;
 }
-.sidebar__container .sidebar_search__box .search_box__container input::placeholder {
+.sidebar__container .sidebar_menu__contents .search_box__container input::placeholder {
   text-align: center;
   font-size: 0.9rem;
 }
-.sidebar__container .sidebar_search__box .search_box__container button {
+.sidebar__container .sidebar_menu__contents .search_box__container button {
   margin-top: 1rem;
   width: 100%;
 }
-.sidebar__container .sidebar_search__box .sidebar_overlay__container {
+.sidebar__container .sidebar_menu__contents .sidebar_overlay__container {
   height: 100%;
   width: 100%;
   padding: 1rem;
   cursor: pointer;
 }
-.sidebar__container .sidebar_search__box .sidebar_overlay__container .sidebar_overlay__msg {
+.sidebar__container .sidebar_menu__contents .sidebar_overlay__container .sidebar_overlay__msg {
   text-align: center;
   margin-block: 1rem;
 }
 .sidebar__container .sidebar_notes__contents {
   overflow-y: overlay;
+  grid-row-start: mid;
+  grid-row-end: bottom;
 }
 .sidebar__container .sidebar_notes__contents .sidebar_note__box {
   cursor: pointer;
@@ -123,10 +130,10 @@
   margin-inline: 1rem;
   cursor: pointer;
 }
-.sidebar__container .sidebar_note__box:hover {
+.sidebar__container .sidebar_notes__contents .sidebar_note__box:hover {
   background-color: var(--color-palette-03);
   color: var(--color-palette-01);
 }
-.sidebar__container .sidebar_note__box:hover .sidebar_close__button {
+.sidebar__container .sidebar_notes__contents .sidebar_note__box:hover .sidebar_close__button {
   display: block;
 }/*# sourceMappingURL=Sidebar.css.map */

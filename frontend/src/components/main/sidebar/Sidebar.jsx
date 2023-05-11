@@ -72,25 +72,23 @@ const Sidebar = ({
 
   const hideMenu = () => {
     console.log('hide menu');
-  }
+  };
 
   return (
-    <div className='sidebar__container scroll-visibility'>
-      {/* Search Box */}
-      <div className='sidebar_search__box block flex flex-col item-center'>
+    <div className='sidebar__container grid'>
+      {/* Sidebar Menu */}
+      <div className='sidebar_menu__contents block flex flex-col item-center'>
         {!searchLengthError && (
           <>
             <div className='sidebar_user__info flex item-center'>
               <span>Hello, {user.email.split('@')[0]}!</span>
-              <span>
-                <button onClick={hideMenu}>
-                  <img
-                    className='sidebar__menu'
-                    src={icons.menu}
-                    alt='menu'
-                  />
-                </button>
-              </span>
+              <button onClick={hideMenu}>
+                <img
+                  className='sidebar__menu'
+                  src={icons.menu}
+                  alt='menu'
+                />
+              </button>
             </div>
             <button
               className='sidebar__button editor-button'
@@ -118,7 +116,7 @@ const Sidebar = ({
                 Search
               </button>
               <button
-                className='editor-button sidebar__button'
+                className='sidebar__button editor-button'
                 onClick={saveDoc}
               >
                 Save
@@ -145,7 +143,7 @@ const Sidebar = ({
       </div>
 
       {/* Notes */}
-      <div className='sidebar_notes__contents'>
+      <div className='sidebar_notes__contents scroll-visibility'>
         {allNotes?.map((n) => (
           <div
             className='sidebar_note__box flex item-center'

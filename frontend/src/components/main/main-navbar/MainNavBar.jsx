@@ -20,14 +20,13 @@ const MainNavBar = () => {
           />
         </Link>
       </span>
-      <span>
-        <Link
-          to='/'
-          onClick={handleLogout}
-        >
-          Logout
-        </Link>
-      </span>
+
+      <Link
+        to='/'
+        onClick={handleLogout}
+      >
+        Logout
+      </Link>
     </div>
   );
 };
