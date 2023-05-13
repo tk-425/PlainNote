@@ -9,36 +9,31 @@
   grid-row-end: end;
   grid-template-rows: [top] 18rem [mid] auto [bottom];
 }
-.sidebar__container .sidebar_menu__contents {
+.sidebar__container .sidebar_menu__container {
   z-index: 20;
   background-color: var(--color-palette-02);
   width: 100%;
   padding: 0.5rem;
-  position: sticky;
-  top: 0;
   border-bottom: 1px solid var(--color-palette-03);
   grid-row-start: top;
   grid-row-end: mid;
 }
-.sidebar__container .sidebar_menu__contents span {
+.sidebar__container .sidebar_menu__container span {
   margin-block: 0.5rem;
   font-size: 0.8rem;
 }
-.sidebar__container .sidebar_menu__contents button {
+.sidebar__container .sidebar_menu__container button {
   background-color: transparent;
-  padding-block: 0.3rem;
-  border: 1px solid var(--color-palette-03);
-  border-radius: 5px;
-  color: #fff;
+  color: var(--color-palette-04);
 }
-.sidebar__container .sidebar_menu__contents .sidebar_user__info {
+.sidebar__container .sidebar_menu__container .sidebar_toggle__menu {
   width: 100%;
+  height: 100%;
   justify-content: space-between;
   font-weight: 600;
   padding-inline: 0.5rem;
-  padding-bottom: 0.5rem;
 }
-.sidebar__container .sidebar_menu__contents .sidebar_user__info a {
+.sidebar__container .sidebar_menu__container .sidebar_toggle__menu a {
   -webkit-text-decoration: transparent;
           text-decoration: transparent;
   color: var(--color-palette-04);
@@ -46,74 +41,108 @@
   transition: text-decoration 0.3s ease-in;
   transition: text-decoration 0.3s ease-in, -webkit-text-decoration 0.3s ease-in;
 }
-.sidebar__container .sidebar_menu__contents .sidebar_user__info a:hover {
+.sidebar__container .sidebar_menu__container .sidebar_toggle__menu a:hover {
   text-decoration: underline;
   text-underline-offset: 8px;
   cursor: pointer;
 }
-.sidebar__container .sidebar_menu__contents .sidebar_user__info button {
+.sidebar__container .sidebar_menu__container .sidebar_toggle__menu button {
   border: none;
   padding: 0;
   margin: 0;
 }
-.sidebar__container .sidebar_menu__contents .sidebar_user__info .sidebar__menu {
+.sidebar__container .sidebar_menu__container .sidebar_toggle__menu .sidebar_toggle__icon {
   height: 24px;
   cursor: pointer;
 }
-.sidebar__container .sidebar_menu__contents .sidebar__button {
-  margin-bottom: 1rem;
+.sidebar__container .sidebar_menu__container .sidebar_toggle__menu span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar__container .sidebar_menu__container .sidebar_button__container {
   width: 100%;
 }
-.sidebar__container .sidebar_menu__contents .search_box__container {
+.sidebar__container .sidebar_menu__container .sidebar_button__container * {
   width: 100%;
+  margin-block: 0.5rem;
+  align-items: center;
 }
-.sidebar__container .sidebar_menu__contents .search_box__container input {
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents input {
   background-color: var(--color-palette-04);
-  padding-inline: 0.2rem;
-  width: 100%;
   border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
-.sidebar__container .sidebar_menu__contents .search_box__container input:focus {
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents input:focus {
   outline: none;
   background-color: #fff;
 }
-.sidebar__container .sidebar_menu__contents .search_box__container input:focus::-moz-placeholder {
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents input:focus::-moz-placeholder {
   color: transparent;
 }
-.sidebar__container .sidebar_menu__contents .search_box__container input:focus::placeholder {
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents input:focus::placeholder {
   color: transparent;
 }
-.sidebar__container .sidebar_menu__contents .search_box__container input::-moz-placeholder {
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents input::-moz-placeholder {
   text-align: center;
   font-size: 0.9rem;
 }
-.sidebar__container .sidebar_menu__contents .search_box__container input::placeholder {
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents input::placeholder {
   text-align: center;
   font-size: 0.9rem;
 }
-.sidebar__container .sidebar_menu__contents .search_box__container button {
-  margin-top: 1rem;
-  width: 100%;
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
-.sidebar__container .sidebar_menu__contents .sidebar_overlay__container {
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents button .button__text {
+  font-size: 1rem;
+  margin: 0;
+}
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents button:hover {
+  background-color: var(--color-palette-03);
+  border-radius: 5px;
+}
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents button:hover .button__text {
+  color: var(--color-palette-01);
+}
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents .sidebar_note__icon {
+  width: 24px;
+  height: 24px;
+  margin-inline: 0.5rem;
+}
+.sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents .search__button {
+  width: 6rem;
+  margin-inline: 0.4rem;
+}
+.sidebar__container .sidebar_menu__container .sidebar_overlay__container {
   height: 100%;
   width: 100%;
   padding: 1rem;
   cursor: pointer;
 }
-.sidebar__container .sidebar_menu__contents .sidebar_overlay__container .sidebar_overlay__msg {
+.sidebar__container .sidebar_menu__container .sidebar_overlay__container .sidebar_overlay__msg {
   text-align: center;
   margin-block: 1rem;
 }
-.sidebar__container .sidebar_notes__contents {
+.sidebar__container .sidebar_menu__container .sidebar_overlay__container .sidebar_close__button {
+  background-color: var(--color-palette-04);
+  color: var(--color-palette-01);
+}
+.sidebar__container .sidebar_notes__container {
   overflow-y: overlay;
   grid-row-start: mid;
   grid-row-end: bottom;
 }
-.sidebar__container .sidebar_notes__contents .sidebar_note__box {
+.sidebar__container .sidebar_notes__container .sidebar_note__contents {
   cursor: pointer;
 }
-.sidebar__container .sidebar_notes__contents .sidebar_note__box .sidebar__title {
+.sidebar__container .sidebar_notes__container .sidebar_note__contents .sidebar__title {
   padding-block: 0.8rem;
   padding-inline: 2.5rem;
   flex-direction: column;
@@ -121,19 +150,37 @@
   text-align: start;
   width: 100%;
 }
-.sidebar__container .sidebar_notes__contents .sidebar_note__box .sidebar__title span {
+.sidebar__container .sidebar_notes__container .sidebar_note__contents .sidebar__title span {
   font-size: 14px;
   width: inherit;
 }
-.sidebar__container .sidebar_notes__contents .sidebar_note__box .sidebar_close__button {
+.sidebar__container .sidebar_notes__container .sidebar_note__contents .sidebar_close__button {
   display: none;
   margin-inline: 1rem;
+  background-color: var(--color-palette-04);
   cursor: pointer;
 }
-.sidebar__container .sidebar_notes__contents .sidebar_note__box:hover {
+.sidebar__container .sidebar_notes__container .sidebar_note__contents:hover {
   background-color: var(--color-palette-03);
   color: var(--color-palette-01);
 }
-.sidebar__container .sidebar_notes__contents .sidebar_note__box:hover .sidebar_close__button {
+.sidebar__container .sidebar_notes__container .sidebar_note__contents:hover .sidebar_close__button {
   display: block;
+}
+
+.sidebar__container.active .sidebar_toggle__menu {
+  justify-content: center;
+}
+.sidebar__container.active .sidebar_toggle__menu span {
+  display: none;
+}
+.sidebar__container.active .sidebar_button__container .sidebar_button__contents {
+  justify-content: center;
+}
+.sidebar__container.active .sidebar_button__container .sidebar_button__contents input,
+.sidebar__container.active .sidebar_button__container .sidebar_button__contents button {
+  display: none;
+}
+.sidebar__container.active .sidebar_notes__container {
+  display: none;
 }/*# sourceMappingURL=Sidebar.css.map */

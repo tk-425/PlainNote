@@ -8,7 +8,7 @@ import { useEditor } from '@tiptap/react';
 import editorSetting from '../../utils/editorSetting';
 import MainNavBar from './main-navbar/MainNavBar';
 
-const MainPage = () => {
+const MainPage = ({ sidebarToggle, setSidebarToggle }) => {
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
   const [authenticated, setAuthenticated] = useState(false);
@@ -40,6 +40,8 @@ const MainPage = () => {
             setAllNotes={setAllNotes}
             selectedNote={selectedNote}
             setSelectedNote={setSelectedNote}
+            sidebarToggle={sidebarToggle}
+            setSidebarToggle={setSidebarToggle}
           />
           <Editor
             editor={editor}
