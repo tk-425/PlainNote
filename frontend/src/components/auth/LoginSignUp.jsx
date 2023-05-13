@@ -62,6 +62,8 @@ const LoginSignUp = () => {
   return (
     <div className='login_signup__container flex item-center max-width width-100'>
       <div className='login_signup__contents flex item-center'>
+        
+        {/* Sign In */}
         {showSignUp && (
           <div className='form__contents'>
             <form
@@ -114,6 +116,7 @@ const LoginSignUp = () => {
           </div>
         )}
 
+        {/* Sign Up */}
         {!showSignUp && (
           <div className='form__contents'>
             <form

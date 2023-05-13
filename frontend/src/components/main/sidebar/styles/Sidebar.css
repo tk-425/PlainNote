@@ -69,16 +69,21 @@
   align-items: center;
 }
 .sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents input {
-  background-color: var(--color-palette-04);
+  background-color: transparent;
+  margin-left: 1rem;
   border: none;
-  border-radius: 5px;
+  border-bottom: 1px solid var(--color-palette-04);
   width: 100%;
-  height: 100%;
+  height: 80%;
+  color: var(--color-palette-04);
   text-align: center;
+  transition: background-color 0.2s ease;
 }
 .sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents input:focus {
   outline: none;
-  background-color: #fff;
+  background-color: var(--color-palette-04);
+  border-radius: 5px;
+  color: var(--color-palette-01);
 }
 .sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents input:focus::-moz-placeholder {
   color: transparent;
@@ -98,7 +103,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 80%;
 }
 .sidebar__container .sidebar_menu__container .sidebar_button__container .sidebar_button__contents button .button__text {
   font-size: 1rem;
@@ -169,13 +174,13 @@
 }
 
 .sidebar__container.active .sidebar_toggle__menu {
-  justify-content: center;
+  justify-content: start;
 }
 .sidebar__container.active .sidebar_toggle__menu span {
   display: none;
 }
 .sidebar__container.active .sidebar_button__container .sidebar_button__contents {
-  justify-content: center;
+  justify-content: start;
 }
 .sidebar__container.active .sidebar_button__container .sidebar_button__contents input,
 .sidebar__container.active .sidebar_button__container .sidebar_button__contents button {

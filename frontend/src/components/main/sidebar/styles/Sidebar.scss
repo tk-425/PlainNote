@@ -83,17 +83,22 @@
 
       .sidebar_button__contents {
         input {
-          background-color: var(--color-palette-04);
+          background-color: transparent;
+          margin-left: 1rem;
           border: none;
-          border-radius: 5px;
+          border-bottom: 1px solid var(--color-palette-04);
           width: 100%;
-          height: 100%;
+          height: 80%;
+          color: var(--color-palette-04);
           text-align: center;
+          transition: background-color 0.2s ease;
         }
 
         input:focus {
           outline: none;
-          background-color: #fff;
+          background-color: var(--color-palette-04);
+          border-radius: 5px;
+          color: var(--color-palette-01);
         }
 
         input:focus::placeholder {
@@ -109,8 +114,8 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 100%;
-          
+          height: 80%;
+
           .button__text {
             font-size: 1rem;
             margin: 0;
@@ -134,7 +139,7 @@
 
         .search__button {
           width: 6rem;
-          margin-inline: .4rem;
+          margin-inline: 0.4rem;
         }
       }
     }
@@ -204,7 +209,7 @@
 // Toggle Active
 .sidebar__container.active {
   .sidebar_toggle__menu {
-    justify-content: center;
+    justify-content: start;
 
     span {
       display: none;
@@ -213,12 +218,11 @@
 
   .sidebar_button__container {
     .sidebar_button__contents {
-      justify-content: center;
+      justify-content: start;
 
       input,
       button {
         display: none;
-        // margin: 0;
       }
     }
   }

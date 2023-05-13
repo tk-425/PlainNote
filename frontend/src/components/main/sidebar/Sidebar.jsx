@@ -104,7 +104,7 @@ const Sidebar = ({
                   />
                 )}
               </button>
-              <span>Hello, {user.email.split('@')[0]}!</span>
+              <span>Hello, {user.email.split('@')[0].toUpperCase()}!</span>
             </div>
 
             {/* Menu Buttons */}
