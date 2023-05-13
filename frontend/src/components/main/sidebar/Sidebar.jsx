@@ -4,7 +4,6 @@ import { auth } from '../../../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import messages from '../../../utils/messages';
 import sidebarUtils from './sidebar-utils';
-import { Link } from 'react-router-dom';
 import editorUtils from '../editor/editor-utils';
 import icons from '../../../utils/icons';
 
@@ -16,12 +15,15 @@ const Sidebar = ({
   setAllNotes,
   selectedNote,
   setSelectedNote,
+  sidebarToggle,
+  setSidebarToggle,
 }) => {
   const [user] = useAuthState(auth);
   const [noteDeleted, setNoteDeleted] = useState(false);
   const [showAllNotes, setShowAllNotes] = useState(true);
   const [searchLengthError, setSearchLengthError] = useState(false);
   const [searchErrorDisplayStyle, setSearchErrorDisplayStyle] = useState('');
+  const [active, setActive] = useState(false);
   const searchInputRef = useRef(null);
 
   // The sidebar will be rerendered when a note is deleted or
@@ -72,81 +74,131 @@ const Sidebar = ({
 
   const hideMenu = () => {
     console.log('hide menu');
+    setActive(!active);
+    setSidebarToggle(!sidebarToggle);
   };
 
   return (
-    <div className='sidebar__container grid'>
-      {/* Sidebar Menu */}
-      <div className='sidebar_menu__contents block flex flex-col item-center'>
+    <div className={`sidebar__container grid ${active ? 'active' : ''}`}>
+      {/* Menu Contents */}
+      <div className='sidebar_menu__container block flex flex-col item-center'>
         {!searchLengthError && (
           <>
-            <div className='sidebar_user__info flex item-center'>
+            {/* Menu Toggle Icon & User Info */}
+            <div className='sidebar_toggle__menu flex item-center'>
+              <button
+                className='sidebar_menu__button'
+                onClick={hideMenu}
+              >
+                {active ? (
+                  <img
+                    className='sidebar_toggle__icon'
+                    src={icons.menuClose}
+                    alt='menu'
+                  />
+                ) : (
+                  <img
+                    className='sidebar_toggle__icon'
+                    src={icons.menu}
+                    alt='menu'
+                  />
+                )}
+              </button>
               <span>Hello, {user.email.split('@')[0]}!</span>
-              <button onClick={hideMenu}>
-                <img
-                  className='sidebar__menu'
-                  src={icons.menu}
-                  alt='menu'
-                />
-              </button>
             </div>
-            <button
-              className='sidebar__button editor-button'
-              onClick={createNewNote}
-            >
-              New Note
-            </button>
-            <button
-              className='sidebar__button editor-button'
-              onClick={showNotes}
-            >
-              Show All Notes
-            </button>
-            <div className='search_box__container flex flex-col item-center'>
-              <input
-                type='text'
-                ref={searchInputRef}
-                min={3}
-                placeholder='Search Notes'
-              />
-              <button
-                className='editor-button'
-                onClick={searchNotes}
-              >
-                Search
-              </button>
-              <button
-                className='sidebar__button editor-button'
-                onClick={saveDoc}
-              >
-                Save
-              </button>
-              {/* <button
-                className='editor-button sidebar__button'
-                onClick={saveAsDoc}
-              >
-                Save As
-              </button> */}
+
+            {/* Menu Buttons */}
+            <div className='sidebar_button__container flex flex-col item-center'>
+              {/* New Note */}
+              <div className='sidebar_button__contents flex'>
+                <img
+                  className='sidebar_note__icon'
+                  src={icons.noteNew}
+                  alt='new note'
+                />
+                <button
+                  className='sidebar__button editor-button'
+                  onClick={createNewNote}
+                  type='button'
+                >
+                  <span className='button__text'>New Note</span>
+                </button>
+              </div>
+
+              {/* Show All Notes */}
+              <div className='sidebar_button__contents flex'>
+                <img
+                  className='sidebar_note__icon'
+                  src={icons.noteAll}
+                  alt='show all notes'
+                />
+                <button
+                  className='sidebar__button editor-button'
+                  onClick={showNotes}
+                  type='button'
+                >
+                  <span className='button__text'>All Notes</span>
+                </button>
+              </div>
+
+              {/* Save */}
+              <div className='sidebar_button__contents flex'>
+                <img
+                  className='sidebar_note__icon'
+                  src={icons.save}
+                  alt='save'
+                />
+                <button
+                  className='sidebar__button editor-button'
+                  onClick={saveDoc}
+                  type='button'
+                >
+                  <span className='button__text'>Save</span>
+                </button>
+              </div>
+
+              {/* Search */}
+              <div className='sidebar_button__contents flex'>
+                <img
+                  className='sidebar_note__icon'
+                  src={icons.search}
+                  alt='search'
+                />
+                <input
+                  type='text'
+                  ref={searchInputRef}
+                  min={3}
+                  placeholder='Search Notes'
+                />
+                <button
+                  className='sidebar__button editor-button search__button'
+                  onClick={searchNotes}
+                  type='button'
+                >
+                  <span className='button__text'>Search</span>
+                </button>
+              </div>
             </div>
           </>
         )}
 
+        {/* Menu Overlay */}
         {searchLengthError && (
           <div
             className={`sidebar_overlay__container flex flex-col item-center ${searchErrorDisplayStyle}`}
             onClick={overlayOff}
           >
             <div className='sidebar_overlay__msg'>{messages.searchLength}</div>
-            <button className='editor-button'>X</button>
+            <button className='sidebar_close__button editor-button'>X</button>
           </div>
         )}
       </div>
 
       {/* Notes */}
-      <div className='sidebar_notes__contents scroll-visibility'>
+      <div className='sidebar_notes__container scroll-visibility'>
         {allNotes?.map((n) => (
           <div
-            className='sidebar_note__box flex item-center'
+            className='sidebar_note__contents flex item-center'
             key={n.id}
           >
             <div

@@ -1,6 +1,6 @@
 .menu_bar__container {
   background-color: var(--color-palette-01);
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-inline: 0.8rem;
   width: 1.8rem;
 
@@ -35,8 +35,6 @@
     grid-column-end: end;
     grid-row-start: start;
     grid-row-end: topMenuBar;
-
-    
 
     .menu_bar__contents {
       flex-direction: row;

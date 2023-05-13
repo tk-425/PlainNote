@@ -31,6 +31,10 @@ import facebook from '../assets/facebook.png';
 import google from '../assets/google.png';
 import logo from '../assets/notes-logo.png';
 import menu from '../assets/menu.png';
+import menuClose from '../assets/menu-close.png';
+import noteNew from '../assets/note-new.png';
+import noteAll from '../assets/note-all.png';
+import search from '../assets/search.png';
 
 const icons = {
   bold,
@@ -66,6 +70,10 @@ const icons = {
   google,
   logo,
   menu,
+  menuClose,
+  noteNew,
+  noteAll,
+  search,
 };
 
 export default icons;

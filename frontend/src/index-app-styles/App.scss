@@ -2,10 +2,15 @@
   margin: auto;
   padding: 0;
   height: 100vh;
-  grid-template-columns: [start] 20rem [sideBar] repeat(10, 1fr) [end];
-  grid-template-rows: [start] 64px [navBar] auto [main] 64px [end];
-
+  transition: 0.3s ease-in;
   overflow-y: hidden;
+
+  grid-template-columns: [start] 22rem [sideBar] repeat(10, 1fr) [end];
+  grid-template-rows: [start] 64px [navBar] auto [main] 64px [end];
+}
+
+.App.active {
+  grid-template-columns: [start] 4rem [sideBar] repeat(10, 1fr) [end];
 }
 
 @media (max-width: 820px) {
