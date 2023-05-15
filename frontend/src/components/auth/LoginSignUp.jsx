@@ -62,7 +62,6 @@ const LoginSignUp = () => {
   return (
     <div className='login_signup__container flex item-center max-width width-100'>
       <div className='login_signup__contents flex item-center'>
-        
         {/* Sign In */}
         {showSignUp && (
           <div className='form__contents'>
@@ -70,8 +69,18 @@ const LoginSignUp = () => {
               className='flex flex-col item-center'
               onSubmit={signUp}
             >
-              <h1>Create Account</h1>
-              <div className='social_login__container flex item-center'>
+              <div id='blankA' />
+              <div id='blankB' />
+              <h1
+                className='form__h1'
+                id='col1'
+              >
+                Create Account
+              </h1>
+              <div
+                className='social_login__container flex item-center'
+                id='col2'
+              >
                 <Link>
                   <img
                     src={icons.google}
@@ -81,28 +90,49 @@ const LoginSignUp = () => {
                   />
                 </Link>
               </div>
-              <span>or use your email for registration</span>
+              <span id='col3'>or use your email for registration</span>
+
               <input
+                className='form__input'
+                id='col5'
                 type='email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder='Email'
               />
               <input
+                className='form__input'
+                id='col6'
                 type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder='Password'
               />
               <input
+                className='form__input'
+                id='col7'
                 type='password'
                 value={passwordVerify}
                 onChange={(e) => setPasswordVerify(e.target.value)}
                 placeholder='Verify Password'
               />
-              <button type='submit'>Sign Up</button>
-              <span className='error__message'>{msg}</span>
-              <div className='form__footer flex flex-col'>
+              <button
+                className='form__button'
+                id='col8'
+                type='submit'
+              >
+                Sign Up
+              </button>
+              <span
+                className='error__message'
+                id='col9'
+              >
+                {msg}
+              </span>
+              <div
+                className='form__footer flex flex-col'
+                id='col4'
+              >
                 <span>Already a member?</span>
                 <button
                   className='form_footer__button'
@@ -123,8 +153,18 @@ const LoginSignUp = () => {
               className='flex flex-col item-center'
               onSubmit={login}
             >
-              <h1>Sign In</h1>
-              <div className='social_login__container flex item-center'>
+              <div id='blankA' />
+              <div id='blankB' />
+              <h1
+                className='form__h1'
+                id='col1'
+              >
+                Sign In
+              </h1>
+              <div
+                className='social_login__container flex item-center'
+                id='col2'
+              >
                 <Link>
                   <img
                     src={icons.google}
@@ -134,28 +174,48 @@ const LoginSignUp = () => {
                   />
                 </Link>
               </div>
-              <span>or use your account</span>
+              <span id='col3'>or use your account</span>
+
               <input
+                className='form__input'
+                col='col5'
                 type='email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder='Email'
               />
               <input
+                className='form__input'
+                id='col6'
                 type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder='Password'
               />
               <Link
+                id='col7'
                 className='password__link'
                 to='/resetPassword'
               >
                 Forgot your password?
               </Link>
-              <button type='submit'>Sign In</button>
-              <span className='error__message'>{msg}</span>
-              <div className='form__footer flex flex-col'>
+              <button
+                className='form__button'
+                id='col8'
+                type='submit'
+              >
+                Sign In
+              </button>
+              <span
+                className='error__message'
+                id='col9'
+              >
+                {msg}
+              </span>
+              <div
+                className='form__footer flex flex-col'
+                id='col4'
+              >
                 <span>Don't have an account?</span>
                 <button
                   className='form_footer__button'

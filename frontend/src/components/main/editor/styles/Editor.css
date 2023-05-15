@@ -23,4 +23,9 @@
   .editor_area {
     margin: 5rem 1rem;
   }
+}
+@media (max-width: 700px) {
+  .editor_area.hide {
+    margin: 0 1rem;
+  }
 }/*# sourceMappingURL=Editor.css.map */

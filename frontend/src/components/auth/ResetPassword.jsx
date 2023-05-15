@@ -1,3 +1,4 @@
+import './styles/ResetPassword.css';
 import { auth } from '../../utils/firebase';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { useState } from 'react';
@@ -9,19 +10,35 @@ const ResetPassword = () => {
 
   const resetPassword = async () => {
     await sendPasswordResetEmail(auth, email);
-    console.log('Password reset email sent');
     navigate('/login');
   };
 
   return (
-    <div className='reset_password__container grid-container-center max-width width-100 text-center'>
-      <h1>Reset Your Password</h1>
-      <input
-        type='email'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <button onClick={resetPassword}>Reset Password</button>
+    <div className='reset_password__container flex item-center max-width width-100'>
+      <div className='reset_password__contents flex item-center'>
+        <div className='form__contents flex flex-col item-center'>
+          <h1 className='form__h1'>Reset Password</h1>
+          <div className='reset__messages'>
+            <blockquote>
+              Please enter your email address.
+              You will receive a link to create a new password via email.
+            </blockquote>
+          </div>
+          <input
+            className='form__input'
+            type='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder='Enter your email address'
+          />
+          <button
+            className='form__button'
+            onClick={resetPassword}
+          >
+            Reset Password
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

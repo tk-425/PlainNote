@@ -53,6 +53,16 @@ const signUp = async ({
   setPassword,
   setPasswordVerify,
 }) => {
+  if (!password === '' || !passwordVerify === '') {
+    setMsg(messages.enterPassword);
+    return;
+  }
+
+  if (password === '' || passwordVerify === '') {
+    setMsg(messages.enterPassword);
+    return;
+  }
+
   // Verify if both passwords are same
   if (password === passwordVerify) {
     await createUserWithEmailAndPassword(auth, email, password)
@@ -112,6 +122,11 @@ const logIn = async ({
   setEmail,
   setPassword,
 }) => {
+  if (password === '') {
+    setMsg(messages.enterPassword);
+    return;
+  }
+
   await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       backendAuthCheck(userCredential.user).then(() => {

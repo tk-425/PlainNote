@@ -17,13 +17,14 @@ const Sidebar = ({
   setSelectedNote,
   sidebarToggle,
   setSidebarToggle,
+  active,
+  setActive,
 }) => {
   const [user] = useAuthState(auth);
   const [noteDeleted, setNoteDeleted] = useState(false);
   const [showAllNotes, setShowAllNotes] = useState(true);
   const [searchLengthError, setSearchLengthError] = useState(false);
   const [searchErrorDisplayStyle, setSearchErrorDisplayStyle] = useState('');
-  const [active, setActive] = useState(false);
   const searchInputRef = useRef(null);
 
   // The sidebar will be rerendered when a note is deleted or

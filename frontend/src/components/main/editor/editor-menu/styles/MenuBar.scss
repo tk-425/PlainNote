@@ -3,6 +3,7 @@
   margin-top: 3rem;
   margin-inline: 0.8rem;
   width: 1.8rem;
+  transition: all 0.3s ease-in-out;
 
   grid-column-start: start;
   grid-column-end: menuBar;
@@ -39,11 +40,18 @@
     .menu_bar__contents {
       flex-direction: row;
       flex-wrap: wrap;
+      top: 74px;
 
       button {
         margin-block: 0;
         margin-inline: 0.2rem;
       }
     }
+  }
+}
+
+@media (max-width: 700px) {
+  .menu_bar__container.hide {
+    display: none;
   }
 }

@@ -42,7 +42,13 @@ function App() {
         />
         <Route
           path='/resetPassword'
-          element={<ResetPassword />}
+          element={
+            <>
+              <Navbar />
+              <ResetPassword />
+              <Footer />
+            </>
+          }
         />
         <Route
           path='/main'

@@ -20,53 +20,16 @@
   text-align: center;
   width: 25rem;
 }
-.login_signup__container .login_signup__contents .form__contents form h1 {
-  font-size: 35px;
-  font-weight: 500;
-  letter-spacing: 0.2rem;
-  margin-bottom: 1rem;
-}
 .login_signup__container .login_signup__contents .form__contents form span {
   margin-block: 1rem;
 }
 .login_signup__container .login_signup__contents .form__contents form a {
-  color: #000;
+  color: var(--color-palette-01);
   text-decoration: none;
   margin: 15px 10px;
 }
 .login_signup__container .login_signup__contents .form__contents form img {
   height: 2rem;
-}
-.login_signup__container .login_signup__contents .form__contents form input {
-  background-color: #eee;
-  border: 1px solid transparent;
-  padding: 12px 15px;
-  margin: 8px 0;
-  width: 100%;
-  transition: border 0.3s ease-in;
-}
-.login_signup__container .login_signup__contents .form__contents form input:focus {
-  outline: none;
-  border: 1px solid gray;
-}
-.login_signup__container .login_signup__contents .form__contents form button {
-  border: 1px solid var(--color-palette-01);
-  border-radius: 20px;
-  background-color: var(--color-palette-01);
-  color: #fff;
-  font-size: 1rem;
-  margin-block: 1rem;
-  padding: 12px 45px;
-  letter-spacing: 0.3rem;
-  text-transform: uppercase;
-  transition: transform 0.5s ease-in-out;
-  cursor: pointer;
-}
-.login_signup__container .login_signup__contents .form__contents form button:focus {
-  outline: none;
-}
-.login_signup__container .login_signup__contents .form__contents form button:hover {
-  transform: scale(1.12);
 }
 .login_signup__container .login_signup__contents .form__contents form .password__link {
   margin-block: 12px;
@@ -93,16 +56,83 @@
   width: 180px;
 }
 .login_signup__container .login_signup__contents .form__contents form .form__footer .form_footer__button {
-  margin-block: 0;
   border-radius: 0;
   border: 1px solid transparent;
-  padding-inline: 0;
+  padding: 12px 45px;
   background-color: #fff;
-  color: #000;
+  color: var(--color-palette-01);
   transition: border 0.3s ease-in;
   cursor: pointer;
 }
 .login_signup__container .login_signup__contents .form__contents form .form__footer .form_footer__button:hover {
-  border: 1px solid #000;
+  border: 1px solid var(--color-palette-01);
   transform: none;
+}
+
+@media (max-height: 845px) {
+  .login_signup__container {
+    width: 800px;
+  }
+  .login_signup__container .login_signup__contents {
+    width: 100%;
+    height: 340px;
+  }
+  .login_signup__container .login_signup__contents .form__contents {
+    width: 100%;
+  }
+  .login_signup__container .login_signup__contents .form__contents form {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "blankA blankB" "col1 col5" "col2 col6" "col3 col7" "col4 col8" "blankC col9";
+  }
+  .login_signup__container .login_signup__contents .form__contents form #blankA {
+    height: 1rem;
+  }
+  .login_signup__container .login_signup__contents .form__contents form #col1 {
+    grid-area: col1;
+    margin-bottom: 0;
+  }
+  .login_signup__container .login_signup__contents .form__contents form #col2 {
+    grid-area: col2;
+  }
+  .login_signup__container .login_signup__contents .form__contents form #col3 {
+    grid-area: col3;
+  }
+  .login_signup__container .login_signup__contents .form__contents form #col4 {
+    grid-area: col4;
+    margin-top: 0;
+    width: 100%;
+  }
+  .login_signup__container .login_signup__contents .form__contents form #col4 span {
+    margin-block: 0.5rem;
+  }
+  .login_signup__container .login_signup__contents .form__contents form #col4 button {
+    margin: 0 auto;
+    width: 10rem;
+  }
+  .login_signup__container .login_signup__contents .form__contents form #col5 {
+    grid-area: col5;
+  }
+  .login_signup__container .login_signup__contents .form__contents form #col6 {
+    grid-area: col6;
+  }
+  .login_signup__container .login_signup__contents .form__contents form #col7 {
+    grid-area: col7;
+  }
+  .login_signup__container .login_signup__contents .form__contents form #col8 {
+    grid-area: col8;
+  }
+  .login_signup__container .login_signup__contents .form__contents form #col9 {
+    grid-area: col9;
+    padding-block: 0;
+    height: 2rem;
+  }
+  .login_signup__container .login_signup__contents .form__contents form span {
+    margin-block: 0;
+  }
+  .login_signup__container .login_signup__contents .form__contents form .form__footer {
+    margin-top: 0;
+  }
 }/*# sourceMappingURL=LoginSignUp.css.map */
