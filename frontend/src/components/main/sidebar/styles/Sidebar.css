@@ -1,5 +1,5 @@
 .sidebar__container {
-  background-color: var(--color-palette-02);
+  background-color: var(--color-palette-00);
   color: var(--color-palette-04);
   width: 100%;
   overflow-y: overlay;
@@ -11,7 +11,6 @@
 }
 .sidebar__container .sidebar_menu__container {
   z-index: 20;
-  background-color: var(--color-palette-02);
   width: 100%;
   padding: 0.5rem;
   border-bottom: 1px solid var(--color-palette-03);

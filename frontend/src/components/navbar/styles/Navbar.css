@@ -4,6 +4,7 @@
   grid-column-end: end;
   grid-row-start: start;
   grid-row-end: navBar;
+  outline: 1px solid black;
 }
 .navbar__container .navbar__content {
   height: 100%;

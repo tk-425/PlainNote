@@ -16,4 +16,9 @@
   .App {
     grid-template-columns: [start] 18rem [sideBar] repeat(10, 1fr) [end];
   }
+}
+@media (max-width: 375px) {
+  .App {
+    grid-template-columns: [start] 22rem [sideBar] repeat(10, 1fr) [end];
+  }
 }/*# sourceMappingURL=App.css.map */

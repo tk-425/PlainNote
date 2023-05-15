@@ -4,7 +4,8 @@
   font-weight: 600;
   padding-inline: 1.5rem;
   color: var(--color-palette-04);
-  background-color: var(--color-palette-03);
+  background-color: var(--color-palette-00);
+  border-bottom: 2px solid var(--color-palette-02);
   grid-column-start: start;
   grid-column-end: end;
 }

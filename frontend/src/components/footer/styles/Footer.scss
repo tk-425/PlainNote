@@ -1,12 +1,14 @@
 .footer__container {
-  background-color: beige;
-
   width: 100%;
+
   grid-column-start: start;
   grid-column-end: end;
   grid-row-start: main;
   grid-row-end: end;
-  
+
+  // TODO: Delete
+  outline: 1px solid black;
+
   .footer__content {
     height: 64px;
   }
