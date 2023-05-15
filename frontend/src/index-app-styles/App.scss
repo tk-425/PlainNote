@@ -10,7 +10,7 @@
 }
 
 .App.active {
-  grid-template-columns: [start] 4rem [sideBar] repeat(10, 1fr) [end];
+  grid-template-columns: [start] 3.5rem [sideBar] repeat(10, 1fr) [end];
 }
 
 @media (max-width: 820px), (max-height: 845px) {
@@ -19,8 +19,8 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 420px) {
   .App {
-    grid-template-columns: [start] 22rem [sideBar] repeat(10, 1fr) [end];
+    grid-template-columns: [start] 23rem [sideBar] repeat(10, 1fr) [end];
   }
 }
