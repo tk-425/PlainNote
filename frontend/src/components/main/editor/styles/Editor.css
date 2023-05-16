@@ -13,6 +13,7 @@
 }
 .editor__container .editor__contents .editor_area {
   font-size: 1.3rem;
+  line-height: 1.8;
   grid-column-start: menuBar;
   grid-column-end: end;
   grid-row-start: start;

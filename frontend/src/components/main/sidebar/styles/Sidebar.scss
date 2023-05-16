@@ -170,6 +170,11 @@
     grid-row-start: mid;
     grid-row-end: bottom;
 
+    .note__header {
+      padding-block: 0.5rem;
+      background-color: var(--color-palette-03);
+    }
+
     .sidebar_note__contents {
       cursor: pointer;
 

@@ -197,6 +197,7 @@ const Sidebar = ({
 
       {/* Notes */}
       <div className='sidebar_notes__container scroll-visibility'>
+        <div className='note__header flex item-center'>No. of Notes: {allNotes.length}</div>
         {allNotes?.map((n) => (
           <div
             className='sidebar_note__contents flex item-center'

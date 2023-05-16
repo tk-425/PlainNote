@@ -16,6 +16,7 @@
   transition: text-decoration 0.3s ease-in;
   transition: text-decoration 0.3s ease-in, -webkit-text-decoration 0.3s ease-in;
   color: var(--color-palette-04);
+  font-weight: 400;
 }
 .main_navbar__container a:hover {
   text-decoration: underline;

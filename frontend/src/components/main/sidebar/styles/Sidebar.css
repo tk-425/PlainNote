@@ -143,6 +143,10 @@
   grid-row-start: mid;
   grid-row-end: bottom;
 }
+.sidebar__container .sidebar_notes__container .note__header {
+  padding-block: 0.5rem;
+  background-color: var(--color-palette-03);
+}
 .sidebar__container .sidebar_notes__container .sidebar_note__contents {
   cursor: pointer;
 }
