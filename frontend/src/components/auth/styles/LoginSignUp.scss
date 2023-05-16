@@ -1,10 +1,12 @@
 .login_signup__container {
   padding-inline: 1.5rem;
-  width: 480px;
+  width: 374px;
   max-width: 100%;
 
   grid-column-start: start;
   grid-column-end: end;
+  grid-row-start: start;
+  grid-row-end: end;
 
   .login_signup__contents {
     border-radius: 10px;
@@ -19,7 +21,11 @@
         padding: 0 50px;
         height: 100%;
         text-align: center;
-        width: 25rem;
+        width: 24rem;
+
+        h1 {
+          font-size: 2rem;
+        }
 
         span {
           margin-block: 1rem;
@@ -80,8 +86,9 @@
   }
 }
 
-@media (max-height: 845px) {
+@media all and (orientation:landscape) {
   .login_signup__container {
+    margin-top: 2rem;
     width: 800px;
 
     .login_signup__contents {
@@ -106,7 +113,7 @@
             'blankC col9';
 
           #blankA {
-            height: 1rem;
+            height: 1.5rem;
           }
 
           #col1 {
@@ -165,6 +172,43 @@
 
           .form__footer {
             margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Portrait
+@media (max-height: 915px) {
+  .login_signup__container {
+    .login_signup__contents {
+      box-shadow: none;
+
+      .form__contents {
+        form {
+          .form__footer {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Landscape
+@media all and (orientation:landscape) and (max-width: 915px) {
+  .login_signup__container {
+    width: 640px;
+    margin-top: 2.5rem;
+
+    .login_signup__contents {
+      box-shadow: none;
+
+      .form__contents {
+        form {
+          h1 {
+            font-size: 1.6rem;
           }
         }
       }

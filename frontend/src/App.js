@@ -4,7 +4,6 @@ import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
 import SignUp from './components/auth/SignUp';
 import MainPage from './components/main/MainPage';
-import Footer from './components/footer/Footer';
 import ErrorPage from './components/error-page/ErrorPage';
 import ResetPassword from './components/auth/ResetPassword';
 import LoginSignUp from './components/auth/LoginSignUp';
@@ -22,7 +21,6 @@ function App() {
             <>
               <Navbar />
               <Home />
-              <Footer />
             </>
           }
         />
@@ -32,7 +30,6 @@ function App() {
             <>
               <Navbar />
               <LoginSignUp />
-              <Footer />
             </>
           }
         />
@@ -46,7 +43,6 @@ function App() {
             <>
               <Navbar />
               <ResetPassword />
-              <Footer />
             </>
           }
         />
