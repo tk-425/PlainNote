@@ -1,5 +1,6 @@
 .navbar__container {
   padding-inline: 1.5rem;
+  z-index: 10;
 
   grid-column-start: start;
   grid-column-end: end;
@@ -17,6 +18,7 @@
 
       a {
         text-decoration: none;
+        cursor: pointer;
       }
 
       .navbar__login__button {
