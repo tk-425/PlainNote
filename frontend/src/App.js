@@ -2,7 +2,7 @@ import './index-app-styles/App.css';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
-import SignUp from './components/auth/SignUp';
+import Footer from './components/footer/Footer';
 import MainPage from './components/main/MainPage';
 import ErrorPage from './components/error-page/ErrorPage';
 import ResetPassword from './components/auth/ResetPassword';
@@ -21,21 +21,18 @@ function App() {
             <>
               <Navbar />
               <Home />
+              <Footer />
             </>
           }
         />
         <Route
-          path='/login'
+          path='/auth/:path'
           element={
             <>
               <Navbar />
               <LoginSignUp />
             </>
           }
-        />
-        <Route
-          path='/signup'
-          element={<SignUp />}
         />
         <Route
           path='/resetPassword'

@@ -1,3 +1,7 @@
+// Logo Font
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;500;600;700&display=swap');
+
+// HTML
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 // Code font
@@ -219,4 +223,13 @@ a {
 
 .form__button:hover {
   transform: scale(1.12);
+}
+
+.home-button {
+  background-color: var(--color-palette-00);
+  color: var(--color-palette-04);
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-palette-00);
+  padding: 6px 18px;
+  text-decoration: none;
 }

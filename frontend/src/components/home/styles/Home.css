@@ -6,4 +6,20 @@
 }
 .home__container .home__contents .home__body {
   padding: 1rem;
+}
+.home__container .home__contents .home__body .hero {
+  width: 100%;
+}
+.home__container .home__contents .home__body .hero img {
+  padding: 1rem;
+  width: 600px;
+}
+.home__container .home__contents .home__body .hero .home__gif {
+  width: 400px;
+}
+
+@media (max-width: 412px) {
+  .home__container .home__contents {
+    margin: 0;
+  }
 }/*# sourceMappingURL=Home.css.map */

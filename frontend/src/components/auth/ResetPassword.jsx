@@ -10,7 +10,7 @@ const ResetPassword = () => {
 
   const resetPassword = async () => {
     await sendPasswordResetEmail(auth, email);
-    navigate('/login');
+    navigate('/auth/login');
   };
 
   return (

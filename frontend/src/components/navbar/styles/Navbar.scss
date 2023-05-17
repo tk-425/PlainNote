@@ -1,16 +1,19 @@
 .navbar__container {
+  background-color: #fff;
   padding-inline: 1.5rem;
   z-index: 10;
+  position: sticky;
+  top: 0;
 
   grid-column-start: start;
   grid-column-end: end;
   grid-row-start: start;
   grid-row-end: navBar;
 
-  // TODO: Delete 
-  outline: 1px solid black;
+  // TODO: Delete
+  outline: 1px solid var(--color-palette-04);
 
-  .navbar__content {
+  .navbar__contents {
     height: 100%;
 
     div {
@@ -21,13 +24,48 @@
         cursor: pointer;
       }
 
-      .navbar__login__button {
-        color: var(--color-palette-04);
-        border: 1px solid var(--color-palette-01);
-        border-radius: .5rem;
-        background-color: var(--color-palette-01);
-        padding: 6px 18px;
+      // .navbar_login__button {
+      //   background-color: var(--color-palette-00);
+      //   color: var(--color-palette-04);
+      //   border-radius: 0.5rem;
+      //   border: 1px solid var(--color-palette-00);
+      //   padding: 6px 18px;
+      // }
+    }
+
+    .navbar__logo {
+      height: 40px;
+      aspect-ratio: 1;
+    }
+
+    .navbar__header {
+      font-weight: 400;
+      font-size: 2rem;
+      letter-spacing: 0.1rem;
+      color: var(--color-palette-00);
+    }
+  }
+}
+
+@media (max-width: 412px) {
+  .navbar__container {
+    .navbar__contents {
+      .navbar_logo__contents {
+        .navbar__logo {
+          height: 36px;
+        }
+      }
+
+      .navbar_header__contents {
+        .navbar__header {
+          font-size: 1.5rem;
+        }
       }
     }
+  }
+
+  .home-button {
+    padding: 4px 10px;
+    font-size: 0.8rem;
   }
 }

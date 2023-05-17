@@ -1,12 +1,13 @@
-import './styles/LoginSignUp.scss';
+import './styles/LoginSignUp.css';
 import { auth } from '../../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import icons from '../../utils/icons';
 import authUtils from './auth-utils';
 
 const LoginSignUp = () => {
+  const { path } = useParams();
   const [user] = useAuthState(auth);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,6 +20,12 @@ const LoginSignUp = () => {
   useEffect(() => {
     user && navigate('/main');
   }, [navigate, user]);
+
+  useEffect(() => {
+    if (path === 'signup') {
+      setShowSignUp(!showSignUp);
+    }
+  }, [path]);
 
   const signUp = async (e) => {
     e.preventDefault();
@@ -53,10 +60,18 @@ const LoginSignUp = () => {
     await authUtils.googleSignUp(auth);
   };
 
-  const logInSignUpToggle = () => {
+  const navigateToSignUp = () => {
     setMsg('');
     setEmail('');
     setShowSignUp(!showSignUp);
+    navigate('/auth/signup');
+  };
+
+  const navigateToLogin = () => {
+    setMsg('');
+    setEmail('');
+    setShowSignUp(!showSignUp);
+    navigate('/auth/login');
   };
 
   return (
@@ -137,7 +152,7 @@ const LoginSignUp = () => {
                 <button
                   className='form_footer__button'
                   type='submit'
-                  onClick={logInSignUpToggle}
+                  onClick={navigateToLogin}
                 >
                   SIGN IN
                 </button>
@@ -220,7 +235,7 @@ const LoginSignUp = () => {
                 <button
                   className='form_footer__button'
                   type='submit'
-                  onClick={logInSignUpToggle}
+                  onClick={navigateToSignUp}
                 >
                   SIGN UP
                 </button>

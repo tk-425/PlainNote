@@ -4,7 +4,7 @@
   height: 100vh;
   transition: 0.3s ease-in;
   grid-template-columns: [start] 22rem [sideBar] repeat(10, 1fr) [end];
-  grid-template-rows: [start] 64px [navBar] auto [main] 64px [end];
+  grid-template-rows: [start] 64px [navBar] auto [main] auto [end];
 }
 
 .App.active {
