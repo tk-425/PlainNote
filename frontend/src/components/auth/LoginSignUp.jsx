@@ -25,7 +25,7 @@ const LoginSignUp = () => {
     if (path === 'signup') {
       setShowSignUp(!showSignUp);
     }
-  }, [path]);
+  }, [path, showSignUp]);
 
   const signUp = async (e) => {
     e.preventDefault();
