@@ -23,7 +23,7 @@ const LoginSignUp = () => {
 
   useEffect(() => {
     if (path === 'signup') {
-      setShowSignUp(!showSignUp);
+      setShowSignUp(true);
     }
   }, [path, showSignUp]);
 

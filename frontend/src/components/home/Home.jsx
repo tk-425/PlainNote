@@ -48,14 +48,14 @@ const Home = () => {
               <div>
                 <img
                   className='home__gif'
-                  src={images.blockCode}
+                  src={images.image}
                   alt=''
                 />
               </div>
               <div>
                 <img
                   className='home__gif'
-                  src={images.highlightCrop}
+                  src={images.youtube}
                   alt=''
                 />
               </div>
