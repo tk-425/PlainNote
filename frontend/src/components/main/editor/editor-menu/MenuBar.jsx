@@ -320,6 +320,7 @@ const MenuBar = ({ editor, active }) => {
             alt='delete-hyperlink'
           />
         </button>
+
         <button
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
           className='editor-button'
@@ -331,6 +332,7 @@ const MenuBar = ({ editor, active }) => {
             alt='horizontal-rule'
           />
         </button>
+
         <button
           onClick={() =>
             editor.chain().focus().toggleHighlight({ color: '#ffc078' }).run()

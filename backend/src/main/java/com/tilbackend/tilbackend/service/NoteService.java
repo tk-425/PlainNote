@@ -10,7 +10,9 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NoteService {
@@ -56,22 +58,22 @@ public class NoteService {
 
     userService.deleteNoteByNoteId(userId, noteId);
 
+    Query query = new Query(Criteria.where("_id").is(noteId));
+
     System.out.println("Note Deleted");
 
-    Query query = new Query(Criteria.where("_id").is(noteId));
     return mongoTemplate.findAndRemove(query, Note.class);
   }
 
   public List<Note> searchNoteByKeyword(String userId, String keyword) {
     Optional<User> user = userService.getUserById(userId);
-    Set<String> set = new HashSet<>(Arrays.asList(keyword.toLowerCase().split(" ")));
-
-    System.out.println(set);
 
     if (user.isPresent()) {
       List<Note> notes = user.get().getNoteIds();
 
-      return notes.stream().filter(note -> note.getBody().toLowerCase().contains(keyword))
+      return notes
+          .stream()
+          .filter(note -> note.getBody().toLowerCase().contains(keyword))
           .toList();
     }
 

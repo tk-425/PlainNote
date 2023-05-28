@@ -1,25 +1,106 @@
 .home__container {
-  // overflow-y: auto;
-
   .home__contents {
-    margin: 2rem 5rem;
-
-    h1 {
-      margin-block: 1rem;
-    }
+    margin-block: 2rem;
 
     .home__body {
       padding: 1rem;
+      width: 100%;
 
-      .hero {
-        width: 100%;
+      .hero__container {
+        margin-top: 1rem;
 
-        img {
-          padding: 1rem;
-          width: 600px;
+        .hero__title {
+          font-size: 56px;
+          font-weight: 600;
+          letter-spacing: 3px;
+        }
 
-          &.home__gif {
-            width: 400px;
+        .hero__description {
+          padding-block: 2rem;
+          width: 700px;
+          line-height: 2.2rem;
+          font-size: 1.3rem;
+        }
+
+        .hero__signup {
+          padding-block: 0.5rem;
+
+          .home-button {
+            font-size: 1.3rem;
+            padding: 10px 20px;
+          }
+        }
+
+        .hero__screenshot {
+          .desktop {
+            width: 1000px;
+            padding: 0;
+          }
+        }
+
+        .hero__illustration {
+          img {
+            width: 450px;
+            margin-inline: 1rem;
+          }
+        }
+      }
+
+      .feature__container {
+        .feature__title {
+          margin-top: 8rem;
+          margin-bottom: 3rem;
+          font-size: 42px;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+
+        .feature__content {
+          margin-block: 2rem;
+
+          div {
+            width: 300px;
+            margin-inline: 2rem;
+
+            .feature_content__title {
+              margin-block: 0.5rem;
+              font-weight: 600;
+            }
+
+            .feature__illustration {
+              width: 280px;
+            }
+          }
+
+          .feature__screenshot {
+            width: 800px;
+            border-radius: 18px;
+          }
+        }
+      }
+
+      .signup__container {
+        margin-bottom: 4rem;
+
+        .signup__title {
+          padding-top: 8rem;
+          padding-bottom: 2rem;
+          font-size: 42px;
+          font-weight: 500;
+          letter-spacing: 1px;
+        }
+
+        .signup__description {
+          font-size: 18px;
+        }
+
+        .hero__signup {
+          padding-block: 2rem;
+        }
+
+        .signup_illustration__contents {
+          .signup__illustration {
+            width: 250px;
           }
         }
       }
@@ -27,11 +108,102 @@
   }
 }
 
-// Mobile
-@media (max-width: 412px) {
+@media all and (max-width: 1200px) {
   .home__container {
     .home__contents {
-      margin: 0;
+      margin-block: 1rem;
+
+      .home__body {
+        .hero__container {
+          .hero__signup {
+            padding-block: 1rem;
+          }
+
+          .hero__screenshot {
+            .desktop {
+              width: 620px;
+            }
+          }
+
+          .hero__illustration {
+            img {
+              width: 300px;
+            }
+          }
+        }
+      }
+
+      .feature__container {
+        .feature__content {
+          flex-direction: column;
+
+          div {
+            .feature_content__title {
+              font-size: 1.5rem;
+              font-weight: 400;
+            }
+
+            .feature_content__description {
+              margin-block: 1rem;
+            }
+
+            .feature__illustration {
+              margin-block: 1rem;
+              width: 200px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .home__container {
+    .home__contents {
+      .home__body {
+        .hero__container {
+          .hero__description {
+            display: none;
+          }
+
+          .hero__signup {
+            padding-block: 3rem;
+          }
+
+          .hero__illustration {
+            flex-direction: column;
+
+            img {
+              width: 280px;
+            }
+          }
+        }
+
+        .feature__container {
+          .feature__content {
+            div {
+              .feature__illustration {
+                width: 180px;
+              }
+            }
+
+            .feature__screenshot {
+              border-radius: 5px;
+            }
+          }
+        }
+
+        .signup__container {
+          .signup_illustration__contents {
+            flex-direction: column;
+            
+            .signup__illustration {
+              width: 180px;
+            }
+          }
+        }
+      }
     }
   }
 }

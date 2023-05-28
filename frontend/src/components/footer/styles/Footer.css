@@ -1,7 +1,6 @@
 .footer__container {
-  margin-block: 150px;
   padding: 1rem;
-  color: var(--color-palette-00);
+  color: #000;
   grid-column-start: start;
   grid-column-end: end;
   grid-row-start: main;

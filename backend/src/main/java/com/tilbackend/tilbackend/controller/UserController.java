@@ -27,7 +27,6 @@ public class UserController {
 
   @GetMapping
   public ResponseEntity<User> authenticateUserId(Principal principal) {
-    System.out.println("principal name: " + principal.getName());
 
     if (userService.authCheck(principal.getName()) != null) {
       return new ResponseEntity<>(userService.authCheck(principal.getName()), HttpStatus.OK);

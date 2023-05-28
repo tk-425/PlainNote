@@ -70,4 +70,13 @@
 
 .highlight-text-color {
   color: black !important;
+}
+
+/* Placeholder (at the top) */
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: var(--color-palette-03);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
 }/*# sourceMappingURL=basicEditor.css.map */

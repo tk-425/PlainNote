@@ -18,7 +18,7 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 430px) {
   .App {
     grid-template-columns: [start] 23rem [sideBar] repeat(10, 1fr) [end];
   }
