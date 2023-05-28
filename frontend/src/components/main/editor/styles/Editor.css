@@ -13,6 +13,7 @@
 }
 .editor__container .editor__contents .editor_area {
   font-size: 1.3rem;
+  line-height: 1.8;
   grid-column-start: menuBar;
   grid-column-end: end;
   grid-row-start: start;
@@ -22,5 +23,15 @@
 @media (max-height: 930px) {
   .editor_area {
     margin: 5rem 1rem;
+  }
+}
+@media (max-width: 914px) {
+  .editor_area.hide {
+    margin: 0 1rem;
+  }
+}
+@media (max-width: 500px) {
+  .editor_area.hide {
+    filter: blur(10px);
   }
 }/*# sourceMappingURL=Editor.css.map */

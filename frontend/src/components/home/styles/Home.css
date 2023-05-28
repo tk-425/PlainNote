@@ -1,0 +1,135 @@
+.home__container .home__contents {
+  margin-block: 2rem;
+}
+.home__container .home__contents .home__body {
+  padding: 1rem;
+  width: 100%;
+}
+.home__container .home__contents .home__body .hero__container {
+  margin-top: 1rem;
+}
+.home__container .home__contents .home__body .hero__container .hero__title {
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+.home__container .home__contents .home__body .hero__container .hero__description {
+  padding-block: 2rem;
+  width: 700px;
+  line-height: 2.2rem;
+  font-size: 1.3rem;
+}
+.home__container .home__contents .home__body .hero__container .hero__signup {
+  padding-block: 0.5rem;
+}
+.home__container .home__contents .home__body .hero__container .hero__signup .home-button {
+  font-size: 1.3rem;
+  padding: 10px 20px;
+}
+.home__container .home__contents .home__body .hero__container .hero__screenshot .desktop {
+  width: 1000px;
+  padding: 0;
+}
+.home__container .home__contents .home__body .hero__container .hero__illustration img {
+  width: 450px;
+  margin-inline: 1rem;
+}
+.home__container .home__contents .home__body .feature__container .feature__title {
+  margin-top: 8rem;
+  margin-bottom: 3rem;
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.home__container .home__contents .home__body .feature__container .feature__content {
+  margin-block: 2rem;
+}
+.home__container .home__contents .home__body .feature__container .feature__content div {
+  width: 300px;
+  margin-inline: 2rem;
+}
+.home__container .home__contents .home__body .feature__container .feature__content div .feature_content__title {
+  margin-block: 0.5rem;
+  font-weight: 600;
+}
+.home__container .home__contents .home__body .feature__container .feature__content div .feature__illustration {
+  width: 280px;
+}
+.home__container .home__contents .home__body .feature__container .feature__content .feature__screenshot {
+  width: 800px;
+  border-radius: 18px;
+}
+.home__container .home__contents .home__body .signup__container {
+  margin-bottom: 4rem;
+}
+.home__container .home__contents .home__body .signup__container .signup__title {
+  padding-top: 8rem;
+  padding-bottom: 2rem;
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.home__container .home__contents .home__body .signup__container .signup__description {
+  font-size: 18px;
+}
+.home__container .home__contents .home__body .signup__container .hero__signup {
+  padding-block: 2rem;
+}
+.home__container .home__contents .home__body .signup__container .signup_illustration__contents .signup__illustration {
+  width: 250px;
+}
+
+@media all and (max-width: 1200px) {
+  .home__container .home__contents {
+    margin-block: 1rem;
+  }
+  .home__container .home__contents .home__body .hero__container .hero__signup {
+    padding-block: 1rem;
+  }
+  .home__container .home__contents .home__body .hero__container .hero__screenshot .desktop {
+    width: 620px;
+  }
+  .home__container .home__contents .home__body .hero__container .hero__illustration img {
+    width: 300px;
+  }
+  .home__container .home__contents .feature__container .feature__content {
+    flex-direction: column;
+  }
+  .home__container .home__contents .feature__container .feature__content div .feature_content__title {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  .home__container .home__contents .feature__container .feature__content div .feature_content__description {
+    margin-block: 1rem;
+  }
+  .home__container .home__contents .feature__container .feature__content div .feature__illustration {
+    margin-block: 1rem;
+    width: 200px;
+  }
+}
+@media (max-width: 430px) {
+  .home__container .home__contents .home__body .hero__container .hero__description {
+    display: none;
+  }
+  .home__container .home__contents .home__body .hero__container .hero__signup {
+    padding-block: 3rem;
+  }
+  .home__container .home__contents .home__body .hero__container .hero__illustration {
+    flex-direction: column;
+  }
+  .home__container .home__contents .home__body .hero__container .hero__illustration img {
+    width: 280px;
+  }
+  .home__container .home__contents .home__body .feature__container .feature__content div .feature__illustration {
+    width: 180px;
+  }
+  .home__container .home__contents .home__body .feature__container .feature__content .feature__screenshot {
+    border-radius: 5px;
+  }
+  .home__container .home__contents .home__body .signup__container .signup_illustration__contents {
+    flex-direction: column;
+  }
+  .home__container .home__contents .home__body .signup__container .signup_illustration__contents .signup__illustration {
+    width: 180px;
+  }
+}/*# sourceMappingURL=Home.css.map */

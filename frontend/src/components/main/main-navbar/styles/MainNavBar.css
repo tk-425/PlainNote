@@ -2,9 +2,10 @@
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
-  padding-inline: 1.5rem;
+  padding-inline: 0.8rem;
   color: var(--color-palette-04);
-  background-color: var(--color-palette-03);
+  background-color: var(--color-palette-00);
+  border-bottom: 2px solid var(--color-palette-02);
   grid-column-start: start;
   grid-column-end: end;
 }
@@ -15,12 +16,23 @@
   transition: text-decoration 0.3s ease-in;
   transition: text-decoration 0.3s ease-in, -webkit-text-decoration 0.3s ease-in;
   color: var(--color-palette-04);
+  height: 38px;
 }
-.main_navbar__container a:hover {
+.main_navbar__container a span {
+  margin-left: 0.5rem;
+  height: 38px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+.main_navbar__container .navbar__logout {
+  padding-right: 1.5rem;
+}
+.main_navbar__container .navbar__logout:hover {
   text-decoration: underline;
   text-underline-offset: 8px;
   cursor: pointer;
 }
 .main_navbar__container .navbar__logo {
-  height: 24px;
+  height: 36px;
 }/*# sourceMappingURL=MainNavBar.css.map */

@@ -1,23 +1,45 @@
 .navbar__container {
+  background-color: #fff;
   padding-inline: 1.5rem;
+  z-index: 10;
+  position: sticky;
+  top: 0;
   grid-column-start: start;
   grid-column-end: end;
   grid-row-start: start;
   grid-row-end: navBar;
+  outline: 1px solid var(--color-palette-04);
 }
-.navbar__container .navbar__content {
+.navbar__container .navbar__contents {
   height: 100%;
 }
-.navbar__container .navbar__content div {
+.navbar__container .navbar__contents div {
   width: 100%;
 }
-.navbar__container .navbar__content div a {
+.navbar__container .navbar__contents div a {
   text-decoration: none;
+  cursor: pointer;
 }
-.navbar__container .navbar__content div .navbar__login__button {
-  color: var(--color-palette-04);
-  border: 1px solid var(--color-palette-01);
-  border-radius: 0.5rem;
-  background-color: var(--color-palette-01);
-  padding: 6px 18px;
+.navbar__container .navbar__contents .navbar__logo {
+  height: 40px;
+  aspect-ratio: 1;
+}
+.navbar__container .navbar__contents .navbar__header {
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  color: #000;
+}
+
+@media (max-width: 430px) {
+  .navbar__container .navbar__contents .navbar_logo__contents .navbar__logo {
+    height: 36px;
+  }
+  .navbar__container .navbar__contents .navbar_header__contents .navbar__header {
+    font-size: 1.5rem;
+  }
+  .home-button {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+  }
 }/*# sourceMappingURL=Navbar.css.map */

@@ -10,14 +10,18 @@ const Editor = ({
   allNotes,
   selectedNote,
   setSelectedNote,
+  active,
   x,
 }) => {
   return (
     <div className='editor__container scroll-visibility'>
       <div className='editor__contents grid'>
-        <MenuBar editor={editor} />
+        <MenuBar
+          editor={editor}
+          active={active}
+        />
         <EditorContent
-          className='editor_area'
+          className={`editor_area ${active ? '' : 'hide'}`}
           editor={editor}
         />
       </div>

@@ -1,13 +1,31 @@
 .footer__container {
-  background-color: beige;
+  padding: 1rem;
+  color: #000;
+  // color: var(--color-palette-00);
 
-  width: 100%;
   grid-column-start: start;
   grid-column-end: end;
   grid-row-start: main;
   grid-row-end: end;
-  
-  .footer__content {
-    height: 64px;
+
+  // TODO: Delete
+  outline: 1px solid var(--color-palette-04);
+
+  .footer__contents {
+    height: 425px;
+    
+    .footer__header {
+      margin-block: 0.5rem;
+      font-size: 2rem;
+
+      img {
+        height: 28px;
+      }
+
+      span {
+        margin-left: 0.3rem;
+        font-size: 1.5rem;
+      }
+    }
   }
 }

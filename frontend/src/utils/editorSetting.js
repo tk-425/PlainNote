@@ -10,6 +10,7 @@ import Subscript from '@tiptap/extension-subscript';
 import Image from '@tiptap/extension-image';
 import Dropcursor from '@tiptap/extension-dropcursor';
 import Youtube from '@tiptap/extension-youtube';
+import Placeholder from '@tiptap/extension-placeholder';
 
 const editorSetting = {
   extensions: [
@@ -40,8 +41,10 @@ const editorSetting = {
     Youtube.configure({
       controls: false,
     }),
+    Placeholder.configure({
+      placeholder: 'Write something...'
+    })
   ],
-  content: ``,
   autofocus: 'start',
 };
 

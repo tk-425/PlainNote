@@ -1,11 +1,23 @@
 .footer__container {
-  background-color: beige;
-  width: 100%;
+  padding: 1rem;
+  color: #000;
   grid-column-start: start;
   grid-column-end: end;
   grid-row-start: main;
   grid-row-end: end;
+  outline: 1px solid var(--color-palette-04);
 }
-.footer__container .footer__content {
-  height: 64px;
+.footer__container .footer__contents {
+  height: 425px;
+}
+.footer__container .footer__contents .footer__header {
+  margin-block: 0.5rem;
+  font-size: 2rem;
+}
+.footer__container .footer__contents .footer__header img {
+  height: 28px;
+}
+.footer__container .footer__contents .footer__header span {
+  margin-left: 0.3rem;
+  font-size: 1.5rem;
 }/*# sourceMappingURL=Footer.css.map */

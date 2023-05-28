@@ -3,6 +3,7 @@
   margin-top: 3rem;
   margin-inline: 0.8rem;
   width: 1.8rem;
+  transition: all 0.3s ease-in-out;
 
   grid-column-start: start;
   grid-column-end: menuBar;
@@ -26,8 +27,8 @@
     display: flex;
     align-items: center;
     margin-block: 0;
-    height: 5rem;
     width: 100%;
+    height: 4.5rem;
     position: sticky;
     top: 0;
 
@@ -39,11 +40,32 @@
     .menu_bar__contents {
       flex-direction: row;
       flex-wrap: wrap;
+      top: 74px;
 
       button {
         margin-block: 0;
         margin-inline: 0.2rem;
       }
+    }
+  }
+}
+
+@media (max-width: 914px) and (min-width: 515px) {
+  .menu_bar__container {
+    height: 4.5rem;
+
+    &.hide {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 514px) {
+  .menu_bar__container {
+    height: 6.2rem;
+
+    &.hide {
+      display: none;
     }
   }
 }

@@ -17,13 +17,14 @@ const Sidebar = ({
   setSelectedNote,
   sidebarToggle,
   setSidebarToggle,
+  active,
+  setActive,
 }) => {
   const [user] = useAuthState(auth);
   const [noteDeleted, setNoteDeleted] = useState(false);
   const [showAllNotes, setShowAllNotes] = useState(true);
   const [searchLengthError, setSearchLengthError] = useState(false);
   const [searchErrorDisplayStyle, setSearchErrorDisplayStyle] = useState('');
-  const [active, setActive] = useState(false);
   const searchInputRef = useRef(null);
 
   // The sidebar will be rerendered when a note is deleted or
@@ -104,7 +105,7 @@ const Sidebar = ({
                   />
                 )}
               </button>
-              <span>Hello, {user.email.split('@')[0]}!</span>
+              <span>Hello, {user.email.split('@')[0].toUpperCase()}!</span>
             </div>
 
             {/* Menu Buttons */}
@@ -196,6 +197,7 @@ const Sidebar = ({
 
       {/* Notes */}
       <div className='sidebar_notes__container scroll-visibility'>
+        <div className='note__header flex item-center'>No. of Notes: {allNotes.length}</div>
         {allNotes?.map((n) => (
           <div
             className='sidebar_note__contents flex item-center'

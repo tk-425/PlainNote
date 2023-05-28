@@ -4,7 +4,7 @@
 
   overflow-y: auto;
   padding: 1rem;
-  padding-top: 2rem;
+  // padding-top: 2rem;
   font-size: 1rem;
 
   > * + * {
@@ -44,13 +44,15 @@
     font-family: 'JetBrainsMono', monospace;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
-
+    width: 80%;
     margin: 2rem;
 
     code {
       padding: 0.2rem;
       background: none;
       margin-inline: 0;
+      font-size: .8rem;
+      font-weight: 200;
     }
   }
 
@@ -81,4 +83,13 @@
 
 .highlight-text-color {
   color: black !important;
+}
+
+/* Placeholder (at the top) */
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: var(--color-palette-03);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
 }

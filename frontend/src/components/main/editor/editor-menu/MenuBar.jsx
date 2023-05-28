@@ -2,7 +2,7 @@ import './styles/MenuBar.css';
 import icons from '../../../../utils/icons';
 import { useCallback } from 'react';
 
-const MenuBar = ({ editor }) => {
+const MenuBar = ({ editor, active }) => {
   const setLink = useCallback(() => {
     const previousUrl = editor.getAttributes('link').href;
     const url = window.prompt('URL', previousUrl);
@@ -48,7 +48,7 @@ const MenuBar = ({ editor }) => {
   };
 
   return (
-    <div className='menu_bar__container'>
+    <div className={`menu_bar__container ${active ? '' : 'hide'}`}>
       <div className='menu_bar__contents flex flex-col item-center'>
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
@@ -320,6 +320,7 @@ const MenuBar = ({ editor }) => {
             alt='delete-hyperlink'
           />
         </button>
+
         <button
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
           className='editor-button'
@@ -331,6 +332,7 @@ const MenuBar = ({ editor }) => {
             alt='horizontal-rule'
           />
         </button>
+
         <button
           onClick={() =>
             editor.chain().focus().toggleHighlight({ color: '#ffc078' }).run()

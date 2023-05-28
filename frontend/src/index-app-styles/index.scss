@@ -1,13 +1,40 @@
+// Logo Font
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;500;600;700&display=swap');
+
+// HTML
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 // Code font
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
 :root {
-  --color-palette-01: #222831;
-  --color-palette-02: #393e46;
-  --color-palette-03: #00adb5;
-  --color-palette-04: #eeeeee;
+  // --color-palette-01: #222831;
+  // --color-palette-02: #393e46;
+  // --color-palette-03: #00adb5;
+  // --color-palette-04: #eeeeee;
+
+  // --color-palette-01: #1b263b;
+  // --color-palette-02: #415a77;
+  // --color-palette-03: #778da9;
+  // --color-palette-04: #e0e1dd;
+
+  --color-palette-00: #0a1128;
+  --color-palette-01: #0d1b2a;
+  --color-palette-02: #1b263b;
+  --color-palette-03: #415a77;
+  --color-palette-04: #e0e1dd;
+
+  // --color-palette-00: #181a20;
+  // --color-palette-01: #393e4d;
+  // --color-palette-02: #5e667a;
+  // --color-palette-03: #8993a4;
+  // --color-palette-04: #d8e0ee;
+
+  // --color-palette-00: #181a20;
+  // --color-palette-01: #393e4d;
+  // --color-palette-02: #13141a;
+  // --color-palette-03: #8993a4;
+  // --color-palette-04: #d8e0ee;
 }
 
 /* Box Sizing */
@@ -153,4 +180,56 @@ a {
 .editor-button {
   border: none;
   cursor: pointer;
+}
+
+.form__h1 {
+  font-size: 35px;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.form__input {
+  background-color: #eee;
+  border: 1px solid transparent;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+  transition: border 0.3s ease-in;
+}
+
+.form__input:focus {
+  outline: none;
+  border: 1px solid gray;
+}
+
+.form__button {
+  border: 1px solid var(--color-palette-01);
+  border-radius: 20px;
+  background-color: var(--color-palette-01);
+  color: var(--color-palette-04);
+  font-size: 1rem;
+  margin-block: 1rem;
+  padding: 12px 45px;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.form__button:focus {
+  outline: none;
+}
+
+.form__button:hover {
+  transform: scale(1.12);
+}
+
+.home-button {
+  background-color: var(--color-palette-00);
+  color: var(--color-palette-04);
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-palette-00);
+  padding: 6px 18px;
+  text-decoration: none;
 }

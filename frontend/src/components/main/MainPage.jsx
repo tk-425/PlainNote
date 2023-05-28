@@ -15,6 +15,7 @@ const MainPage = ({ sidebarToggle, setSidebarToggle }) => {
   const [note, setNote] = useState(null);
   const [allNotes, setAllNotes] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
+  const [active, setActive] = useState(false);
 
   const editor = useEditor(editorSetting);
 
@@ -42,6 +43,8 @@ const MainPage = ({ sidebarToggle, setSidebarToggle }) => {
             setSelectedNote={setSelectedNote}
             sidebarToggle={sidebarToggle}
             setSidebarToggle={setSidebarToggle}
+            active={active}
+            setActive={setActive}
           />
           <Editor
             editor={editor}
@@ -50,6 +53,7 @@ const MainPage = ({ sidebarToggle, setSidebarToggle }) => {
             allNotes={allNotes}
             selectedNote={selectedNote}
             setSelectedNote={setSelectedNote}
+            active={active}
           />
         </>
       )}
