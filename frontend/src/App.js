@@ -4,6 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
 import MainPage from './components/main/MainPage';
+import Credit from './components/credit/Credit';
 import ErrorPage from './components/error-page/ErrorPage';
 import ResetPassword from './components/auth/ResetPassword';
 import LoginSignUp from './components/auth/LoginSignUp';
@@ -53,8 +54,22 @@ function App() {
           }
         />
         <Route
+          path='/credit'
+          element={
+            <>
+              <Navbar />
+              <Credit />
+            </>
+          }
+        />
+        <Route
           path='*'
-          element={<ErrorPage />}
+          element={
+            <>
+              <Navbar />
+              <ErrorPage />
+            </>
+          }
         />
       </Routes>
     </div>

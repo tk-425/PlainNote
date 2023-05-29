@@ -56,10 +56,7 @@ public class UserService {
 
     try {
       mongoTemplate.insert(user);
-    } catch (DuplicateKeyException ignore) {
-    }
-
-    System.out.println("User Created");
+    } catch (DuplicateKeyException ignore) {}
 
     return user;
   }

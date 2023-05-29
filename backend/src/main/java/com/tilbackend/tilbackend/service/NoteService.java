@@ -37,8 +37,6 @@ public class NoteService {
         .apply(new Update().push("noteIds").value(note))
         .first();
 
-    System.out.println("Note Created");
-
     return note;
   }
 
@@ -49,8 +47,6 @@ public class NoteService {
         .apply(new Update().set("title", title).set("body", noteBody))
         .first();
 
-    System.out.println("Note Updated");
-
     return mongoTemplate.findById(noteId, Note.class);
   }
 
@@ -59,8 +55,6 @@ public class NoteService {
     userService.deleteNoteByNoteId(userId, noteId);
 
     Query query = new Query(Criteria.where("_id").is(noteId));
-
-    System.out.println("Note Deleted");
 
     return mongoTemplate.findAndRemove(query, Note.class);
   }

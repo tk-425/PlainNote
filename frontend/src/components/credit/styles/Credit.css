@@ -1,0 +1,21 @@
+.credit__container .credit__contents {
+  margin-block: 2rem;
+}
+.credit__container .credit__contents .credit__info {
+  margin-inline: 2rem;
+  width: 400px;
+}
+.credit__container .credit__contents .credit__info .credit__title {
+  padding-block: 1rem;
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+.credit__container .credit__contents .credit__info .credit__type, .credit__container .credit__contents .credit__info .credit__url {
+  font-weight: 500;
+  text-align: right;
+}
+.credit__container .credit__contents .credit__illustration {
+  margin-inline: 2rem;
+  width: 400px;
+}/*# sourceMappingURL=Credit.css.map */

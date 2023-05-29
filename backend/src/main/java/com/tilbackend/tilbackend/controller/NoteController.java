@@ -50,7 +50,6 @@ public class NoteController {
   public ResponseEntity<List<Note>> searchNote(@PathVariable String keyword, @RequestBody Map<String, String> payload) {
 
     List<Note> notes = noteService.searchNoteByKeyword(payload.get("userId"), keyword);
-    System.out.println(notes);
 
     return new ResponseEntity<>(notes, HttpStatus.OK);
   }
