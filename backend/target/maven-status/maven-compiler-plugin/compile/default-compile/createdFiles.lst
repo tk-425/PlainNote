@@ -1,0 +1,10 @@
+com/plainnote/backend/service/UserService.class
+com/plainnote/backend/security/SecurityConfiguration.class
+com/plainnote/backend/controller/NoteController.class
+com/plainnote/backend/BackendApplication.class
+com/plainnote/backend/repository/UserRepository.class
+com/plainnote/backend/document/Note.class
+com/plainnote/backend/repository/NoteRepository.class
+com/plainnote/backend/document/User.class
+com/plainnote/backend/controller/UserController.class
+com/plainnote/backend/service/NoteService.class

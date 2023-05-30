@@ -35,7 +35,7 @@ const backendCreateUser = async (user) => {
     }),
   };
 
-  const url = `http://localhost:8080/api/v1/user`;
+  const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/user`;
   const response = await fetch(url, requestOptions);
 
   if (!response.ok) {
@@ -101,7 +101,7 @@ const backendAuthCheck = async (user) => {
     },
   };
 
-  const url = `http://localhost:8080/api/v1/user`;
+  const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/user`;
   const response = await fetch(url, requestOptions);
 
   if (!response.ok) {

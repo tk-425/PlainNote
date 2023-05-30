@@ -24,6 +24,9 @@ import illustSignup02 from '../assets/images/illust-start-02.png';
 import illustSignup03 from '../assets/images/illust-start-03.png';
 import illustSignup04 from '../assets/images/illust-start-04.png';
 
+import credit from '../assets/images/credit.png';
+
+import page404 from '../assets/images/404.png';
 import codeGif from '../assets/gif/code.gif';
 import highlightGif from '../assets/gif/highlight.gif';
 import imageGif from '../assets/gif/image.gif';
@@ -52,6 +55,8 @@ const images = {
   illustSignup02,
   illustSignup03,
   illustSignup04,
+  credit,
+  page404,
   codeGif,
   highlightGif,
   imageGif,

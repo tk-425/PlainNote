@@ -1,0 +1,10 @@
+/Users/terrykang/Documents/Programming/+Projects/PlainNote/backend/src/main/java/com/plainnote/backend/service/UserService.java
+/Users/terrykang/Documents/Programming/+Projects/PlainNote/backend/src/main/java/com/plainnote/backend/controller/NoteController.java
+/Users/terrykang/Documents/Programming/+Projects/PlainNote/backend/src/main/java/com/plainnote/backend/service/NoteService.java
+/Users/terrykang/Documents/Programming/+Projects/PlainNote/backend/src/main/java/com/plainnote/backend/document/User.java
+/Users/terrykang/Documents/Programming/+Projects/PlainNote/backend/src/main/java/com/plainnote/backend/repository/NoteRepository.java
+/Users/terrykang/Documents/Programming/+Projects/PlainNote/backend/src/main/java/com/plainnote/backend/document/Note.java
+/Users/terrykang/Documents/Programming/+Projects/PlainNote/backend/src/main/java/com/plainnote/backend/repository/UserRepository.java
+/Users/terrykang/Documents/Programming/+Projects/PlainNote/backend/src/main/java/com/plainnote/backend/security/SecurityConfiguration.java
+/Users/terrykang/Documents/Programming/+Projects/PlainNote/backend/src/main/java/com/plainnote/backend/BackendApplication.java
+/Users/terrykang/Documents/Programming/+Projects/PlainNote/backend/src/main/java/com/plainnote/backend/controller/UserController.java
