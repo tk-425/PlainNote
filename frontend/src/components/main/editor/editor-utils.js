@@ -22,7 +22,7 @@ const saveDoc = async ({ user, editor, selectedNote, setNote }) => {
       }),
     };
 
-    const url = `http://localhost:8080/api/v1/notes/update`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/notes/update`;
     const response = await fetch(url, requestOptions);
 
     if (!response.ok) {
@@ -53,7 +53,7 @@ const saveAsDoc = async ({ editor, user, setNote }) => {
       }),
     };
 
-    const url = `http://localhost:8080/api/v1/notes`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/notes`;
     const response = await fetch(url, requestOptions);
 
     if (!response.ok) {

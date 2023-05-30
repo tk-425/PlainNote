@@ -7,11 +7,11 @@ const getNotes = async (user) => {
         'Content-Type': 'application/json',
       },
     };
-    const url = `http://localhost:8080/api/v1/user/notes/${user.uid}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/user/notes/${user.uid}`;
     const response = await fetch(url, requestOptions);
 
     if (!response.ok) {
-      throw new Error('Getting Notes failed');
+      return [];
     }
 
     const data = await response.json();
@@ -61,7 +61,7 @@ const searchNotes = async ({
       }),
     };
 
-    const url = `http://localhost:8080/api/v1/notes/search-notes/${searchInputRef.current.value}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/notes/search-notes/${searchInputRef.current.value}`;
     const response = await fetch(url, requestOptions);
 
     if (!response.ok) {
@@ -90,7 +90,7 @@ const deleteNote = async ({ user, n, editor, setNote, setNoteDeleted }) => {
       }),
     };
 
-    const url = `http://localhost:8080/api/v1/notes/delete/${n.id}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/notes/delete/${n.id}`;
     const response = await fetch(url, requestOptions);
 
     if (!response.ok) {
