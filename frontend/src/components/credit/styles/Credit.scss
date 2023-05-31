@@ -13,9 +13,22 @@
         letter-spacing: 3px;
       }
 
-      .credit__type, .credit__url  {
-        font-weight: 500;
-        text-align: right;
+      .credit__box {
+        .credit_box__contents {
+          margin-block: 0.6rem;
+
+          .credit__type {
+            font-weight: 600;
+          }
+
+          .credit__url {
+            color: var(--color-palette-00);
+          }
+
+          .credit__url:hover {
+            text-underline-offset: 5px;
+          }
+        }
       }
     }
 
@@ -23,5 +36,11 @@
       margin-inline: 2rem;
       width: 400px;
     }
+  }
+}
+
+@media all and (max-width: 700px) {
+  .credit__illustration {
+    display: none;
   }
 }

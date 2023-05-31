@@ -46,8 +46,8 @@
   transition: text-decoration 0.3s ease-in, -webkit-text-decoration 0.3s ease-in;
 }
 .login_signup__container .login_signup__contents .form__contents form .password__link:hover {
-  text-underline-offset: 8px;
   text-decoration: underline;
+  text-underline-offset: 8px;
 }
 .login_signup__container .login_signup__contents .form__contents form .error__message {
   margin: 0;

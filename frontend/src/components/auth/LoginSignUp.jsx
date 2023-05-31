@@ -18,14 +18,18 @@ const LoginSignUp = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    user && navigate('/main');
-  }, [navigate, user]);
-
-  useEffect(() => {
     if (path === 'signup') {
       setShowSignUp(true);
     }
-  }, [path, showSignUp]);
+    
+    user && navigate('/main');
+  }, [navigate, path, user]);
+
+  // useEffect(() => {
+  //   if (path === 'signup') {
+  //     setShowSignUp(true);
+  //   }
+  // }, [path, showSignUp]);
 
   const signUp = async (e) => {
     e.preventDefault();
