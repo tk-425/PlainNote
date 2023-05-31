@@ -13,7 +13,6 @@
 
   a {
     text-decoration: transparent;
-    transition: text-decoration 0.3s ease-in;
     color: var(--color-palette-04);
 
     height: 38px;
@@ -29,12 +28,6 @@
 
   .navbar__logout {
     padding-right: 1.5rem;
-  }
-
-  .navbar__logout:hover {
-    text-decoration: underline;
-    text-underline-offset: 8px;
-    cursor: pointer;
   }
 
   .navbar__logo {

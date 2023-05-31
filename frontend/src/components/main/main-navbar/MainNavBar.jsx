@@ -25,7 +25,7 @@ const MainNavBar = () => {
       </span>
 
       <Link
-        className='navbar__logout flex item-center'
+        className='navbar__logout flex item-center text-hover'
         to='/'
         onClick={handleLogout}
       >

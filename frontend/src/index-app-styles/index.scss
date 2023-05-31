@@ -233,3 +233,14 @@ a {
   padding: 6px 18px;
   text-decoration: none;
 }
+
+.text-hover {
+  text-decoration: transparent;
+  transition: text-decoration 0.3s ease-in;
+}
+
+.text-hover:hover {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  cursor: pointer;
+}

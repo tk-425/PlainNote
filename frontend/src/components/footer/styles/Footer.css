@@ -1,6 +1,6 @@
 .footer__container {
   padding: 1rem;
-  color: #000;
+  color: var(--color-palette-00);
   grid-column-start: start;
   grid-column-end: end;
   grid-row-start: main;
@@ -8,10 +8,10 @@
   outline: 1px solid var(--color-palette-04);
 }
 .footer__container .footer__contents {
-  height: 425px;
+  height: 300px;
 }
 .footer__container .footer__contents .footer__header {
-  margin-block: 0.5rem;
+  margin-block: 1rem;
   font-size: 2rem;
 }
 .footer__container .footer__contents .footer__header img {
@@ -20,4 +20,12 @@
 .footer__container .footer__contents .footer__header span {
   margin-left: 0.3rem;
   font-size: 1.5rem;
+}
+.footer__container .footer__contents .footer__body .footer__link {
+  margin-block: 0.6rem;
+}
+.footer__container .footer__contents .footer__body .footer__link a {
+  color: var(--color-palette-00);
+  text-decoration: none;
+  letter-spacing: 1.5px;
 }/*# sourceMappingURL=Footer.css.map */

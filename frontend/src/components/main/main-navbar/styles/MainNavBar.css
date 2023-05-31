@@ -12,9 +12,6 @@
 .main_navbar__container a {
   -webkit-text-decoration: transparent;
           text-decoration: transparent;
-  transition: -webkit-text-decoration 0.3s ease-in;
-  transition: text-decoration 0.3s ease-in;
-  transition: text-decoration 0.3s ease-in, -webkit-text-decoration 0.3s ease-in;
   color: var(--color-palette-04);
   height: 38px;
 }
@@ -27,11 +24,6 @@
 }
 .main_navbar__container .navbar__logout {
   padding-right: 1.5rem;
-}
-.main_navbar__container .navbar__logout:hover {
-  text-decoration: underline;
-  text-underline-offset: 8px;
-  cursor: pointer;
 }
 .main_navbar__container .navbar__logo {
   height: 36px;

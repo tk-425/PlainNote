@@ -22,7 +22,8 @@
 
 @media (max-height: 930px) {
   .editor_area {
-    margin: 5rem 1rem;
+    margin: 0 1rem;
+    margin-top: 5rem;
   }
 }
 @media (max-width: 914px) {

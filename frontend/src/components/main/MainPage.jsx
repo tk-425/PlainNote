@@ -67,10 +67,3 @@ const MainPage = ({ sidebarToggle, setSidebarToggle }) => {
 };
 
 export default MainPage;
-
-/* 
-TODO: Implement
-If a user can't connect to server or it is not working,
-show server error info.
-Maybe Server: connected info??
-*/
