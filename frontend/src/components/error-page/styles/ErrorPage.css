@@ -1,0 +1,10 @@
+.error__container .error__contents img {
+  width: 500px;
+}
+.error__container .error__contents h1 {
+  margin-bottom: 3rem;
+}
+.error__container .error__contents a {
+  text-decoration: none;
+  color: var(--color-palette-04);
+}/*# sourceMappingURL=ErrorPage.css.map */
