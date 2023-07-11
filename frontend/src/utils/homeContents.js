@@ -38,19 +38,3 @@ const homeContents = {
 };
 
 export default homeContents;
-
-/*
-    images: {
-      title: 'Add Images & Photos',
-      description: 'Place images and photos as part of your notes.',
-    },
-    device: {
-      title: 'Multi-Device',
-      description:
-        'Access your notes on any device - Mobile, Tablet, or PC - with an active internet connection. No need to download or install an application.',
-    },
-    cloud: {
-      title: 'Remote Cloud Access',
-      description: 'Securely access your important notes wherever you are.',
-    },
-*/

@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import icons from '../../utils/icons';
-import authUtils from './auth-utils';
+import authUtils from '../../utils/auth-utils';
 
 const LoginSignUp = () => {
   const { path } = useParams();
@@ -21,15 +21,9 @@ const LoginSignUp = () => {
     if (path === 'signup') {
       setShowSignUp(true);
     }
-    
+
     user && navigate('/main');
   }, [navigate, path, user]);
-
-  // useEffect(() => {
-  //   if (path === 'signup') {
-  //     setShowSignUp(true);
-  //   }
-  // }, [path, showSignUp]);
 
   const signUp = async (e) => {
     e.preventDefault();

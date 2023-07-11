@@ -4,7 +4,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import messages from '../../utils/messages';
+import messages from './messages';
 
 const provider = new GoogleAuthProvider();
 
@@ -80,18 +80,6 @@ const signUp = async ({
   }
 };
 
-// const googleSignIn = async (auth, navigate) => {
-//   await signInWithPopup(auth, provider).then((result) => {
-//     const user = result.user;
-
-//     backendAuthCheck(user).then((data) => {
-//       if (!data) {
-//         console.log('n0-user-data');
-//       }
-//     });
-//   });
-// };
-
 const backendAuthCheck = async (user) => {
   const requestOptions = {
     method: 'GET',
@@ -147,7 +135,6 @@ const logIn = async ({
 
 const authUtils = {
   googleSignUp,
-  // googleSignIn,
   signUp,
   logIn,
 };

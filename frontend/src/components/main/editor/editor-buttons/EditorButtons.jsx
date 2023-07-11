@@ -17,7 +17,6 @@ const EditorButtons = (props) => {
             title='Save'
             alt='save'
           />
-          {/* <span className='save'></span> */}
         </button>
         <button
           className='editor-button'
