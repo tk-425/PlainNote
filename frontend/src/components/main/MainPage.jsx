@@ -48,11 +48,11 @@ const MainPage = ({ sidebarToggle, setSidebarToggle }) => {
           />
           <Editor
             editor={editor}
-            note={note}
-            setNote={setNote}
-            allNotes={allNotes}
-            selectedNote={selectedNote}
-            setSelectedNote={setSelectedNote}
+            // note={note}
+            // setNote={setNote}
+            // allNotes={allNotes}
+            // selectedNote={selectedNote}
+            // setSelectedNote={setSelectedNote}
             active={active}
           />
         </>

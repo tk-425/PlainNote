@@ -5,13 +5,12 @@ import { EditorContent } from '@tiptap/react';
 
 const Editor = ({
   editor,
-  note,
-  setNote,
-  allNotes,
-  selectedNote,
-  setSelectedNote,
+  // note,
+  // setNote,
+  // allNotes,
+  // selectedNote,
+  // setSelectedNote,
   active,
-  x,
 }) => {
   return (
     <div className='editor__container scroll-visibility'>

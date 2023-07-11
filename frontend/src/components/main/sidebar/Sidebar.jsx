@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { auth } from '../../../utils/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import messages from '../../../utils/messages';
-import sidebarUtils from './sidebar-utils';
-import editorUtils from '../editor/editor-utils';
+import sidebarUtils from '../../../utils/sidebar-utils';
+import editorUtils from '../../../utils/editor-utils';
 import icons from '../../../utils/icons';
 
 const Sidebar = ({
@@ -27,8 +27,9 @@ const Sidebar = ({
   const [searchErrorDisplayStyle, setSearchErrorDisplayStyle] = useState('');
   const searchInputRef = useRef(null);
 
-  // The sidebar will be rerendered when a note is deleted or
-  // when a user presses the "show all notes" button.
+  // In the event of a note deletion or 
+  // when the user triggers the "show all notes" button, 
+  // the sidebar will be rerendered.
   useEffect(() => {
     sidebarUtils.getNotes(user).then((n) => {
       setAllNotes(n);
