@@ -1,0 +1,21 @@
+.vscode/
+
+# AI Agents
+.rulez/
+.claude/
+.agent/
+.codex/
+.gemini/
+.opencode/
+.qwen/
+.mcp.json
+CLAUDE.md
+GEMINI.md
+QWEN.md
+AGENTS.md
+
+# vmem
+.vmem/
+
+# backup
+*.bak
